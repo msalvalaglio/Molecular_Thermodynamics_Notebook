@@ -211,6 +211,23 @@
    Second Virial Coefficient
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties">
+   Properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compressibility-factor">
+     Compressibility factor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#p-v-isotherms-diagram">
+     P/v isotherms Diagram
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -295,17 +312,12 @@
 <img alt="_images/Pure_Fluids_4_0.png" src="_images/Pure_Fluids_4_0.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Volumetric </span>
-</pre></div>
 </div>
-</div>
-</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span> 
@@ -314,10 +326,15 @@
 <span class="c1">#Species=[Ar, Kr, Xe, CH4, N2, C2H4, C2H6, C3H8]</span>
 <span class="n">Chem_Sp</span><span class="o">=</span><span class="mi">5</span>
 <span class="c1">###</span>
-
-
-<span class="c1">## Z Diagram</span>
-
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="compressibility-factor">
+<h3>Compressibility factor<a class="headerlink" href="#compressibility-factor" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Z Diagram</span>
 <span class="n">rho</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># mol / l</span>
 
 <span class="n">rho_g</span><span class="p">,</span> <span class="n">Temperature_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">Temperature</span><span class="p">)</span> 
@@ -356,15 +373,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Pure_Fluids_6_0.png" src="_images/Pure_Fluids_6_0.png" />
-<img alt="_images/Pure_Fluids_6_1.png" src="_images/Pure_Fluids_6_1.png" />
+<img alt="_images/Pure_Fluids_8_0.png" src="_images/Pure_Fluids_8_0.png" />
+<img alt="_images/Pure_Fluids_8_1.png" src="_images/Pure_Fluids_8_1.png" />
 </div>
 </div>
+</div>
+<div class="section" id="p-v-isotherms-diagram">
+<h3>P/v isotherms Diagram<a class="headerlink" href="#p-v-isotherms-diagram" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## P/v isotherms Diagram</span>
-
-<span class="n">rho</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="c1"># mol / l</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="c1"># mol / l</span>
 
 <span class="n">rho_g</span><span class="p">,</span> <span class="n">Temperature_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">Temperature</span><span class="p">)</span> 
 
@@ -409,8 +427,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Pure_Fluids_7_0.png" src="_images/Pure_Fluids_7_0.png" />
-<img alt="_images/Pure_Fluids_7_1.png" src="_images/Pure_Fluids_7_1.png" />
+<img alt="_images/Pure_Fluids_10_0.png" src="_images/Pure_Fluids_10_0.png" />
+<img alt="_images/Pure_Fluids_10_1.png" src="_images/Pure_Fluids_10_1.png" />
+</div>
 </div>
 </div>
 </div>
