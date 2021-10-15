@@ -1,0 +1,5 @@
+name: moltherm-environment
+dependencies:
+  - numpy
+  - matplotlib
+  - scipy
