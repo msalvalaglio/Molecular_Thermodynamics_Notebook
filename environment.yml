@@ -1,6 +1,4 @@
-name: pssp-environment
-channels:
-  - conda-forge
+name: moltherm-environment
 dependencies:
   - numpy
   - matplotlib

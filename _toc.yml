@@ -1,3 +1,2 @@
-# - file: README
-- file: index
-- file: Volumetric_Fluids_from_Potential.ipynb
+- file: index.md 
+- file: Pure_Fluids.ipynb 

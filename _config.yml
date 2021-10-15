@@ -1,12 +1,12 @@
 #######################################################################################
 # Book settings
-title : Molecular Thermodynamics
+title : Molecular Thermodynamics Virtual Notebook
 author: Matteo Salvalaglio
-logo: 'logo.png'
+#logo: 'Logo.png'
 
 # Information about where the book exists on the web
 description: >-
-  A virtual notebook for "CENG0027: Molecular Thermodynamics @ UCL Chemical Engineering."
+  A virtual notebook for "Molecular Thermodynamics @ UCL Chemical Engineering."
 
 #######################################################################################
 # Execution settings
@@ -20,8 +20,7 @@ html:
   
 # Information about where the book exists on the web
 repository:
-  url                       : https://msalvalaglio.github.io/Molecular_Thermodynamics_Notebook/index.html
-
+  url                       : https://msalvalaglio.github.io/Molecular_Thermodynamics_Notebook/
 repository:
   url: https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook
 
