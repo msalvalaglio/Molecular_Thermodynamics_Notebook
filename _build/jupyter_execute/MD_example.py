@@ -3,7 +3,6 @@
 ## System Setup
 
 %matplotlib notebook
-
 import matplotlib.pyplot as plt 
 from matplotlib import cm
 import numpy as np
@@ -27,7 +26,7 @@ nsteps=np.round(NS);
 #Interatomic potential constants
 k=50.0; # Harmonic oscillator constant
 req=1; # Harmonic oscillator equilibrium distance
-HS=10; # Repulive soft potential 
+HS=10; # Repulsive soft potential 
 
 # Topology
 M=np.array([[0, 1, 0, 0, 0, 0, 0, 0],

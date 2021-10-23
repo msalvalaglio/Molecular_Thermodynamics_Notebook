@@ -2,6 +2,7 @@
 # Book settings
 title : Molecular Thermodynamics Virtual Notebook
 author: Matteo Salvalaglio
+copyright                   : "2021"  # Copyright year to be placed in the footer
 #logo: 'Logo.png'
 
 # Information about where the book exists on the web
@@ -35,7 +36,7 @@ html:
   
 # #######################################################################################
 # Interact link settings
-#notebook_interface            : "notebook"
+# notebook_interface            : "notebook"
 
 #parse:
  # myst_enable_extensions:
