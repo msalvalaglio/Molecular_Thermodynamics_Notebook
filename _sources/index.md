@@ -1,6 +1,6 @@
 #  Molecular Thermodynamics Notebook
  
-This is a collection of notes and exercises associated with the Molecular Thermodynamics Course, part of the MEng/MSc ChemEng curriculum at UCL](https://www.ucl.ac.uk/chemical-engineering/). 
+This is a collection of notes and exercises associated with the Molecular Thermodynamics Course, part of the MEng/MSc ChemEng curriculum at UCL (https://www.ucl.ac.uk/chemical-engineering/). 
 
 These note are intended a complement to the lecture material available to UCL students. 
 
