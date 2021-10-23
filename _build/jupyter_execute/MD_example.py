@@ -130,7 +130,7 @@ for timestep in np.arange(1,nsteps): #Cycle over timesteps
     xx[timestep]=x;
     yy[timestep]=y;
 
-Visa
+### Visualization of the trajectory
 
 %%capture
 %matplotlib inline
@@ -138,7 +138,7 @@ from matplotlib.animation import FuncAnimation
 from matplotlib import animation, rc
 from IPython.display import HTML
 
-fig, ax = plt.subplots(figsize=(5, 5))
+fig, ax = plt.subplots(figsize=(8, 8))
 line, = ax.plot([]) 
 ax.set_xlim(-5, 5)
 ax.set_ylim(-5, 5)
