@@ -141,7 +141,8 @@ fig, ax = plt.subplots(figsize=(8, 8))
 line, = ax.plot([]) 
 ax.set_xlim(-5, 5)
 ax.set_ylim(-5, 5)
-line, = ax.plot([], [], lw=2, marker='o', markersize=15, linestyle='-.')
+line, = ax.plot([], [], lw=2, marker='o', markersize=45, markerfacecolor=(0.8, 1.0, 0.8, 0.5),
+             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle='--',color='red')
 # initialization function: plot the background of each frame
 def init():
     line.set_data([], [])
