@@ -273,7 +273,7 @@
 # which implies that the following equality is always satisfied for an homogenous multicomponent phase: 
 # 
 # $$
-# SdT-Vdp+\sum_{i=1}^{n_{species}}n_i\mu_i=0
+# SdT-Vdp+\sum_{i}n_{i}d\mu_i=0
 # $$
 # 
 # This equality is the Gibbs-Duhem equation, which allows express the chemical potential as a function of the temperature and pressure. 
