@@ -92,11 +92,13 @@
 # $$
 # 
 # This expression enables to rewrite the differential of entropy $dS$ as: 
+# 
 # $$
 # dS=\frac{1}{T}dU - \frac{f}{T}dX
 # $$
 # 
 # which, for a pure homogeneous phase leads to the fundamental expression:
+# 
 # $$
 # dU=TdS-PdV
 # $$
@@ -132,10 +134,13 @@
 # ### Swapping P and V, from Energy to Enthalpy. 
 # 
 # Let's start by Legendre transforming the $U$ to swap $V$ with its intensive conjugate variable $P$, this yields H, or enthalpy: 
+# 
 # $$
 # H=U+PV
 # $$
+# 
 # the fundamental equation, in a system at constant P and S then becomes: 
+# 
 # $$
 # dH=dU+VdP+PdV=TdS-PdV+VdP+PdV=TdS+VdP
 # $$
@@ -143,9 +148,11 @@
 # ### Gibbs Free Energy
 # 
 # Gibbs Free Energy is obtained by swapping both T/S and P/V. It is defined as: 
+# 
 # $$
 # G=U-TS+PV
 # $$
+# 
 # the expression of the Gibbs free energy differential $dG$ is thus: 
 # 
 # $$
