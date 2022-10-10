@@ -182,26 +182,33 @@
 # How do we know when such a system is at equilibrium?
 # 
 # The energy, $U$, is an extensive property of the system. In an heterogeneous multipase system containing at least two phases $\alpha$ and $\beta$ the total energy of the system is $U=U^\alpha+U^\beta$. The same can be written for the other extensive variables defining the state of the multiphase system such as entropy: 
+# 
 # $$
 # S=S^\alpha+S^\beta
 # $$
+# 
 # volume 
+# 
 # $$
 # V=V^\alpha+V^\beta
 # $$
+# 
 # and the number of moles of each i$^{th}$ component in the different phases: 
+# 
 # $$
 # n_i=n_i^\alpha+n_i^\beta
 # $$
 # 
-# 
 # Consider now to define the equilibrium conditions for a system where the total $S$, $V$ and $n_i$ are constant, but these quantities can be redistributed between phases $\alpha$ and $\beta$. This requires that: 
+# 
 # $$
 # \delta{S}^{\alpha} = - \delta{S}^{\beta} 
 # $$
+# 
 # $$
 # \delta{V}^{\alpha} = - \delta{V}^{\beta} 
 # $$
+# 
 # $$
 # \delta{n_i}^{\alpha} = - \delta{n_i}^{\beta} 
 # $$
@@ -213,12 +220,15 @@
 # $$
 # 
 # Since the variations in $n$, $S$, and $V$ are all decoupled, and can be both positive or negative, the only valid solution for the equilibrium condition stated above is that the temperature, pressure, and chemical potential of component i remain constant across the phase boundary between $\alpha$ and $\beta$, namely:
+# 
 # $$
 # {T}^{\alpha} = {T}^{\beta} 
 # $$
+# 
 # $$
 # {p}^{\alpha} = {p}^{\beta} 
 # $$
+# 
 # $$
 # {\mu_i}^{\alpha} = {\mu_i}^{\beta} 
 # $$
@@ -228,6 +238,7 @@
 # Given what we have seen so far, can we determine how many degrees of freedom are associated to a single phase?  
 # 
 # In a single homogeneous multicomponent phase at constant $T$ and $P$, containing $m$ component the number of degrees of freedom is: 
+# 
 # $$
 # DOF=m+2-c
 # $$
@@ -235,28 +246,62 @@
 # where $c$ is the number of constraints. For a single phase there is only one constrain that applies, the Gibbs Duhem equation. Hence $DOF=m+1$.
 # 
 # ### The Gibbs Duhem Equation
-# The fundamental equation emerging from the first and second laws of Thermodynamics are 
+# The fundamental equation emerging from the first and second laws of Thermodynamics for a multicomponent system reads:
 # 
+# $$
+# dU=TdS-pdV+\sum_i \mu_idn_i
+# $$
 # 
+# Integrating this equation to obtain $U$ along from a state with no molecules to a state where a final number $n_i$ of molecules is present, along an isothermal, isobaric transformation at constant compositionleads to the following expression for $U$:
+# 
+# $$
+# U=TS-pV+\sum_i\mu_in_i
+# $$
+# 
+# Differentiating $U$ leads to: 
+# 
+# $$
+# dU=TdS+SdT-pdV-VdP+\sum_i\mu_idn_i+\sum_id\mu_in_i
+# $$
+# 
+# Equating the right hand sides of these two expressions leads to: 
+# 
+# $$
+# TdS-pdV+\sum_i \mu_idn_i=TdS+SdT-pdV-VdP+\sum_i\mu_idn_i+\sum_id\mu_in_i
+# $$
+# 
+# which implies that the following equality is always satisfied for an homogenous multicomponent phase: 
 # 
 # $$
 # SdT-Vdp+\sum_{i=1}^{n_{species}}n_i\mu_i=0
 # $$
 # 
+# This equality is the Gibbs-Duhem equation, which allows express the chemical potential as a function of the temperature and pressure. 
+# 
+# 
 # ## Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule
 # 
 # Let's consider a system comprising $\nu$ homogenous phases at equilibrium, each containing $m$ components. The number of degrees of freedom associated to each phase is: 
+# 
 # $$
 # DOF=\nu(m+1)
 # $$
 # 
 # However at equlibrium we have that for every couple of phases ($\nu-1$), $T$, $P$ and all $m$ chemical potentials needs to be constant across phase boundaries. 
 # This means that we have a number of constraints equal to: 
+# 
 # $$
 # c=(\nu-1)(m+2)
 # $$
 # 
 # This leads to a number of degrees of freedom equal to: 
+# 
 # $$
 # DOF=\nu(m+1)-(\nu-1)(m+2)=m+2-\nu
 # $$
+
+# In[ ]:
+
+
+
+
