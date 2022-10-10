@@ -1,8 +1,14 @@
-# From Intermolecular Interactions to Dynamics at the Atomistic Scale
+#!/usr/bin/env python
+# coding: utf-8
 
-## System Setup
+# # From Intermolecular Interactions to Dynamics at the Atomistic Scale
 
-%matplotlib notebook
+# ## System Setup
+
+# In[2]:
+
+
+get_ipython().run_line_magic('matplotlib', 'notebook')
 import matplotlib.pyplot as plt 
 from matplotlib import cm
 import numpy as np
@@ -42,47 +48,21 @@ k=k*M;
 # Random initial velocities
 v0=0.25*(np.random.rand(2,8)-0.5);
 
-## Integration and Visualization
 
-### Initialise the system
+# ## Integration and Visualization
 
-%%capture
-%matplotlib inline
+# ### Initialise the system
 
-# Setup figure for plotting the trajectory
+# In[3]:
 
-figure, axes = plt.subplots(figsize=(5, 5))
-plt.xticks(fontsize=14)
-plt.yticks(fontsize=14)
-axes.set_xlim([-5,5]);
-axes.set_ylim([-5,5]);
 
-## Compute a trajectory with the Verlet Algorithm
-# Initialise positions at t-dt
-xp=x0;
-yp=y0;
+get_ipython().run_cell_magic('capture', '', '%matplotlib inline\n\n# Setup figure for plotting the trajectory\n\nfigure, axes = plt.subplots(figsize=(5, 5))\nplt.xticks(fontsize=14)\nplt.yticks(fontsize=14)\naxes.set_xlim([-5,5]);\naxes.set_ylim([-5,5]);\n\n## Compute a trajectory with the Verlet Algorithm\n# Initialise positions at t-dt\nxp=x0;\nyp=y0;\n\n# Position at time t\nx=xp+v0[0,:]*dt;\ny=yp+v0[1,:]*dt;\n\n# Position at time t+dt\nxnew=np.zeros(np.shape(x0));\nynew=np.zeros(np.shape(x0));\n\n# time\ntime=np.arange(0,nsteps);\ncolor=iter(cm.gist_heat(np.linspace(0,1,np.size(time)+1)))\nxx=np.zeros((np.size(time),np.size(x)));xx[0]=x0\nyy=np.zeros((np.size(time),np.size(y)));yy[0]=y0\ntime[0]=0;\ntime[1]=time[0]+dt;\n\n# Initialise Energy Potential and Kinetic\nPOT=np.zeros(np.shape(time));\nKIN=np.zeros(np.shape(time));\n')
 
-# Position at time t
-x=xp+v0[0,:]*dt;
-y=yp+v0[1,:]*dt;
 
-# Position at time t+dt
-xnew=np.zeros(np.shape(x0));
-ynew=np.zeros(np.shape(x0));
+# ### Compute Trajectory
 
-# time
-time=np.arange(0,nsteps);
-color=iter(cm.gist_heat(np.linspace(0,1,np.size(time)+1)))
-xx=np.zeros((np.size(time),np.size(x)));xx[0]=x0
-yy=np.zeros((np.size(time),np.size(y)));yy[0]=y0
-time[0]=0;
-time[1]=time[0]+dt;
+# In[4]:
 
-# Initialise Energy Potential and Kinetic
-POT=np.zeros(np.shape(time));
-KIN=np.zeros(np.shape(time));
-
-### Compute Trajectory
 
 # Compute trajectory
 for timestep in np.arange(1,nsteps): #Cycle over timesteps
@@ -129,34 +109,23 @@ for timestep in np.arange(1,nsteps): #Cycle over timesteps
     xx[timestep]=x;
     yy[timestep]=y;
 
-### Visualization of the trajectory
 
-%%capture
-%matplotlib inline
-from matplotlib.animation import FuncAnimation
-from matplotlib import animation, rc
-from IPython.display import HTML
+# ### Visualization of the trajectory
 
-fig, ax = plt.subplots(figsize=(8, 8))
-line, = ax.plot([]) 
-ax.set_xlim(-5, 5)
-ax.set_ylim(-5, 5)
-line, = ax.plot([], [], lw=2, marker='o', markersize=45, markerfacecolor=(0.8, 1.0, 0.8, 0.5),
-             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle='--',color='red')
-# initialization function: plot the background of each frame
-def init():
-    line.set_data([], [])
-    return (line,)
+# In[26]:
 
-def animate(frame_num):
-    x=xx[frame_num,:]
-    y=yy[frame_num,:]
-    line.set_data((x, y))
-    return (line,)
 
-# call the animator. blit=True means only re-draw the parts that have changed.
-anim = animation.FuncAnimation(fig, animate, init_func=init,
-                               frames=np.size(np.arange(1,nsteps)), interval=50);
+get_ipython().run_cell_magic('capture', '', "%matplotlib inline\nfrom matplotlib.animation import FuncAnimation\nfrom matplotlib import animation, rc\nfrom IPython.display import HTML\n\nfig, ax = plt.subplots(figsize=(8, 8))\nline, = ax.plot([]) \nax.set_xlim(-5, 5)\nax.set_ylim(-5, 5)\nline, = ax.plot([], [], lw=2, marker='o', markersize=45, markerfacecolor=(0.8, 1.0, 0.8, 0.5),\n             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle='--',color='red')\n# initialization function: plot the background of each frame\ndef init():\n    line.set_data([], [])\n    return (line,)\n\ndef animate(frame_num):\n    x=xx[frame_num,:]\n    y=yy[frame_num,:]\n    line.set_data((x, y))\n    return (line,)\n\n# call the animator. blit=True means only re-draw the parts that have changed.\nanim = animation.FuncAnimation(fig, animate, init_func=init,\n                               frames=np.size(np.arange(1,nsteps)), interval=50);\n")
+
+
+# In[27]:
+
 
 HTML(anim.to_html5_video())
+
+
+# In[ ]:
+
+
+
 

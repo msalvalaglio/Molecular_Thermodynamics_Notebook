@@ -1,6 +1,8 @@
-- file: index.md
+format: jb-article
+root: index.md
+sections:
 - file: Week1_Notes_Thermodynamics.ipynb
 - file: Week2_PhaseEquilibria.ipynb
-- file: Pure_Fluids.ipynb 
+- file: Pure_Fluids.ipynb
 - file: Binary_mixtures.ipynb
 - file: MD_example.ipynb

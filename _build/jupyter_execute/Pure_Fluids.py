@@ -1,6 +1,12 @@
-# Volumetric Behaviour of Pure Fluids from Intermolecular Interactions
+#!/usr/bin/env python
+# coding: utf-8
 
-## Two body interaction potential
+# # Volumetric Behaviour of Pure Fluids from Intermolecular Interactions
+
+# ## Two body interaction potential
+
+# In[1]:
+
 
 import matplotlib.pyplot as plt 
 from matplotlib import cm
@@ -42,7 +48,11 @@ for i in np.arange(0,np.size(SIGMA)):
     Gamma_2[:,i]=4*EPS[i]*(np.power(sr6_2,2)-sr6_2)
     axes.plot(r,Gamma_2[:,i], marker=' ' , c=c_2, linewidth=3.0);
 
-## Second Virial Coefficient
+
+# ## Second Virial Coefficient
+
+# In[2]:
+
 
 # Compute the second Virial coefficient as a function of T
 Temperature = np.linspace(300, 500, 50)
@@ -74,7 +84,11 @@ for i in np.arange(0,np.size(SIGMA)):
         B_2[j,i]=2*np.pi*6E23*np.trapz((1-np.exp(-Gamma_2[:,i]/Temperature[j]))*np.power(r*1E-9,2),r*1E-9)
     axes.plot(Temperature,B_2[:,i], marker=' ' , c=c_2, linewidth=3.0);
 
-## Properties
+
+# ## Properties
+
+# In[3]:
+
 
 import numpy as np
 from matplotlib import cm
@@ -92,7 +106,11 @@ Chem_Sp=1
 # For a further discussion on this refer to Praustnitz recommented textbook.
 ###
 
-### Compressibility factor
+
+# ### Compressibility factor
+
+# In[4]:
+
 
 ## Z Diagram
 rho=np.linspace(1, 15, 100) # mol / l
@@ -154,7 +172,11 @@ for i in np.arange(0,np.size(Temperature)):
         axes.plot(1/rho,Z_2[i,:], marker=' ' , c=c_2);
 figure.colorbar(surf_2, shrink=0.85, aspect=10);
 
-### P/v isotherms Diagram
+
+# ### P/v isotherms Diagram
+
+# In[5]:
+
 
 rho=np.linspace(1, 10, 50) # mol / l
 
@@ -218,4 +240,10 @@ for i in np.arange(0,np.size(Temperature)):
 axes.set_ylim([0,200]);
 figure.colorbar(surf, shrink=0.85, aspect=10);
 figure.colorbar(surf_2, shrink=0.85, aspect=10);
+
+
+# In[ ]:
+
+
+
 

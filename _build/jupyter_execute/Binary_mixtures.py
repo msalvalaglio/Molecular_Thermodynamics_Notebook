@@ -1,6 +1,12 @@
-# Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions
+#!/usr/bin/env python
+# coding: utf-8
 
-## Binary Mixture - System Definition
+# # Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions
+
+# ## Binary Mixture - System Definition
+
+# In[1]:
+
 
 import matplotlib.pyplot as plt 
 from matplotlib import cm
@@ -31,7 +37,11 @@ Temperature = np.linspace(300, 500, 10)
 # Gas constant
 R=0.082; # l atm K^-1 mol^-1
 
-## Two body interaction potentials
+
+# ## Two body interaction potentials
+
+# In[2]:
+
 
 SIGMA_mixture=np.array((SIGMA1,SIGMA2,SIGMA12))
 EPS_mixture=np.array((EPS1,EPS2,EPS12))
@@ -58,7 +68,11 @@ for i in np.arange(0,np.size(SIGMA_mixture)):
     axes.plot(r,Gamma[:,i], marker=' ' , c=c);
     
 
-## Second Virial Coefficient
+
+# ## Second Virial Coefficient
+
+# In[3]:
+
 
 # Compute the second Virial coefficient as a function of T
 figure=plt.figure()
@@ -78,7 +92,11 @@ for i in np.arange(0,np.size(SIGMA_mixture)):
         B[j,i]=2*np.pi*6E23*np.trapz((1-np.exp(-Gamma[:,i]/Temperature[j]))*np.power(r*1E-9,2),r*1E-9)
     axes.plot(Temperature,B[:,i], marker=' ' , c=c);
 
-## Second Virial Coefficient, function of the mixture composition.
+
+# ## Second Virial Coefficient, function of the mixture composition.
+
+# In[4]:
+
 
 y1=np.linspace(0, 1, 20) # [-]
 y2=1-y1
@@ -105,9 +123,13 @@ axes.set_zlabel('B$_{mix}$, dm$^3$ mol$^{-1}$',fontsize=14);
 
 figure.colorbar(surf, shrink=0.5, aspect=10);
 
-## Properties
 
-### Compressibility factor at constant $\rho_{mix}$
+# ## Properties
+
+# ### Compressibility factor at constant $\rho_{mix}$
+
+# In[5]:
+
 
 ## Define the total density of the mixture
 rho=10 # mol / l 
@@ -128,7 +150,11 @@ axes.set_ylabel('$Temperature, (K)$',fontsize=14);
 axes.set_zlabel('B$_{mix}$, dm$^3$ mol$^{-1}$',fontsize=14);     
 figure.colorbar(surf, shrink=0.5, aspect=10);
 
-## P/v/y diagram at constant T
+
+# ## P/v/y diagram at constant T
+
+# In[6]:
+
 
 ## Define the Temperature
 T=350;
@@ -173,4 +199,10 @@ axes.set_xlabel('molar volume [l mol$^{-1}$]', fontsize=14);
 axes.set_ylabel('y',fontsize=14);
 axes.set_zlabel('compressibility factor',fontsize=14);   
 figure.colorbar(surf, shrink=0.5, aspect=10);
+
+
+# In[ ]:
+
+
+
 
