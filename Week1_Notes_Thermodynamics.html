@@ -770,76 +770,110 @@ dG=dH-SdT-TdS=TdS+VdP-SdT-TdS=-SdT+VdP
 <li><p>Each phase can be considered an open system within the over all closed system</p></li>
 </ul>
 <p>How do we know when such a system is at equilibrium?</p>
-<p>The energy, <span class="math notranslate nohighlight">\(U\)</span>, is an extensive property of the system. In an heterogeneous multipase system containing at least two phases <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> the total energy of the system is <span class="math notranslate nohighlight">\(U=U^\alpha+U^\beta\)</span>. The same can be written for the other extensive variables defining the state of the multiphase system such as entropy:
-$<span class="math notranslate nohighlight">\(
+<p>The energy, <span class="math notranslate nohighlight">\(U\)</span>, is an extensive property of the system. In an heterogeneous multipase system containing at least two phases <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> the total energy of the system is <span class="math notranslate nohighlight">\(U=U^\alpha+U^\beta\)</span>. The same can be written for the other extensive variables defining the state of the multiphase system such as entropy:</p>
+<div class="math notranslate nohighlight">
+\[
 S=S^\alpha+S^\beta
-\)</span><span class="math notranslate nohighlight">\(
-volume 
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>volume</p>
+<div class="math notranslate nohighlight">
+\[
 V=V^\alpha+V^\beta
-\)</span><span class="math notranslate nohighlight">\(
-and the number of moles of each i\)</span>^{th}<span class="math notranslate nohighlight">\( component in the different phases: 
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>and the number of moles of each i<span class="math notranslate nohighlight">\(^{th}\)</span> component in the different phases:</p>
+<div class="math notranslate nohighlight">
+\[
 n_i=n_i^\alpha+n_i^\beta
-\)</span>$</p>
-<p>Consider now to define the equilibrium conditions for a system where the total <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(n_i\)</span> are constant, but these quantities can be redistributed between phases <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>. This requires that:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Consider now to define the equilibrium conditions for a system where the total <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(n_i\)</span> are constant, but these quantities can be redistributed between phases <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>. This requires that:</p>
+<div class="math notranslate nohighlight">
+\[
 \delta{S}^{\alpha} = - \delta{S}^{\beta} 
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 \delta{V}^{\alpha} = - \delta{V}^{\beta} 
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 \delta{n_i}^{\alpha} = - \delta{n_i}^{\beta} 
-\)</span>$</p>
+\]</div>
 <p>The equilibrium can be investigated with a variational principle, i.e. by introducing a perturbation <span class="math notranslate nohighlight">\(\delta{U}\)</span> from equilibrium. If the system is in equilibrium the perturbation can only be associated to and <em>increase</em> in U:</p>
 <div class="math notranslate nohighlight">
 \[
 \delta{U}_{S,V,n_i}\geq 0 = (T^\alpha-T^\beta)\delta{S^{\alpha}}-(p^{\alpha}-p^{\beta})\delta{V^{\alpha}}+(\mu_i^{\alpha}-\mu_i^{\beta})\delta{n_i^{\alpha}}
 \]</div>
-<p>Since the variations in <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(S\)</span>, and <span class="math notranslate nohighlight">\(V\)</span> are all decoupled, and can be both positive or negative, the only valid solution for the equilibrium condition stated above is that the temperature, pressure, and chemical potential of component i remain constant across the phase boundary between <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, namely:
-$<span class="math notranslate nohighlight">\(
+<p>Since the variations in <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(S\)</span>, and <span class="math notranslate nohighlight">\(V\)</span> are all decoupled, and can be both positive or negative, the only valid solution for the equilibrium condition stated above is that the temperature, pressure, and chemical potential of component i remain constant across the phase boundary between <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, namely:</p>
+<div class="math notranslate nohighlight">
+\[
 {T}^{\alpha} = {T}^{\beta} 
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 {p}^{\alpha} = {p}^{\beta} 
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 {\mu_i}^{\alpha} = {\mu_i}^{\beta} 
-\)</span>$</p>
+\]</div>
 </section>
 <section id="degrees-of-freedom-of-a-single-multicomponent-phase">
 <h2>Degrees of freedom of a single multicomponent phase.<a class="headerlink" href="#degrees-of-freedom-of-a-single-multicomponent-phase" title="Permalink to this headline">#</a></h2>
 <p>Given what we have seen so far, can we determine how many degrees of freedom are associated to a single phase?</p>
-<p>In a single homogeneous multicomponent phase at constant <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P\)</span>, containing <span class="math notranslate nohighlight">\(m\)</span> component the number of degrees of freedom is:
-$<span class="math notranslate nohighlight">\(
+<p>In a single homogeneous multicomponent phase at constant <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P\)</span>, containing <span class="math notranslate nohighlight">\(m\)</span> component the number of degrees of freedom is:</p>
+<div class="math notranslate nohighlight">
+\[
 DOF=m+2-c
-\)</span>$</p>
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(c\)</span> is the number of constraints. For a single phase there is only one constrain that applies, the Gibbs Duhem equation. Hence <span class="math notranslate nohighlight">\(DOF=m+1\)</span>.</p>
 <section id="the-gibbs-duhem-equation">
 <h3>The Gibbs Duhem Equation<a class="headerlink" href="#the-gibbs-duhem-equation" title="Permalink to this headline">#</a></h3>
-<p>The fundamental equation emerging from the first and second laws of Thermodynamics are</p>
+<p>The fundamental equation emerging from the first and second laws of Thermodynamics for a multicomponent system reads:</p>
+<div class="math notranslate nohighlight">
+\[
+dU=TdS-pdV+\sum_i \mu_idn_i
+\]</div>
+<p>Integrating this equation to obtain <span class="math notranslate nohighlight">\(U\)</span> along from a state with no molecules to a state where a final number <span class="math notranslate nohighlight">\(n_i\)</span> of molecules is present, along an isothermal, isobaric transformation at constant compositionleads to the following expression for <span class="math notranslate nohighlight">\(U\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+U=TS-pV+\sum_i\mu_in_i
+\]</div>
+<p>Differentiating <span class="math notranslate nohighlight">\(U\)</span> leads to:</p>
+<div class="math notranslate nohighlight">
+\[
+dU=TdS+SdT-pdV-VdP+\sum_i\mu_idn_i+\sum_id\mu_in_i
+\]</div>
+<p>Equating the right hand sides of these two expressions leads to:</p>
+<div class="math notranslate nohighlight">
+\[
+TdS-pdV+\sum_i \mu_idn_i=TdS+SdT-pdV-VdP+\sum_i\mu_idn_i+\sum_id\mu_in_i
+\]</div>
+<p>which implies that the following equality is always satisfied for an homogenous multicomponent phase:</p>
 <div class="math notranslate nohighlight">
 \[
 SdT-Vdp+\sum_{i=1}^{n_{species}}n_i\mu_i=0
 \]</div>
+<p>This equality is the Gibbs-Duhem equation, which allows express the chemical potential as a function of the temperature and pressure.</p>
 </section>
 </section>
 <section id="degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule">
 <h2>Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule<a class="headerlink" href="#degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule" title="Permalink to this headline">#</a></h2>
-<p>Let’s consider a system comprising <span class="math notranslate nohighlight">\(\nu\)</span> homogenous phases at equilibrium, each containing <span class="math notranslate nohighlight">\(m\)</span> components. The number of degrees of freedom associated to each phase is:
-$<span class="math notranslate nohighlight">\(
+<p>Let’s consider a system comprising <span class="math notranslate nohighlight">\(\nu\)</span> homogenous phases at equilibrium, each containing <span class="math notranslate nohighlight">\(m\)</span> components. The number of degrees of freedom associated to each phase is:</p>
+<div class="math notranslate nohighlight">
+\[
 DOF=\nu(m+1)
-\)</span>$</p>
+\]</div>
 <p>However at equlibrium we have that for every couple of phases (<span class="math notranslate nohighlight">\(\nu-1\)</span>), <span class="math notranslate nohighlight">\(T\)</span>, <span class="math notranslate nohighlight">\(P\)</span> and all <span class="math notranslate nohighlight">\(m\)</span> chemical potentials needs to be constant across phase boundaries.
-This means that we have a number of constraints equal to:
-$<span class="math notranslate nohighlight">\(
+This means that we have a number of constraints equal to:</p>
+<div class="math notranslate nohighlight">
+\[
 c=(\nu-1)(m+2)
-\)</span>$</p>
-<p>This leads to a number of degrees of freedom equal to:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>This leads to a number of degrees of freedom equal to:</p>
+<div class="math notranslate nohighlight">
+\[
 DOF=\nu(m+1)-(\nu-1)(m+2)=m+2-\nu
-\)</span>$</p>
+\]</div>
 </section>
 </section>
 
