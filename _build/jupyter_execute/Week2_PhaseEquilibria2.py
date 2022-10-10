@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Topic 2: Liquid/Solid Equilibrium conditions: deriving solubility 
+# # Liquid/Solid Equilibrium conditions: deriving solubility 
 # 
 # Let us begin by writing the solid-liquid equilibrium conditions at temperature $T$ and pressure $P$, between a pure crystalline phase and a multicomponent liquid phase characterised by composition $\vec{x}$. 
 # Equilibrium conditions is stated by the equality of chemical potentials: 
