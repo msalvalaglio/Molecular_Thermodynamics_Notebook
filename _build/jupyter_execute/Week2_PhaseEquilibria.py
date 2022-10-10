@@ -58,7 +58,7 @@
 # $$(PVAPeq:Raoult)
 # 
 
-# # Topic 2: Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation 
+# # Topic 2: Liquid/Solid Equilibrium conditions: deriving solubility 
 # 
 # Let us begin by writing the solid-liquid equilibrium conditions at temperature $T$ and pressure $P$, between a pure crystalline phase and a multicomponent liquid phase characterised by composition $\vec{x}$. 
 # Equilibrium conditions is stated by the equality of chemical potentials: 
