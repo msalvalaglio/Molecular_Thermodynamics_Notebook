@@ -4,6 +4,7 @@ sections:
 - file: Week1_Notes_Thermodynamics.ipynb
 - file: Week2_PhaseEquilibria.ipynb
 - file: Week2_PhaseEquilibria2.ipynb
+- file: Week2_Exercise.ipynb
 - file: Pure_Fluids.ipynb
 - file: Binary_mixtures.ipynb
 - file: MD_example.ipynb
