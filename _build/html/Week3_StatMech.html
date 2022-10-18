@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="The Microcanonical Ensemble" href="Week3_Microcanonical.html" />
-    <link rel="prev" title="Liquid Vapour Equilibria" href="Week2_Exercise.html" />
+    <link rel="prev" title="Week 2 Exercise: Liquid Vapour Equilibria" href="Week2_Exercise.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -128,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Week2_Exercise.html">
-   Liquid Vapour Equilibria
+   Week 2 Exercise: Liquid Vapour Equilibria
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -399,7 +399,7 @@ Statistical Mechanics provides a connection between microscopic motion of indivi
 <p><strong>Do we need atomic detail?</strong> (Yes and No).</p>
 <p><em>Yes</em> – There are plenty of physical-chemical phenomena and processes for which we really would like to know how individual atoms are moving as a process evolves. From a theoretical point of view, although we cannot follow the behavior of every particle in a macroscopic system (<span class="math notranslate nohighlight">\(\approx{10^{23}}\)</span> particles), we can model the motion of every particle in a system containing <span class="math notranslate nohighlight">\(10^3-10^6\)</span> particles - which might capture most of the features of true macroscopic matter.</p>
 <p><em>No</em> – Intuitively, we would expect that if we were to follow the evolution of a large number of systems all described by the same set of forces but having starting from different initial conditions, these systems would have essentially the same macroscopic characteristics, e.g. the same temperature, pressure, etc. even if the microscopic detailed evolution of each system in time would be very different. This idea suggests that the microscopic details are largely unimportant.
-Since, from the point of view of macroscopic properties, precise microscopic details are largely unimportant, we might imagine employing a construct known as the ensemble concept in which a large number of systems with different microscopic characteristics but similar macroscopic characteristics is used to “wash out” the microscopic details via an averaging procecure. This is an idea developed by individuals such as Gibbs, Maxwell, and Boltzmann.</p>
+However, microscopic details are largely unimportant when discussing and obtaining macroscopic properties. This suggests that macroscopic quanities can be obtained by averging out microscopic characteristics via averaging. This is idea was developed by the founders of Thermodynamics and Statistical Mechanics:  Gibbs, Maxwell, and Boltzmann.</p>
 <p><strong>Ensemble:</strong> An ensemble consists of large number of systems, each described by the same set of microscopic coordinates and forces and sharing some common macroscopic property (e.g. their total energy). Each system is assumed to evolve under the microscopic laws of motion from a different set of initial conditions so each system will evolve differently with respect from all the others.</p>
 <p><strong>Ensemble Average:</strong> At the heart of the ensemble concept there is the idea of ensemble average. It states that macroscopic observables can be calculated by averaging properties over the systems in an ensemble.
 The ensemble averaging process can be translated mathematically as follows. Let’s denote with <span class="math notranslate nohighlight">\(A\)</span> a macroscopic, time-independent, property and with <span class="math notranslate nohighlight">\(a\)</span> a microscopic function that used to compute <span class="math notranslate nohighlight">\(A\)</span>. As an example, <span class="math notranslate nohighlight">\(A\)</span> could be the temperature, and <span class="math notranslate nohighlight">\(a\)</span> the kinetic energy (a microscopic function of the particle velocities). The ensemble average definition allows to define <span class="math notranslate nohighlight">\(A\)</span> as the average of <span class="math notranslate nohighlight">\(a\)</span> computed from all systems belonging to the ensemble:</p>
@@ -416,17 +416,18 @@ A=\frac{1}{N}\sum_{i=1}^Na_i
 <p><strong>Phase space, Hamiltonian</strong></p>
 <p>A microscopic configuration of a system of N particle is fully determined by its 3N coordinates <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and 3N momenta <span class="math notranslate nohighlight">\(\mathbf{p}\)</span>.
 Phase space is, the 6N dimensional Cartesian space where each of the 6N coordinates and momenta is assigned to one of 6N mutually orthogonal axes.
-A point in phase space is specified by a specific realisation of the 6N coordinates and momenta, and can be indicated by the 6N dimensional vector:
-$<span class="math notranslate nohighlight">\(
+A point in phase space is specified by a specific realisation of the 6N coordinates and momenta, and can be indicated by the 6N dimensional vector:</p>
+<div class="math notranslate nohighlight">
+\[
 \mathbf{x} = (p1,...,pN,r1,...,rN)
-\)</span><span class="math notranslate nohighlight">\(
-The time evolution or trajectory of a system can be expressed as \)</span>x(t)$: the time evolution of the phase space vector.</p>
+\]</div>
+<p>The time evolution or trajectory of a system can be expressed as <span class="math notranslate nohighlight">\(x(t)\)</span>: the time evolution of the phase space vector.</p>
 <p>The total energy of a microscopic system corresponds to its Hamiltonian, (i.e. the sum of the Kinetic and Potential energies).
 The Hamiltonian of a system is a function of its corresponding phase space vector: <span class="math notranslate nohighlight">\(H(\mathbf{x}(t))\)</span></p>
 <p>The law of Energy conservation can thus be expressed as a condition on the phase space vector:</p>
 <div class="math notranslate nohighlight">
 \[
-H(\mathbf{x(t)}) = const = E
+H(\mathbf{x}(t)) = const = E
 \]</div>
 <p>This constraint implies that the time evolution of a system at constant total energy takes place in a 6N − 1 dimensional hypersurface subject to this constraint.</p>
 <p><strong>Classical Microstate</strong></p>
@@ -466,7 +467,7 @@ An <em>ensemble is a collection of systems sharing one or more macroscopic chara
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Liquid Vapour Equilibria</p>
+            <p class="prev-next-title">Week 2 Exercise: Liquid Vapour Equilibria</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Week3_Microcanonical.html" title="next page">

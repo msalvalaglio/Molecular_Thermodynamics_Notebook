@@ -35,3 +35,9 @@
 # $$
 # 
 # This equation provides a link between the microscopic and macroscopic variables at constant $N$, $V$ and $T$. 
+
+# In[ ]:
+
+
+
+

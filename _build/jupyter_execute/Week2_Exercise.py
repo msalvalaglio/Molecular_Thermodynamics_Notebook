@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Liquid Vapour Equilibria
+# # Week 2 Exercise: Liquid Vapour Equilibria
 # 
 # ## Bubble and Dew points
 # 

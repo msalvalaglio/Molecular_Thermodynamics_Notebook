@@ -20,7 +20,7 @@
 # _Yes_ – There are plenty of physical-chemical phenomena and processes for which we really would like to know how individual atoms are moving as a process evolves. From a theoretical point of view, although we cannot follow the behavior of every particle in a macroscopic system ($\approx{10^{23}}$ particles), we can model the motion of every particle in a system containing $10^3-10^6$ particles - which might capture most of the features of true macroscopic matter. 
 # 
 # _No_ – Intuitively, we would expect that if we were to follow the evolution of a large number of systems all described by the same set of forces but having starting from different initial conditions, these systems would have essentially the same macroscopic characteristics, e.g. the same temperature, pressure, etc. even if the microscopic detailed evolution of each system in time would be very different. This idea suggests that the microscopic details are largely unimportant.
-# Since, from the point of view of macroscopic properties, precise microscopic details are largely unimportant, we might imagine employing a construct known as the ensemble concept in which a large number of systems with different microscopic characteristics but similar macroscopic characteristics is used to “wash out” the microscopic details via an averaging procecure. This is an idea developed by individuals such as Gibbs, Maxwell, and Boltzmann.
+# However, microscopic details are largely unimportant when discussing and obtaining macroscopic properties. This suggests that macroscopic quanities can be obtained by averging out microscopic characteristics via averaging. This is idea was developed by the founders of Thermodynamics and Statistical Mechanics:  Gibbs, Maxwell, and Boltzmann.
 # 
 # __Ensemble:__ An ensemble consists of large number of systems, each described by the same set of microscopic coordinates and forces and sharing some common macroscopic property (e.g. their total energy). Each system is assumed to evolve under the microscopic laws of motion from a different set of initial conditions so each system will evolve differently with respect from all the others.  
 # 
@@ -45,9 +45,11 @@
 # A microscopic configuration of a system of N particle is fully determined by its 3N coordinates $\mathbf{x}$ and 3N momenta $\mathbf{p}$. 
 # Phase space is, the 6N dimensional Cartesian space where each of the 6N coordinates and momenta is assigned to one of 6N mutually orthogonal axes. 
 # A point in phase space is specified by a specific realisation of the 6N coordinates and momenta, and can be indicated by the 6N dimensional vector: 
+# 
 # $$
 # \mathbf{x} = (p1,...,pN,r1,...,rN)
 # $$
+# 
 # The time evolution or trajectory of a system can be expressed as $x(t)$: the time evolution of the phase space vector.
 # 
 # The total energy of a microscopic system corresponds to its Hamiltonian, (i.e. the sum of the Kinetic and Potential energies).
@@ -56,7 +58,7 @@
 # The law of Energy conservation can thus be expressed as a condition on the phase space vector: 
 # 
 # $$
-# H(\mathbf{x(t)}) = const = E
+# H(\mathbf{x}(t)) = const = E
 # $$
 # 
 # This constraint implies that the time evolution of a system at constant total energy takes place in a 6N − 1 dimensional hypersurface subject to this constraint.  
