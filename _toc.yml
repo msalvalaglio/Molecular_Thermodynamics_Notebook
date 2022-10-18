@@ -5,6 +5,9 @@ sections:
 - file: Week2_PhaseEquilibria.ipynb
 - file: Week2_PhaseEquilibria2.ipynb
 - file: Week2_Exercise.ipynb
+- file: Week3_StatMech.ipynb
+- file: Week3_Microcanonical.ipynb
+- file: Week3_Canonical.ipynb
 - file: Pure_Fluids.ipynb
 - file: Binary_mixtures.ipynb
 - file: MD_example.ipynb
