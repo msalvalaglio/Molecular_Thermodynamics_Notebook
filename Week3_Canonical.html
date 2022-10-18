@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Liquid/Solid Equilibrium conditions: deriving solubility &#8212; Molecular Thermodynamics Virtual Notebook</title>
+    <title>The Canonical Ensemble &#8212; Molecular Thermodynamics Virtual Notebook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Liquid Vapour Equilibria" href="Week2_Exercise.html" />
-    <link rel="prev" title="Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation" href="Week2_PhaseEquilibria.html" />
+    <link rel="next" title="Volumetric Behaviour of Pure Fluids from Intermolecular Interactions" href="Pure_Fluids.html" />
+    <link rel="prev" title="The Microcanonical Ensemble" href="Week3_Microcanonical.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -121,8 +121,8 @@ const thebe_selector_output = ".output, .cell_output"
    Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week2_PhaseEquilibria2.html">
    Liquid/Solid Equilibrium conditions: deriving solubility
   </a>
  </li>
@@ -141,8 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
    The Microcanonical Ensemble
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week3_Canonical.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    The Canonical Ensemble
   </a>
  </li>
@@ -220,7 +220,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Week2_PhaseEquilibria2.ipynb"
+        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Week3_Canonical.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -280,7 +280,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek2_PhaseEquilibria2.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek3_Canonical.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -297,7 +297,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week2_PhaseEquilibria2.ipynb"
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week3_Canonical.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -325,7 +325,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Week2_PhaseEquilibria2.ipynb"
+        <a href="_sources/Week3_Canonical.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -374,7 +374,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Liquid/Solid Equilibrium conditions: deriving solubility</h1>
+                <h1>The Canonical Ensemble</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -386,73 +386,32 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="liquid-solid-equilibrium-conditions-deriving-solubility">
-<h1>Liquid/Solid Equilibrium conditions: deriving solubility<a class="headerlink" href="#liquid-solid-equilibrium-conditions-deriving-solubility" title="Permalink to this headline">#</a></h1>
-<p>Let us begin by writing the solid-liquid equilibrium conditions at temperature <span class="math notranslate nohighlight">\(T\)</span> and pressure <span class="math notranslate nohighlight">\(P\)</span>, between a pure crystalline phase and a multicomponent liquid phase characterised by composition <span class="math notranslate nohighlight">\(\vec{x}\)</span>.
-Equilibrium conditions is stated by the equality of chemical potentials:</p>
-<div class="math notranslate nohighlight" id="equation-soleq1">
-<span class="eqno">(8)<a class="headerlink" href="#equation-soleq1" title="Permalink to this equation">#</a></span>\[
-\mu_i^s(T,P)=\mu_i^\ell(T,P,\vec{x})
+  <section class="tex2jax_ignore mathjax_ignore" id="the-canonical-ensemble">
+<h1>The Canonical Ensemble<a class="headerlink" href="#the-canonical-ensemble" title="Permalink to this headline">#</a></h1>
+<p>In the canonical ensemble, all microstates are characterised by the same <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(T\)</span>. To obtain the relevant thermodynamic potential for the canonical ensemble we can start from the microcanonical one.</p>
+<p>In the microcanonical ensemble, the entropy <span class="math notranslate nohighlight">\(S\)</span> is a natural function of <span class="math notranslate nohighlight">\(N\)</span>,<span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(E\)</span>, i.e., <span class="math notranslate nohighlight">\(S=S(N,V,E)\)</span>.
+This can be inverted to give the energy <span class="math notranslate nohighlight">\(E\)</span> as a function of <span class="math notranslate nohighlight">\(N\)</span>,<span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(S\)</span>, i.e., <span class="math notranslate nohighlight">\(E=E(N,V,S)\)</span>.
+As discussed in Week 1, by using the Legendre transformation to swap <span class="math notranslate nohighlight">\(S\)</span> with <span class="math notranslate nohighlight">\(T\)</span> one can obtain a new potential, called the Hemlholtz free energy, and is given the symbol <span class="math notranslate nohighlight">\(A(N,V,T)\)</span>.</p>
+<p>The Helmoholtz Free Energy is the fundamental energy in the canonical ensemble.</p>
+<p><strong>The Canonical Partition function</strong>
+The question now becomes, what is the partition function in the canonical ensemble?</p>
+<p>The canonical partition function can be written as:</p>
+<div class="math notranslate nohighlight">
+\[
+Q(N,V,T) \propto \int{ d { \mathbf{x}}e^{-\frac{H(\mathbf{x})}{kT}}}
 \]</div>
-<p>which is equivalent to the equality of the fugacity in the two phases:</p>
-<div class="math notranslate nohighlight" id="equation-soleq2">
-<span class="eqno">(9)<a class="headerlink" href="#equation-soleq2" title="Permalink to this equation">#</a></span>\[
-f_i^s(T,P)=f_i^\ell(T,P,\vec{x})
+<p>where <span class="math notranslate nohighlight">\(H(\mathbf{x})\)</span> is the Hamiltonian of the system.</p>
+<p>The proportionality constant in the case of the Canonical partition function is <span class="math notranslate nohighlight">\((N!h^{3N})^{-1}\)</span> leading to the equality:</p>
+<div class="math notranslate nohighlight">
+\[
+Q(N,V,T) = \frac{1}{N!h^{3N}} \int{ d { \mathbf{x}}e^{-\frac{H(\mathbf{x})}{kT}}}
 \]</div>
-<p>Focusing on the right hand of Eq.<a class="reference internal" href="#equation-soleq2">(9)</a>, the fugacity in the liquid phase can be rewritten as a function of the fugacity of the pure liquid phase as follows:</p>
-<div class="math notranslate nohighlight" id="equation-soleq3">
-<span class="eqno">(10)<a class="headerlink" href="#equation-soleq3" title="Permalink to this equation">#</a></span>\[
-f_i^\ell(T,P,\vec{x})=f_i^\ell(T,P)x_i\gamma_i(T,P,\vec{x})
+<p>The fundamental relation between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(Q(N,V,T)\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+A=kT\ln{Q(N,V,T)}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(x_i\)</span> is the molar fraction of the solute and <span class="math notranslate nohighlight">\(\gamma_i(T,P,\vec{x})\)</span> is the activity coefficient of that specie in the liquid phase.</p>
-<p>Let us now focus on the left hand side of Eq. <a class="reference internal" href="#equation-soleq2">(9)</a>. The fugacity of the pure solid phase can also be written as a function of the fugacity of the pure liquid:</p>
-<div class="math notranslate nohighlight" id="equation-soleq4">
-<span class="eqno">(11)<a class="headerlink" href="#equation-soleq4" title="Permalink to this equation">#</a></span>\[
-\int^{T,P,s}_{T,P,\ell}d\mu_i=\int^{T,P,s}_{T,P,\ell}RTd\ln{f_i}
-\]</div>
-<div class="math notranslate nohighlight" id="equation-soleq5">
-<span class="eqno">(12)<a class="headerlink" href="#equation-soleq5" title="Permalink to this equation">#</a></span>\[
-\Delta{\mu}_{i,\ell\rightarrow{s}}=RTln\left(\frac{f_i^s(T,P)}{f_i^\ell(T,P)}\right)
-\]</div>
-<div class="math notranslate nohighlight" id="equation-soleq6">
-<span class="eqno">(13)<a class="headerlink" href="#equation-soleq6" title="Permalink to this equation">#</a></span>\[
-f_i^s(T,P)=f_i^\ell(T,P)e^{\frac{\Delta{\mu}_{i,\ell\rightarrow{s}}}{RT}}
-\]</div>
-<p>The change in chemical potential can be written for a pure substance as the partial molar change in free energy <span class="math notranslate nohighlight">\(\Delta{g_i(T,P)}\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-soleq7">
-<span class="eqno">(14)<a class="headerlink" href="#equation-soleq7" title="Permalink to this equation">#</a></span>\[
-\Delta\mu_{i,\ell\rightarrow{s}}=\Delta{g}_i^s(T,P)=\Delta{h}_i(T,P)-T\Delta{s}_i(T,P)
-\]</div>
-<p>The molar enthalpy change is:</p>
-<div class="math notranslate nohighlight" id="equation-soleq8">
-<span class="eqno">(15)<a class="headerlink" href="#equation-soleq8" title="Permalink to this equation">#</a></span>\[
-\Delta{h}_i(T,P)=-\Delta{h_{fus}\left(T_f\right)}+\int_T^{T_f}Cp^{\ell}dT+\int_T^{T_f}Cp^{s}dT\simeq-\Delta{h_{fus}\left(T_f\right)}+\left(Cp^{\ell}-Cp^{s}\right)\left(T_f-T\right)
-\]</div>
-<p>while the molar entropy change is written as:</p>
-<div class="math notranslate nohighlight" id="equation-soleq9">
-<span class="eqno">(16)<a class="headerlink" href="#equation-soleq9" title="Permalink to this equation">#</a></span>\[
-\Delta{s}_i(T,P)=-\frac{\Delta{h_{fus}\left(T_f\right)}}{T_f}+\int_T^{T_f}\frac{Cp^{\ell}}{T}dT+\int_T^{T_f}\frac{Cp^{s}}{T}dT \simeq -\frac{\Delta{h_{fus}}}{T_f}+\left(Cp^{\ell}-Cp^{s}\right)\ln{\left(\frac{T_f}{T}\right)}
-\]</div>
-<p>Defining <span class="math notranslate nohighlight">\(\Delta{Cp}_{\ell\rightarrow{s}}=\left(Cp^{\ell}-Cp^{s}\right)\)</span></p>
-<div class="math notranslate nohighlight" id="equation-soleq10">
-<span class="eqno">(17)<a class="headerlink" href="#equation-soleq10" title="Permalink to this equation">#</a></span>\[
-\Delta{g}_i^s(T,P)=-\Delta{h_{fus}\left(1-\frac{T}{T_f}\right)}+\Delta{Cp}_{\ell\rightarrow{s}}\left(T_f-T-T\ln{\left(\frac{T_f}{T}\right)}\right)
-\]</div>
-<p>Since <span class="math notranslate nohighlight">\(\Delta{Cp}_{\ell\rightarrow{s}}\)</span> is usually small compared the above expression is typically simplified to:</p>
-<div class="math notranslate nohighlight" id="equation-soleq11">
-<span class="eqno">(18)<a class="headerlink" href="#equation-soleq11" title="Permalink to this equation">#</a></span>\[
-\Delta{g}_i^s(T,P)\simeq-\Delta{h_{fus}\left(1-\frac{T}{T_f}\right)}
-\]</div>
-<p>Inserting this equation into the equality of fugacities yields:</p>
-<div class="math notranslate nohighlight" id="equation-soleq12">
-<span class="eqno">(19)<a class="headerlink" href="#equation-soleq12" title="Permalink to this equation">#</a></span>\[
-f_i^\ell(T,P)x_i\gamma_i(T,P,\vec{x})=f_i^\ell(T,P)e^{\frac{\Delta{\mu}_{i,\ell\rightarrow{s}}}{RT}}
-\]</div>
-<p>hence the solubility of component <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(x_i\)</span> is:</p>
-<div class="math notranslate nohighlight" id="equation-soleq13">
-<span class="eqno">(20)<a class="headerlink" href="#equation-soleq13" title="Permalink to this equation">#</a></span>\[
-x_i=\frac{1}{\gamma_i(T,P,\vec{x})}e^{-\frac{\Delta{h_{fus}}}{R}\left(\frac{1}{T}-\frac{1}{T_f}\right)}
-\]</div>
+<p>This equation provides a link between the microscopic and macroscopic variables at constant <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -482,17 +441,17 @@ x_i=\frac{1}{\gamma_i(T,P,\vec{x})}e^{-\frac{\Delta{h_{fus}}}{R}\left(\frac{1}{T
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Week2_PhaseEquilibria.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Week3_Microcanonical.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</p>
+            <p class="prev-next-title">The Microcanonical Ensemble</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Week2_Exercise.html" title="next page">
+    <a class='right-next' id="next-link" href="Pure_Fluids.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Liquid Vapour Equilibria</p>
+        <p class="prev-next-title">Volumetric Behaviour of Pure Fluids from Intermolecular Interactions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

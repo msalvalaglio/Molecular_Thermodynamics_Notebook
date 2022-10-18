@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Liquid/Solid Equilibrium conditions: deriving solubility &#8212; Molecular Thermodynamics Virtual Notebook</title>
+    <title>An Introduction to Statistical Mechanics &#8212; Molecular Thermodynamics Virtual Notebook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Liquid Vapour Equilibria" href="Week2_Exercise.html" />
-    <link rel="prev" title="Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation" href="Week2_PhaseEquilibria.html" />
+    <link rel="next" title="The Microcanonical Ensemble" href="Week3_Microcanonical.html" />
+    <link rel="prev" title="Liquid Vapour Equilibria" href="Week2_Exercise.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -121,8 +121,8 @@ const thebe_selector_output = ".output, .cell_output"
    Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week2_PhaseEquilibria2.html">
    Liquid/Solid Equilibrium conditions: deriving solubility
   </a>
  </li>
@@ -131,8 +131,8 @@ const thebe_selector_output = ".output, .cell_output"
    Liquid Vapour Equilibria
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week3_StatMech.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    An Introduction to Statistical Mechanics
   </a>
  </li>
@@ -220,7 +220,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Week2_PhaseEquilibria2.ipynb"
+        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Week3_StatMech.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -280,7 +280,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek2_PhaseEquilibria2.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek3_StatMech.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -297,7 +297,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week2_PhaseEquilibria2.ipynb"
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week3_StatMech.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -325,7 +325,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Week2_PhaseEquilibria2.ipynb"
+        <a href="_sources/Week3_StatMech.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -374,7 +374,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Liquid/Solid Equilibrium conditions: deriving solubility</h1>
+                <h1>An Introduction to Statistical Mechanics</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -386,73 +386,53 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="liquid-solid-equilibrium-conditions-deriving-solubility">
-<h1>Liquid/Solid Equilibrium conditions: deriving solubility<a class="headerlink" href="#liquid-solid-equilibrium-conditions-deriving-solubility" title="Permalink to this headline">#</a></h1>
-<p>Let us begin by writing the solid-liquid equilibrium conditions at temperature <span class="math notranslate nohighlight">\(T\)</span> and pressure <span class="math notranslate nohighlight">\(P\)</span>, between a pure crystalline phase and a multicomponent liquid phase characterised by composition <span class="math notranslate nohighlight">\(\vec{x}\)</span>.
-Equilibrium conditions is stated by the equality of chemical potentials:</p>
-<div class="math notranslate nohighlight" id="equation-soleq1">
-<span class="eqno">(8)<a class="headerlink" href="#equation-soleq1" title="Permalink to this equation">#</a></span>\[
-\mu_i^s(T,P)=\mu_i^\ell(T,P,\vec{x})
+  <section class="tex2jax_ignore mathjax_ignore" id="an-introduction-to-statistical-mechanics">
+<h1>An Introduction to Statistical Mechanics<a class="headerlink" href="#an-introduction-to-statistical-mechanics" title="Permalink to this headline">#</a></h1>
+<p><strong>Defining statistical mechanics:</strong>
+Statistical Mechanics provides a connection between microscopic motion of individual atoms of matter and macroscopically observable properties such as temperature, pressure, entropy, free energy, heat capacity, chemical potential, viscosity, spectra, reaction rates, etc.</p>
+<p><strong>Why do we need Statistical Mechanics?</strong></p>
+<ul class="simple">
+<li><p>Statistical Mechanics provides the microscopic/fundamental basis for thermodynamics, which, otherwise is a phenomenological theory.</p></li>
+<li><p>Microscopic details allows access to properties that are typically not accessible from classical thermodynamics - a typical example is the microscopic stucture of crystal nuclei, proteins, micelles etc… .</p></li>
+<li><p>Statistical mechanics is based on the detailed microscopic description of a system. Statiustical mechanics allows to connect models of the microscopic world of atoms/particles to macroscopic thermodynamic quantities, enabling the interpretation and elucidation of experimental results.</p></li>
+</ul>
+<p><strong>Do we need atomic detail?</strong> (Yes and No).</p>
+<p><em>Yes</em> – There are plenty of physical-chemical phenomena and processes for which we really would like to know how individual atoms are moving as a process evolves. From a theoretical point of view, although we cannot follow the behavior of every particle in a macroscopic system (<span class="math notranslate nohighlight">\(\approx{10^{23}}\)</span> particles), we can model the motion of every particle in a system containing <span class="math notranslate nohighlight">\(10^3-10^6\)</span> particles - which might capture most of the features of true macroscopic matter.</p>
+<p><em>No</em> – Intuitively, we would expect that if we were to follow the evolution of a large number of systems all described by the same set of forces but having starting from different initial conditions, these systems would have essentially the same macroscopic characteristics, e.g. the same temperature, pressure, etc. even if the microscopic detailed evolution of each system in time would be very different. This idea suggests that the microscopic details are largely unimportant.
+Since, from the point of view of macroscopic properties, precise microscopic details are largely unimportant, we might imagine employing a construct known as the ensemble concept in which a large number of systems with different microscopic characteristics but similar macroscopic characteristics is used to “wash out” the microscopic details via an averaging procecure. This is an idea developed by individuals such as Gibbs, Maxwell, and Boltzmann.</p>
+<p><strong>Ensemble:</strong> An ensemble consists of large number of systems, each described by the same set of microscopic coordinates and forces and sharing some common macroscopic property (e.g. their total energy). Each system is assumed to evolve under the microscopic laws of motion from a different set of initial conditions so each system will evolve differently with respect from all the others.</p>
+<p><strong>Ensemble Average:</strong> At the heart of the ensemble concept there is the idea of ensemble average. It states that macroscopic observables can be calculated by averaging properties over the systems in an ensemble.
+The ensemble averaging process can be translated mathematically as follows. Let’s denote with <span class="math notranslate nohighlight">\(A\)</span> a macroscopic, time-independent, property and with <span class="math notranslate nohighlight">\(a\)</span> a microscopic function that used to compute <span class="math notranslate nohighlight">\(A\)</span>. As an example, <span class="math notranslate nohighlight">\(A\)</span> could be the temperature, and <span class="math notranslate nohighlight">\(a\)</span> the kinetic energy (a microscopic function of the particle velocities). The ensemble average definition allows to define <span class="math notranslate nohighlight">\(A\)</span> as the average of <span class="math notranslate nohighlight">\(a\)</span> computed from all systems belonging to the ensemble:</p>
+<div class="math notranslate nohighlight">
+\[
+A=\frac{1}{N}\sum_{i=1}^Na_i
 \]</div>
-<p>which is equivalent to the equality of the fugacity in the two phases:</p>
-<div class="math notranslate nohighlight" id="equation-soleq2">
-<span class="eqno">(9)<a class="headerlink" href="#equation-soleq2" title="Permalink to this equation">#</a></span>\[
-f_i^s(T,P)=f_i^\ell(T,P,\vec{x})
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the total number of members of the ensemble and <span class="math notranslate nohighlight">\(a_i\)</span> is the value of a in the <span class="math notranslate nohighlight">\(i^{th}\)</span> system:</p>
+<p>The questions that naturally arise are:</p>
+<ul class="simple">
+<li><p>How do we construct an ensemble?</p></li>
+<li><p>How do we perform averages over an ensemble?</p></li>
+</ul>
+<p><strong>Phase space, Hamiltonian</strong></p>
+<p>A microscopic configuration of a system of N particle is fully determined by its 3N coordinates <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and 3N momenta <span class="math notranslate nohighlight">\(\mathbf{p}\)</span>.
+Phase space is, the 6N dimensional Cartesian space where each of the 6N coordinates and momenta is assigned to one of 6N mutually orthogonal axes.
+A point in phase space is specified by a specific realisation of the 6N coordinates and momenta, and can be indicated by the 6N dimensional vector:
+$<span class="math notranslate nohighlight">\(
+\mathbf{x} = (p1,...,pN,r1,...,rN)
+\)</span><span class="math notranslate nohighlight">\(
+The time evolution or trajectory of a system can be expressed as \)</span>x(t)$: the time evolution of the phase space vector.</p>
+<p>The total energy of a microscopic system corresponds to its Hamiltonian, (i.e. the sum of the Kinetic and Potential energies).
+The Hamiltonian of a system is a function of its corresponding phase space vector: <span class="math notranslate nohighlight">\(H(\mathbf{x}(t))\)</span></p>
+<p>The law of Energy conservation can thus be expressed as a condition on the phase space vector:</p>
+<div class="math notranslate nohighlight">
+\[
+H(\mathbf{x(t)}) = const = E
 \]</div>
-<p>Focusing on the right hand of Eq.<a class="reference internal" href="#equation-soleq2">(9)</a>, the fugacity in the liquid phase can be rewritten as a function of the fugacity of the pure liquid phase as follows:</p>
-<div class="math notranslate nohighlight" id="equation-soleq3">
-<span class="eqno">(10)<a class="headerlink" href="#equation-soleq3" title="Permalink to this equation">#</a></span>\[
-f_i^\ell(T,P,\vec{x})=f_i^\ell(T,P)x_i\gamma_i(T,P,\vec{x})
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(x_i\)</span> is the molar fraction of the solute and <span class="math notranslate nohighlight">\(\gamma_i(T,P,\vec{x})\)</span> is the activity coefficient of that specie in the liquid phase.</p>
-<p>Let us now focus on the left hand side of Eq. <a class="reference internal" href="#equation-soleq2">(9)</a>. The fugacity of the pure solid phase can also be written as a function of the fugacity of the pure liquid:</p>
-<div class="math notranslate nohighlight" id="equation-soleq4">
-<span class="eqno">(11)<a class="headerlink" href="#equation-soleq4" title="Permalink to this equation">#</a></span>\[
-\int^{T,P,s}_{T,P,\ell}d\mu_i=\int^{T,P,s}_{T,P,\ell}RTd\ln{f_i}
-\]</div>
-<div class="math notranslate nohighlight" id="equation-soleq5">
-<span class="eqno">(12)<a class="headerlink" href="#equation-soleq5" title="Permalink to this equation">#</a></span>\[
-\Delta{\mu}_{i,\ell\rightarrow{s}}=RTln\left(\frac{f_i^s(T,P)}{f_i^\ell(T,P)}\right)
-\]</div>
-<div class="math notranslate nohighlight" id="equation-soleq6">
-<span class="eqno">(13)<a class="headerlink" href="#equation-soleq6" title="Permalink to this equation">#</a></span>\[
-f_i^s(T,P)=f_i^\ell(T,P)e^{\frac{\Delta{\mu}_{i,\ell\rightarrow{s}}}{RT}}
-\]</div>
-<p>The change in chemical potential can be written for a pure substance as the partial molar change in free energy <span class="math notranslate nohighlight">\(\Delta{g_i(T,P)}\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-soleq7">
-<span class="eqno">(14)<a class="headerlink" href="#equation-soleq7" title="Permalink to this equation">#</a></span>\[
-\Delta\mu_{i,\ell\rightarrow{s}}=\Delta{g}_i^s(T,P)=\Delta{h}_i(T,P)-T\Delta{s}_i(T,P)
-\]</div>
-<p>The molar enthalpy change is:</p>
-<div class="math notranslate nohighlight" id="equation-soleq8">
-<span class="eqno">(15)<a class="headerlink" href="#equation-soleq8" title="Permalink to this equation">#</a></span>\[
-\Delta{h}_i(T,P)=-\Delta{h_{fus}\left(T_f\right)}+\int_T^{T_f}Cp^{\ell}dT+\int_T^{T_f}Cp^{s}dT\simeq-\Delta{h_{fus}\left(T_f\right)}+\left(Cp^{\ell}-Cp^{s}\right)\left(T_f-T\right)
-\]</div>
-<p>while the molar entropy change is written as:</p>
-<div class="math notranslate nohighlight" id="equation-soleq9">
-<span class="eqno">(16)<a class="headerlink" href="#equation-soleq9" title="Permalink to this equation">#</a></span>\[
-\Delta{s}_i(T,P)=-\frac{\Delta{h_{fus}\left(T_f\right)}}{T_f}+\int_T^{T_f}\frac{Cp^{\ell}}{T}dT+\int_T^{T_f}\frac{Cp^{s}}{T}dT \simeq -\frac{\Delta{h_{fus}}}{T_f}+\left(Cp^{\ell}-Cp^{s}\right)\ln{\left(\frac{T_f}{T}\right)}
-\]</div>
-<p>Defining <span class="math notranslate nohighlight">\(\Delta{Cp}_{\ell\rightarrow{s}}=\left(Cp^{\ell}-Cp^{s}\right)\)</span></p>
-<div class="math notranslate nohighlight" id="equation-soleq10">
-<span class="eqno">(17)<a class="headerlink" href="#equation-soleq10" title="Permalink to this equation">#</a></span>\[
-\Delta{g}_i^s(T,P)=-\Delta{h_{fus}\left(1-\frac{T}{T_f}\right)}+\Delta{Cp}_{\ell\rightarrow{s}}\left(T_f-T-T\ln{\left(\frac{T_f}{T}\right)}\right)
-\]</div>
-<p>Since <span class="math notranslate nohighlight">\(\Delta{Cp}_{\ell\rightarrow{s}}\)</span> is usually small compared the above expression is typically simplified to:</p>
-<div class="math notranslate nohighlight" id="equation-soleq11">
-<span class="eqno">(18)<a class="headerlink" href="#equation-soleq11" title="Permalink to this equation">#</a></span>\[
-\Delta{g}_i^s(T,P)\simeq-\Delta{h_{fus}\left(1-\frac{T}{T_f}\right)}
-\]</div>
-<p>Inserting this equation into the equality of fugacities yields:</p>
-<div class="math notranslate nohighlight" id="equation-soleq12">
-<span class="eqno">(19)<a class="headerlink" href="#equation-soleq12" title="Permalink to this equation">#</a></span>\[
-f_i^\ell(T,P)x_i\gamma_i(T,P,\vec{x})=f_i^\ell(T,P)e^{\frac{\Delta{\mu}_{i,\ell\rightarrow{s}}}{RT}}
-\]</div>
-<p>hence the solubility of component <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(x_i\)</span> is:</p>
-<div class="math notranslate nohighlight" id="equation-soleq13">
-<span class="eqno">(20)<a class="headerlink" href="#equation-soleq13" title="Permalink to this equation">#</a></span>\[
-x_i=\frac{1}{\gamma_i(T,P,\vec{x})}e^{-\frac{\Delta{h_{fus}}}{R}\left(\frac{1}{T}-\frac{1}{T_f}\right)}
-\]</div>
+<p>This constraint implies that the time evolution of a system at constant total energy takes place in a 6N − 1 dimensional hypersurface subject to this constraint.</p>
+<p><strong>Classical Microstate</strong></p>
+<p>A microscopic state, or microstate, of a classical system is a complete specification of the 6N coordinates that define <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>. At constant Energy any valid microstate lies on the constant energy hypersurface, <span class="math notranslate nohighlight">\(H(\mathbf{x}) = E\)</span>.
+The concept of classical microstates allows us to elaborate a more formal definition of an <strong>ensemble</strong>.
+An <em>ensemble is a collection of systems sharing one or more macroscopic characteristics but each being in a unique microstate</em>. The complete ensemble is specified by all microstates consistent with the common macroscopic characteristics of the ensemble (i.e. constant Energy).</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -482,17 +462,17 @@ x_i=\frac{1}{\gamma_i(T,P,\vec{x})}e^{-\frac{\Delta{h_{fus}}}{R}\left(\frac{1}{T
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Week2_PhaseEquilibria.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Week2_Exercise.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</p>
+            <p class="prev-next-title">Liquid Vapour Equilibria</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Week2_Exercise.html" title="next page">
+    <a class='right-next' id="next-link" href="Week3_Microcanonical.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Liquid Vapour Equilibria</p>
+        <p class="prev-next-title">The Microcanonical Ensemble</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
