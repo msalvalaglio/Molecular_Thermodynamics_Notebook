@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Molecular Thermodynamics Virtual Notebook</title>
+    <title>Week 2 Exercise: The harmonic oscillator. &#8212; Molecular Thermodynamics Virtual Notebook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,8 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Intermolecular Potentials" href="Week34_IntermolecularPotentials.html" />
+    <link rel="prev" title="The Canonical Ensemble" href="Week3_Canonical.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -106,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Week1_Notes_Thermodynamics.html">
    Thermodynamics Revision, with an eye to Statistical Mechanics
@@ -142,8 +146,8 @@ const thebe_selector_output = ".output, .cell_output"
    The Canonical Ensemble
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week3_Exercise_Harmonic.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Week 2 Exercise: The harmonic oscillator.
   </a>
  </li>
@@ -236,7 +240,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/W3_molecular_dynamics.ipynb"
+        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Week3_Exercise_Harmonic.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -296,7 +300,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FW3_molecular_dynamics.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek3_Exercise_Harmonic.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -313,7 +317,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/W3_molecular_dynamics.ipynb"
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week3_Exercise_Harmonic.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -341,7 +345,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/W3_molecular_dynamics.ipynb"
+        <a href="_sources/Week3_Exercise_Harmonic.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -378,50 +382,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>Week 2 Exercise: The harmonic oscillator.</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -429,32 +406,15 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>I. THE MICROSCOPIC LAWS OF MOTION
-Consider a system of N classical particles. The particles a confined to a particular region of space by a “container” of volume V . The particles have a finite kinetic energy and are therefore in constant motion, driven by the forces they exert on each other (and any external forces which may be present). At a given instant in time t, the Cartesian positions of the particles are r1 (t), …, rN (t). The time evolution of the positions of the particles is then given by Newton’s second law of motion:
-mi ̈ri =Fi(r1,…,rN)
-where F1,…,FN are the forces on each of the N particles due to all the other particles in the system. The notation
-̈ri = d2ri/dt2.
-N Newton’s equations of motion constitute a set of 3N coupled second order differential equations. In order to solve these, it is necessary to specify a set of appropriate initial conditions on the coordinates and their first time derivaties, {r1(0), …, rN (0), r ̇1(0), …, r ̇N (0)}. Then, the solution of Newton’s equations gives the complete set of coordinates and velocities for all time t.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>The idea of ensemble averaging can also be expressed in terms of an average over all such microstates (which comprise the ensemble). A given macroscopic property, A, and its microscopic function a = a(x), which is a function of the positions and momenta of a system, i.e. the phase space vector, are related by
-
-1 􏰂N
-A = ⟨a⟩ensemble = N a(xλ)
-λ=1 where xλ is the microstate of the λth member of the ensemble.
-
-However, recall the original problem of determining the microscopic detailed motion of each individual particle in a system. In reality, measurements are made only on a single system and all the microscopic detailed motion is present. However, what one observes is still an average, but it is an average over time of the detailed motion, an average that also washes out the microscopic details. Thus, the time average and the ensemble average should be equivalent, i.e.
-
-1􏰃T
-A = ⟨a⟩ensemble = lim dt a(x(t))
-This statement is known as the ergodic hypothesis. A system that is ergodic is one for which, given an infinite amount of time, it will visit all possible microscopic states available to it (for Hamiltonian dynamics, this means it will visit all points on the constant energy hypersurface). No one has yet been able to prove that a particular system is truly ergodic, hence the above statement cannot be more than a supposition. However, it states that if a system is ergodic, then the ensemble average of a property A(x) can be equated to a time average of the property over an ergodic tra jectory.
-
-This statement is known as the ergodic hypothesis. A system that is ergodic is one for which, given an infinite amount of time, it will visit all possible microscopic states available to it (for Hamiltonian dynamics, this means it will visit all points on the constant energy hypersurface). No one has yet been able to prove that a particular system is truly ergodic, hence the above statement cannot be more than a supposition. However, it states that if a system is ergodic, then the ensemble average of a property A(x) can be equated to a time average of the property over an ergodic tra jectory.
-
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2-exercise-the-harmonic-oscillator">
+<h1>Week 2 Exercise: The harmonic oscillator.<a class="headerlink" href="#week-2-exercise-the-harmonic-oscillator" title="Permalink to this headline">#</a></h1>
+<p>Given a 1D Harmonic oscillator with characteristic frequency <span class="math notranslate nohighlight">\(\omega=5\)</span>Hz, mass of 20, starting at the initial position of 1, with an initial momentum of 1.</p>
+<ul class="simple">
+<li><p>Can You define the coordinates of the Phase space of the Harmonic oscillator?</p></li>
+<li><p>How would you represent the motion of the Harmonic oscillator in Phase Space?</p></li>
+<li><p>What is the most probable state for the Harmonic oscillator?</p></li>
+</ul>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -483,6 +443,20 @@ This statement is known as the ergodic hypothesis. A system that is ergodic is o
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Week3_Canonical.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">The Canonical Ensemble</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Week34_IntermolecularPotentials.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Intermolecular Potentials</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
