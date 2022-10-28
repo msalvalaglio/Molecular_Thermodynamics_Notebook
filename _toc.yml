@@ -8,6 +8,7 @@ sections:
 - file: Week3_StatMech.ipynb
 - file: Week3_Microcanonical.ipynb
 - file: Week3_Canonical.ipynb
+- file: Week3_Exercise_Harmonic.ipynb
 - file: Week34_IntermolecularPotentials.ipynb
 - file: Week4_Virial_Equation_of_State.ipynb
 - file: Week4_Virial_Pure_Fluids.ipynb
