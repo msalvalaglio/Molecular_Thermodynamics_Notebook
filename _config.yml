@@ -31,7 +31,8 @@ html:
   use_repository_button     : true
   path_to_book: https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook  # An optional path to your book, defaults to repo root
   
-  launch_buttons: off
+  launch_buttons:
+  thebe                  : true
   binderhub_url: off
   
 # #######################################################################################

@@ -531,12 +531,12 @@ B_{ii}=2\pi{N_A}\int_0^\infty(1-\exp(-\Gamma_{ii}/RT))r^2)dr
     <span class="n">Gamma</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="n">EPS</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">sr6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">sr6</span><span class="p">)</span>
     <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">Gamma</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39; &#39;</span> <span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">);</span>
 
-<span class="c1"># Consider a Kihara gas</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">SIGMA</span><span class="p">)):</span>
-    <span class="n">c_2</span><span class="o">=</span><span class="nb">next</span><span class="p">(</span><span class="n">color_2</span><span class="p">)</span>
-    <span class="n">sr6_2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">SIGMA</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">r</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="mi">6</span><span class="p">)</span>
-    <span class="n">Gamma_2</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="n">EPS</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">sr6_2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">sr6_2</span><span class="p">)</span>
-    <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">Gamma_2</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39; &#39;</span> <span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c_2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">);</span>
+<span class="c1">## Consider a Kihara gas</span>
+<span class="c1">#for i in np.arange(0,np.size(SIGMA)):</span>
+<span class="c1">##    c_2=next(color_2)</span>
+<span class="c1">#    sr6_2=np.power(np.divide(SIGMA[i]-2*a[i],r-2*a[i]),6)</span>
+<span class="c1">#    Gamma_2[:,i]=4*EPS[i]*(np.power(sr6_2,2)-sr6_2)</span>
+<span class="c1">#    axes.plot(r,Gamma_2[:,i], marker=&#39; &#39; , c=c_2, linewidth=3.0);</span>
 </pre></div>
 </div>
 </div>
@@ -570,11 +570,11 @@ B_{ii}=2\pi{N_A}\int_0^\infty(1-\exp(-\Gamma_{ii}/RT))r^2)dr
     <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Temperature</span><span class="p">,</span><span class="n">B</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39; &#39;</span> <span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">);</span>
 
 <span class="c1"># Consider a Kihara gas    </span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">SIGMA</span><span class="p">)):</span>
-    <span class="n">c_2</span><span class="o">=</span><span class="nb">next</span><span class="p">(</span><span class="n">color_2</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">)):</span>
-        <span class="n">B_2</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">6E23</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Gamma_2</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">Temperature</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="mf">1E-9</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">r</span><span class="o">*</span><span class="mf">1E-9</span><span class="p">)</span>
-    <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Temperature</span><span class="p">,</span><span class="n">B_2</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39; &#39;</span> <span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c_2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">);</span>
+<span class="c1">#for i in np.arange(0,np.size(SIGMA)):</span>
+<span class="c1">#    c_2=next(color_2)</span>
+<span class="c1">#    for j in np.arange(0,np.size(Temperature)):</span>
+<span class="c1">#        B_2[j,i]=2*np.pi*6E23*np.trapz((1-np.exp(-Gamma_2[:,i]/Temperature[j]))*np.power(r*1E-9,2),r*1E-9)</span>
+<span class="c1">#    axes.plot(Temperature,B_2[:,i], marker=&#39; &#39; , c=c_2, linewidth=3.0);</span>
 </pre></div>
 </div>
 </div>
@@ -594,7 +594,7 @@ B_{ii}=2\pi{N_A}\int_0^\infty(1-\exp(-\Gamma_{ii}/RT))r^2)dr
 <span class="c1">###</span>
 <span class="c1">##Choose Chemical Specie:</span>
 <span class="c1">#Species=[Ar, Kr, Xe, CH4, N2, C2H4, C2H6, C3H8]</span>
-<span class="n">Chem_Sp</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">Chem_Sp</span><span class="o">=</span><span class="mi">3</span>
 <span class="c1"># Note: I attach as an example Ar since it is important to note that Michels&#39; </span>
 <span class="c1"># highly accurate second-virial-coefficient data for Ar can not be represented </span>
 <span class="c1"># over a large temperature range by the LJ potential using only one set of potential</span>
@@ -665,16 +665,24 @@ B_{ii}=2\pi{N_A}\int_0^\infty(1-\exp(-\Gamma_{ii}/RT))r^2)dr
 <span class="n">figure</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
 
 <span class="c1"># For a Kihara gas</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">)):</span>
-        <span class="n">c_2</span><span class="o">=</span><span class="nb">next</span><span class="p">(</span><span class="n">color_2</span><span class="p">)</span>
-        <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">,</span><span class="n">Z_2</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39; &#39;</span> <span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c_2</span><span class="p">);</span>
-<span class="n">figure</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf_2</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+<span class="c1">#for i in np.arange(0,np.size(Temperature)):</span>
+<span class="c1">#        c_2=next(color_2)</span>
+<span class="c1">#        axes.plot(1/rho,Z_2[i,:], marker=&#39; &#39; , c=c_2);</span>
+<span class="c1">#figure.colorbar(surf_2, shrink=0.85, aspect=10);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week4_Virial_Pure_Fluids_8_0.png" src="_images/Week4_Virial_Pure_Fluids_8_0.png" />
-<img alt="_images/Week4_Virial_Pure_Fluids_8_1.png" src="_images/Week4_Virial_Pure_Fluids_8_1.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_96340/3500302147.py:19: MatplotlibDeprecationWarning: Calling gca() with keyword arguments was deprecated in Matplotlib 3.4. Starting two minor releases later, gca() will take no keyword arguments. The gca() function should only be used to get the current axes, or if no axes exist, create new axes with default keyword arguments. To create a new axes with non-default arguments, use plt.axes() or plt.subplot().
+  axes = figure.gca(projection =&#39;3d&#39;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_96340/3500302147.py:53: MatplotlibDeprecationWarning: Starting from Matplotlib 3.6, colorbar() will steal space from the mappable&#39;s axes, rather than from the current axes, to place the colorbar.  To silence this warning, explicitly pass the &#39;ax&#39; argument to colorbar().
+  figure.colorbar(surf, shrink=0.85, aspect=10);
+</pre></div>
+</div>
+<img alt="_images/Week4_Virial_Pure_Fluids_8_2.png" src="_images/Week4_Virial_Pure_Fluids_8_2.png" />
+<img alt="_images/Week4_Virial_Pure_Fluids_8_3.png" src="_images/Week4_Virial_Pure_Fluids_8_3.png" />
 </div>
 </div>
 </section>
@@ -729,7 +737,7 @@ B_{ii}=2\pi{N_A}\int_0^\infty(1-\exp(-\Gamma_{ii}/RT))r^2)dr
 <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P, [atm]&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
 
 <span class="n">color</span><span class="o">=</span><span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
-<span class="n">color_2</span><span class="o">=</span><span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">Spectral</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="c1">#color_2=iter(cm.Spectral(np.linspace(0,1,np.size(Temperature)+1)))</span>
 
 <span class="c1"># For a LJ gas</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">)):</span>
@@ -737,19 +745,25 @@ B_{ii}=2\pi{N_A}\int_0^\infty(1-\exp(-\Gamma_{ii}/RT))r^2)dr
         <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">,</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39; &#39;</span> <span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">);</span>
 
 <span class="c1"># For a Kihara gas</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">)):</span>
-        <span class="n">c_2</span><span class="o">=</span><span class="nb">next</span><span class="p">(</span><span class="n">color_2</span><span class="p">)</span>
-        <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="p">,</span><span class="n">P_2</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39; &#39;</span> <span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c_2</span><span class="p">);</span>
+<span class="c1">#for i in np.arange(0,np.size(Temperature)):</span>
+<span class="c1">#        c_2=next(color_2)</span>
+<span class="c1">#        axes.plot(1/rho,P_2[i,:], marker=&#39; &#39; , c=c_2);</span>
 
 <span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">]);</span>
 <span class="n">figure</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
-<span class="n">figure</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf_2</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+<span class="c1">#figure.colorbar(surf_2, shrink=0.85, aspect=10);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week4_Virial_Pure_Fluids_10_0.png" src="_images/Week4_Virial_Pure_Fluids_10_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_96340/506517646.py:20: MatplotlibDeprecationWarning: Calling gca() with keyword arguments was deprecated in Matplotlib 3.4. Starting two minor releases later, gca() will take no keyword arguments. The gca() function should only be used to get the current axes, or if no axes exist, create new axes with default keyword arguments. To create a new axes with non-default arguments, use plt.axes() or plt.subplot().
+  axes = figure.gca(projection =&#39;3d&#39;)
+/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_96340/506517646.py:61: MatplotlibDeprecationWarning: Starting from Matplotlib 3.6, colorbar() will steal space from the mappable&#39;s axes, rather than from the current axes, to place the colorbar.  To silence this warning, explicitly pass the &#39;ax&#39; argument to colorbar().
+  figure.colorbar(surf, shrink=0.85, aspect=10);
+</pre></div>
+</div>
 <img alt="_images/Week4_Virial_Pure_Fluids_10_1.png" src="_images/Week4_Virial_Pure_Fluids_10_1.png" />
+<img alt="_images/Week4_Virial_Pure_Fluids_10_2.png" src="_images/Week4_Virial_Pure_Fluids_10_2.png" />
 </div>
 </div>
 </section>

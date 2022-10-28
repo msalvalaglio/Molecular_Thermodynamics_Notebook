@@ -53,12 +53,12 @@ for i in np.arange(0,np.size(SIGMA)):
     Gamma[:,i]=4*EPS[i]*(np.power(sr6,2)-sr6)
     axes.plot(r,Gamma[:,i], marker=' ' , c=c, linewidth=3.0);
 
-# Consider a Kihara gas
-for i in np.arange(0,np.size(SIGMA)):
-    c_2=next(color_2)
-    sr6_2=np.power(np.divide(SIGMA[i]-2*a[i],r-2*a[i]),6)
-    Gamma_2[:,i]=4*EPS[i]*(np.power(sr6_2,2)-sr6_2)
-    axes.plot(r,Gamma_2[:,i], marker=' ' , c=c_2, linewidth=3.0);
+## Consider a Kihara gas
+#for i in np.arange(0,np.size(SIGMA)):
+##    c_2=next(color_2)
+#    sr6_2=np.power(np.divide(SIGMA[i]-2*a[i],r-2*a[i]),6)
+#    Gamma_2[:,i]=4*EPS[i]*(np.power(sr6_2,2)-sr6_2)
+#    axes.plot(r,Gamma_2[:,i], marker=' ' , c=c_2, linewidth=3.0);
 
 
 # In[2]:
@@ -88,11 +88,11 @@ for i in np.arange(0,np.size(SIGMA)):
     axes.plot(Temperature,B[:,i], marker=' ' , c=c, linewidth=3.0);
 
 # Consider a Kihara gas    
-for i in np.arange(0,np.size(SIGMA)):
-    c_2=next(color_2)
-    for j in np.arange(0,np.size(Temperature)):
-        B_2[j,i]=2*np.pi*6E23*np.trapz((1-np.exp(-Gamma_2[:,i]/Temperature[j]))*np.power(r*1E-9,2),r*1E-9)
-    axes.plot(Temperature,B_2[:,i], marker=' ' , c=c_2, linewidth=3.0);
+#for i in np.arange(0,np.size(SIGMA)):
+#    c_2=next(color_2)
+#    for j in np.arange(0,np.size(Temperature)):
+#        B_2[j,i]=2*np.pi*6E23*np.trapz((1-np.exp(-Gamma_2[:,i]/Temperature[j]))*np.power(r*1E-9,2),r*1E-9)
+#    axes.plot(Temperature,B_2[:,i], marker=' ' , c=c_2, linewidth=3.0);
 
 
 # ## Properties
@@ -107,7 +107,7 @@ from mpl_toolkits.mplot3d import Axes3D
 ###
 ##Choose Chemical Specie:
 #Species=[Ar, Kr, Xe, CH4, N2, C2H4, C2H6, C3H8]
-Chem_Sp=1
+Chem_Sp=3
 # Note: I attach as an example Ar since it is important to note that Michels' 
 # highly accurate second-virial-coefficient data for Ar can not be represented 
 # over a large temperature range by the LJ potential using only one set of potential
@@ -177,10 +177,10 @@ for i in np.arange(0,np.size(Temperature)):
 figure.colorbar(surf, shrink=0.85, aspect=10);
 
 # For a Kihara gas
-for i in np.arange(0,np.size(Temperature)):
-        c_2=next(color_2)
-        axes.plot(1/rho,Z_2[i,:], marker=' ' , c=c_2);
-figure.colorbar(surf_2, shrink=0.85, aspect=10);
+#for i in np.arange(0,np.size(Temperature)):
+#        c_2=next(color_2)
+#        axes.plot(1/rho,Z_2[i,:], marker=' ' , c=c_2);
+#figure.colorbar(surf_2, shrink=0.85, aspect=10);
 
 
 # ### P/v isotherms Diagram
@@ -235,7 +235,7 @@ axes.set_xlabel('molar volume, [l mol$^{-1}$]', fontsize=14);
 axes.set_ylabel('P, [atm]',fontsize=14);
 
 color=iter(cm.coolwarm(np.linspace(0,1,np.size(Temperature)+1)))
-color_2=iter(cm.Spectral(np.linspace(0,1,np.size(Temperature)+1)))
+#color_2=iter(cm.Spectral(np.linspace(0,1,np.size(Temperature)+1)))
 
 # For a LJ gas
 for i in np.arange(0,np.size(Temperature)):
@@ -243,13 +243,13 @@ for i in np.arange(0,np.size(Temperature)):
         axes.plot(1/rho,P[i,:], marker=' ' , c=c);
 
 # For a Kihara gas
-for i in np.arange(0,np.size(Temperature)):
-        c_2=next(color_2)
-        axes.plot(1/rho,P_2[i,:], marker=' ' , c=c_2);
+#for i in np.arange(0,np.size(Temperature)):
+#        c_2=next(color_2)
+#        axes.plot(1/rho,P_2[i,:], marker=' ' , c=c_2);
 
 axes.set_ylim([0,200]);
 figure.colorbar(surf, shrink=0.85, aspect=10);
-figure.colorbar(surf_2, shrink=0.85, aspect=10);
+#figure.colorbar(surf_2, shrink=0.85, aspect=10);
 
 
 # In[ ]:
