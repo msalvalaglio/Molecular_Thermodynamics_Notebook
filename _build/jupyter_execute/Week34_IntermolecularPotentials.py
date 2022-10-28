@@ -74,7 +74,7 @@
 # 
 # The intermolecular interaction between methane molecules can be captured by the following expressions: 
 
-# In[9]:
+# In[1]:
 
 
 import matplotlib.pyplot as plt 
