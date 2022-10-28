@@ -24,9 +24,11 @@
 # 2. Internal Energy is __conserved__.
 # 
 # This leads to the formulation of the first law of thermodynamics: 
+# 
 # $$
 # dU=\mathbf{d}Q+\mathbf{d}W
 # $$
+# 
 # where $Q$ and $W$ represent heat and work, and $\mathbf{d}$ indicate inexact differentials. 
 # 
 # $\mathbf{d}W$ is the differential work done by manipulating mechanical constraints. It can be written generally as: 
@@ -35,11 +37,9 @@
 # dW=\mathbf{f}{d}\mathbf{X}
 # $$
 # 
-# where $\mathbf{f}$ represents a vector of applied forces and $\mathbf{X}$ e vector of corresponding mechanical extensive variables. 
+# where $\mathbf{f}$ represents a vector of applied forces and $\mathbf{X}$ a vector of their corresponding mechanical extensive variables. 
 # 
-# It should be noted that heat and work only represent forms of energy transfer, and once the tranfer has taken place there is no $Q$ or $W$ quantity associated with a given state. This is at why $\mathbf{d}Q$ and $\mathbf{d}W$ are _inexact_ differentials.
-# 
-# 
+# It should be noted that heat and work only represent forms of energy transfer, and once the tranfer has taken place there is no $Q$ or $W$ quantity remains associated with a given state. This is at why $\mathbf{d}Q$ and $\mathbf{d}W$ are _inexact_ differentials.
 # 
 
 # ## Second Law of Thermodynamics
