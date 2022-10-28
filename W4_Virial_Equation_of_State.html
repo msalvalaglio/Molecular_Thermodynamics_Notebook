@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>The Canonical Ensemble &#8212; Molecular Thermodynamics Virtual Notebook</title>
+    <title>The Compressibility Factor &#8212; Molecular Thermodynamics Virtual Notebook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Intermolecular Potentials" href="Week34_IntermolecularPotentials.html" />
-    <link rel="prev" title="The Microcanonical Ensemble" href="Week3_Microcanonical.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -110,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Week1_Notes_Thermodynamics.html">
    Thermodynamics Revision, with an eye to Statistical Mechanics
@@ -141,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
    The Microcanonical Ensemble
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week3_Canonical.html">
    The Canonical Ensemble
   </a>
  </li>
@@ -215,7 +213,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Week3_Canonical.ipynb"
+        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/W4_Virial_Equation_of_State.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -275,7 +273,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek3_Canonical.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FW4_Virial_Equation_of_State.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -292,7 +290,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week3_Canonical.ipynb"
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/W4_Virial_Equation_of_State.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -320,7 +318,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Week3_Canonical.ipynb"
+        <a href="_sources/W4_Virial_Equation_of_State.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -357,23 +355,84 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The Compressibility Factor
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fugacity-and-compressibility-factor">
+   Fugacity and compressibility factor
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-virial-equation-of-state">
+     The Virial equation of state
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>The Canonical Ensemble</h1>
+                <h1>The Compressibility Factor</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The Compressibility Factor
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fugacity-and-compressibility-factor">
+   Fugacity and compressibility factor
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-virial-equation-of-state">
+     The Virial equation of state
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -381,32 +440,54 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="the-canonical-ensemble">
-<h1>The Canonical Ensemble<a class="headerlink" href="#the-canonical-ensemble" title="Permalink to this headline">#</a></h1>
-<p>In the canonical ensemble, all microstates are characterised by the same <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(T\)</span>. To obtain the relevant thermodynamic potential for the canonical ensemble we can start from the microcanonical one.</p>
-<p>In the microcanonical ensemble, the entropy <span class="math notranslate nohighlight">\(S\)</span> is a natural function of <span class="math notranslate nohighlight">\(N\)</span>,<span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(E\)</span>, i.e., <span class="math notranslate nohighlight">\(S=S(N,V,E)\)</span>.
-This can be inverted to give the energy <span class="math notranslate nohighlight">\(E\)</span> as a function of <span class="math notranslate nohighlight">\(N\)</span>,<span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(S\)</span>, i.e., <span class="math notranslate nohighlight">\(E=E(N,V,S)\)</span>.
-As discussed in Week 1, by using the Legendre transformation to swap <span class="math notranslate nohighlight">\(S\)</span> with <span class="math notranslate nohighlight">\(T\)</span> one can obtain a new potential, called the Hemlholtz free energy, and is given the symbol <span class="math notranslate nohighlight">\(A(N,V,T)\)</span>.</p>
-<p>The Helmoholtz Free Energy is the fundamental energy in the canonical ensemble.</p>
-<p><strong>The Canonical Partition function</strong>
-The question now becomes, what is the partition function in the canonical ensemble?</p>
-<p>The canonical partition function can be written as:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-compressibility-factor">
+<h1>The Compressibility Factor<a class="headerlink" href="#the-compressibility-factor" title="Permalink to this headline">#</a></h1>
+<p>The phase behavior of fluids at moderate to high pressure requires the definition of an equation of state that captures deviations from the ideal gas behaviour.</p>
+<p>To this aim we introduce a compressibility factor:</p>
 <div class="math notranslate nohighlight">
 \[
-Q(N,V,T) \propto \int{ d { \mathbf{x}}e^{-\frac{H(\mathbf{x})}{kT}}}
+Z=\frac{Pv}{RT}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(H(\mathbf{x})\)</span> is the Hamiltonian of the system.</p>
-<p>The proportionality constant in the case of the Canonical partition function is <span class="math notranslate nohighlight">\((N!h^{3N})^{-1}\)</span> leading to the equality:</p>
+<p>for an ideal gas <span class="math notranslate nohighlight">\(Z=1\)</span>, <span class="math notranslate nohighlight">\(P=RT/v\)</span>, and <span class="math notranslate nohighlight">\(v=RT/P\)</span>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fugacity-and-compressibility-factor">
+<h1>Fugacity and compressibility factor<a class="headerlink" href="#fugacity-and-compressibility-factor" title="Permalink to this headline">#</a></h1>
+<p>As discussed when working on Vapour/Liquid Equilibria, the chemical potential of a real fluid can be computed from its fugacity <span class="math notranslate nohighlight">\(f_i\)</span>.
+The ratio between the fugacity of a pure component and its pressure can be written as:</p>
 <div class="math notranslate nohighlight">
 \[
-Q(N,V,T) = \frac{1}{N!h^{3N}} \int{ d { \mathbf{x}}e^{-\frac{H(\mathbf{x})}{kT}}}
+RT\ln\left(\frac{f_i}{P}\right)_{pure}=RT\ln{\phi_{i,pure}}=\int_0^P\left(v_i-\frac{RT}{P}dP\right) 
 \]</div>
-<p>The fundamental relation between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(Q(N,V,T)\)</span> is:</p>
+<p>this can be recast as a function of the compressibility factor as:</p>
 <div class="math notranslate nohighlight">
 \[
-A=kT\ln{Q(N,V,T)}
+\ln{\phi_{i,pure}}=\int_0^P\left(\frac{Z_i-1}{P}dP\right) 
 \]</div>
-<p>This equation provides a link between the microscopic and macroscopic variables at constant <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>hence being able to caputre the behavior of the compressibility factor in a real fluid opens up the possibility of characterising equilibria beyond the ideal gas approximation.</p>
+<section id="the-virial-equation-of-state">
+<h2>The Virial equation of state<a class="headerlink" href="#the-virial-equation-of-state" title="Permalink to this headline">#</a></h2>
+<p>The virial equation of state is based on the expression of the compressibility factor as a power series of the density <span class="math notranslate nohighlight">\(\rho=v^{-1}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+Z=1+\rho{B}+\rho^2{C}+\rho^3{D}+...
+\]</div>
+<p>This expansion is usually truncated at the third term. Each term, represents the contribution to the compressibility factor that comes from interactions between two, three, four, etc bodies.
+For pure components the virial coefficients are independent from pressure or density and only function of the system’s temperature</p>
+<p>This equation also provides a direct point of contact between molecular and macroscopic properties. In fact, experimentally the virial expansion coefficients can be obtained by estimating the following limits:</p>
+<div class="math notranslate nohighlight">
+\[
+B=\lim_{\rho\rightarrow{0}}\left(\frac{\partial{Z}}{\partial{\rho}}\right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+C=\lim_{\rho\rightarrow{0}}\frac{1}{2}\left(\frac{\partial^2{Z}}{\partial{\rho^2}}\right)
+\]</div>
+<p>practically this can be done by estimating as the interceipt and slope of the following equation:</p>
+<div class="math notranslate nohighlight">
+\[
+v\left(\frac{Pv}{RT}-1\right)=B+\frac{C}{v}
+\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -436,20 +517,6 @@ A=kT\ln{Q(N,V,T)}
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Week3_Microcanonical.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The Microcanonical Ensemble</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="Week34_IntermolecularPotentials.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Intermolecular Potentials</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

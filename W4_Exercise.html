@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>The Canonical Ensemble &#8212; Molecular Thermodynamics Virtual Notebook</title>
+    <title>Week 4 Exercise: Second Virial Coefficient from Interatomic potentials. &#8212; Molecular Thermodynamics Virtual Notebook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Intermolecular Potentials" href="Week34_IntermolecularPotentials.html" />
-    <link rel="prev" title="The Microcanonical Ensemble" href="Week3_Microcanonical.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -110,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Week1_Notes_Thermodynamics.html">
    Thermodynamics Revision, with an eye to Statistical Mechanics
@@ -141,8 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
    The Microcanonical Ensemble
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week3_Canonical.html">
    The Canonical Ensemble
   </a>
  </li>
@@ -215,7 +213,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Week3_Canonical.ipynb"
+        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/W4_Exercise.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -275,7 +273,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek3_Canonical.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FW4_Exercise.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -292,7 +290,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week3_Canonical.ipynb"
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/W4_Exercise.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -320,7 +318,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Week3_Canonical.ipynb"
+        <a href="_sources/W4_Exercise.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -369,7 +367,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>The Canonical Ensemble</h1>
+                <h1>Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -381,32 +379,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="the-canonical-ensemble">
-<h1>The Canonical Ensemble<a class="headerlink" href="#the-canonical-ensemble" title="Permalink to this headline">#</a></h1>
-<p>In the canonical ensemble, all microstates are characterised by the same <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(T\)</span>. To obtain the relevant thermodynamic potential for the canonical ensemble we can start from the microcanonical one.</p>
-<p>In the microcanonical ensemble, the entropy <span class="math notranslate nohighlight">\(S\)</span> is a natural function of <span class="math notranslate nohighlight">\(N\)</span>,<span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(E\)</span>, i.e., <span class="math notranslate nohighlight">\(S=S(N,V,E)\)</span>.
-This can be inverted to give the energy <span class="math notranslate nohighlight">\(E\)</span> as a function of <span class="math notranslate nohighlight">\(N\)</span>,<span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(S\)</span>, i.e., <span class="math notranslate nohighlight">\(E=E(N,V,S)\)</span>.
-As discussed in Week 1, by using the Legendre transformation to swap <span class="math notranslate nohighlight">\(S\)</span> with <span class="math notranslate nohighlight">\(T\)</span> one can obtain a new potential, called the Hemlholtz free energy, and is given the symbol <span class="math notranslate nohighlight">\(A(N,V,T)\)</span>.</p>
-<p>The Helmoholtz Free Energy is the fundamental energy in the canonical ensemble.</p>
-<p><strong>The Canonical Partition function</strong>
-The question now becomes, what is the partition function in the canonical ensemble?</p>
-<p>The canonical partition function can be written as:</p>
-<div class="math notranslate nohighlight">
-\[
-Q(N,V,T) \propto \int{ d { \mathbf{x}}e^{-\frac{H(\mathbf{x})}{kT}}}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(H(\mathbf{x})\)</span> is the Hamiltonian of the system.</p>
-<p>The proportionality constant in the case of the Canonical partition function is <span class="math notranslate nohighlight">\((N!h^{3N})^{-1}\)</span> leading to the equality:</p>
-<div class="math notranslate nohighlight">
-\[
-Q(N,V,T) = \frac{1}{N!h^{3N}} \int{ d { \mathbf{x}}e^{-\frac{H(\mathbf{x})}{kT}}}
-\]</div>
-<p>The fundamental relation between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(Q(N,V,T)\)</span> is:</p>
-<div class="math notranslate nohighlight">
-\[
-A=kT\ln{Q(N,V,T)}
-\]</div>
-<p>This equation provides a link between the microscopic and macroscopic variables at constant <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(T\)</span>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-4-exercise-second-virial-coefficient-from-interatomic-potentials">
+<h1>Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.<a class="headerlink" href="#week-4-exercise-second-virial-coefficient-from-interatomic-potentials" title="Permalink to this headline">#</a></h1>
+<p>Compute the second virial coefficient for the following interatomic potentials:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span> for <span class="math notranslate nohighlight">\(r&gt; \sigma\)</span> ; <span class="math notranslate nohighlight">\(\infty\)</span> for <span class="math notranslate nohighlight">\(r \leq \sigma\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span> for <span class="math notranslate nohighlight">\(r&gt;R\sigma\)</span> ; <span class="math notranslate nohighlight">\(-\epsilon\)</span> for <span class="math notranslate nohighlight">\(\sigma&lt;r\leq{R}\sigma\)</span> ; <span class="math notranslate nohighlight">\(\infty\)</span> for <span class="math notranslate nohighlight">\(r \leq \sigma\)</span></p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -436,20 +416,6 @@ A=kT\ln{Q(N,V,T)}
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Week3_Microcanonical.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The Microcanonical Ensemble</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="Week34_IntermolecularPotentials.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Intermolecular Potentials</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
