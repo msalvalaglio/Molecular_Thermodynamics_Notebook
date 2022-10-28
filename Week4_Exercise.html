@@ -403,12 +403,59 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="week-4-exercise-second-virial-coefficient-from-interatomic-potentials">
 <h1>Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.<a class="headerlink" href="#week-4-exercise-second-virial-coefficient-from-interatomic-potentials" title="Permalink to this headline">#</a></h1>
+<p>Using the expression:</p>
+<div class="math notranslate nohighlight">
+\[
+B_{ii}=2\pi{N_A}\int_0^\infty\left(1-e^{-\Gamma_{ii}/RT}\right)r^2dr
+\]</div>
 <p>Compute the second virial coefficient for the following interatomic potentials:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span> for <span class="math notranslate nohighlight">\(r&gt; \sigma\)</span> ; <span class="math notranslate nohighlight">\(\infty\)</span> for <span class="math notranslate nohighlight">\(r \leq \sigma\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span> for <span class="math notranslate nohighlight">\(r&gt;R\sigma\)</span> ; <span class="math notranslate nohighlight">\(-\epsilon\)</span> for <span class="math notranslate nohighlight">\(\sigma&lt;r\leq{R}\sigma\)</span> ; <span class="math notranslate nohighlight">\(\infty\)</span> for <span class="math notranslate nohighlight">\(r \leq \sigma\)</span></p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\sigma$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">20</span><span class="p">]);</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span><span class="mi">50</span><span class="p">]);</span>
+
+<span class="n">sigma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1E-4</span><span class="p">,</span><span class="mf">1E-3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">NA</span><span class="o">=</span><span class="mf">6E23</span>
+
+<span class="n">rho</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="n">B</span><span class="o">=</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">NA</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="n">B</span><span class="o">*</span><span class="n">rho</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">Z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.25663706e+12 1.00530965e+13 3.39292007e+13 8.04247719e+13
+ 1.57079633e+14 2.71433605e+14 4.31026512e+14 6.43398175e+14
+ 9.16088418e+14 1.25663706e+15]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11455f430&gt;
+</pre></div>
+</div>
+<img alt="_images/Week4_Exercise_1_2.png" src="_images/Week4_Exercise_1_2.png" />
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
