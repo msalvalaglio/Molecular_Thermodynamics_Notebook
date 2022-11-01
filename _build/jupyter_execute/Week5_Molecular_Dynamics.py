@@ -65,10 +65,10 @@
 # After the forces have been obtained, the movement of the atoms is propagated by numerically solving the equations of motion. A number of algorithms have been designed to integrate the equations of motion which provide different level of accuracy depending on their application. 
 # Commonly used are methods based on the Verlet algorithm. This algorithm is a combination of Taylor expansions, allowing to compute the atomic positions at time $(t+\Delta t)$ based on the atomic positions at time $t$ and $(t-\Delta t)$. The key equation of the Verlet algorithm is:  
 # 
-# \begin{equation} 
+# $$
 # r\left(t+\Delta t\right) = 2r(t) -r(t-\Delta{t}) +\frac{{\Delta{t}}^2}{m}\textbf {F}(t)
 # \label{eq:frog1}
-# \end{equation}
+# $$
 # 
 # In the following we can trace these three simuple steps in the dynamic simulation of a 2D bead polymer: 
 # 
