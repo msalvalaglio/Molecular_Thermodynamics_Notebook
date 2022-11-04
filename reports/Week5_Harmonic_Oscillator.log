@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Compute trajectory
+for timestep in np.arange(1,nsteps): #Cycle over timesteps
+    c=next(color)                    #Update color for static representation
+    timestep=int(timestep)           #Make sure timestep is an integer
+    
+    # Initialise force vectors
+    fx=np.zeros(np.size(x0));  
+    fy=np.zeros(np.size(x0)); 
+    
+    # Compute distances and the interparticle forces for every pair of particles
+    for i in np.arange(0,np.size(x0)):
+        for j in np.arange(i+1,np.size(x0)):
+            
+            r=np.sqrt((x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j])); #Distance    
+               
+            cx=-(k[i,j]*(r-req)-2*HS/(np.power(r,3)))*((x[i]-x[j]))/r;  #Pairwise force in x
+            cy=-(k[i,j]*(r-req)-2*HS/(np.power(r,3)))*((y[i]-y[j]))/r;  #Pairwise force in y
+                
+            fx[i]=fx[i]+cx;      #update total x-component of the force on particle i
+            fx[j]=fx[j]-cx;      #update total x-component of the force on particle j 
+
+            fy[i]=fy[i]+cy;      #update total y-component of the force on particle i
+            fy[j]=fy[j]-cy;      #update total y-component of the force on particle j 
+           
+       
+    #Verlet integration
+    for i in np.arange(0,np.size(x0)):
+        xnew[i]=2*x[i]-xp[i]+(dt*dt)*fx[i]/m[i]; # new position (x-component)
+        ynew[i]=2*y[i]-yp[i]+(dt*dt)*fy[i]/m[i]; # new position (y-component)
+    
+    # Compute velocity     
+    vx=(xnew-xp)/2/dt;
+    vy=(ynew-yp)/2/dt;
+    v=np.sqrt(np.power(vx,2)+np.power(vy,2)); 
+    
+    # Reassign positions
+    xp=x; yp=y; x=xnew-np.mean(xnew); y=ynew-np.mean(ynew);
+    
+    # Static representation of the trajectory
+    line, = axes.plot(x,y,marker='o',color=c,markersize=10,linestyle='-')
+    
+    ## Store trajectory for animation 
+    xx[timestep]=x;
+    yy[timestep]=y;
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [3][0m, in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m [38;5;66;03m# Compute trajectory[39;00m
+[1;32m      2[0m [38;5;28;01mfor[39;00m timestep [38;5;129;01min[39;00m np[38;5;241m.[39marange([38;5;241m1[39m,nsteps): [38;5;66;03m#Cycle over timesteps[39;00m
+[0;32m----> 3[0m     c[38;5;241m=[39m[38;5;28mnext[39m([43mcolor[49m)                    [38;5;66;03m#Update color for static representation[39;00m
+[1;32m      4[0m     timestep[38;5;241m=[39m[38;5;28mint[39m(timestep)           [38;5;66;03m#Make sure timestep is an integer[39;00m
+[1;32m      6[0m     [38;5;66;03m# Initialise force vectors[39;00m
+
+[0;31mNameError[0m: name 'color' is not defined
+NameError: name 'color' is not defined
+
