@@ -15,4 +15,5 @@ sections:
 - file: Week4_Virial_Binary_mixtures.ipynb
 - file: Week4_Exercise.ipynb
 - file: Week5_Molecular_Dynamics.ipynb
+- file: Week5_Harmonic_Oscillator.ipynb 
 
