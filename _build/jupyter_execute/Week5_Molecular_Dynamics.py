@@ -5,7 +5,7 @@
 # 
 # ## Molecular Dynamics, Newton's Second Law and The Equations of Motion
 # In MD simulations, atoms are treated as point particles evolving in time and space by following the principles of classical mechanics.  
-# Newton's Second Law describes how the velocity of a particle changes when it is subjected to an external force, and in particular - when a force of magnitude \textbf{F} is exerted on a body $i$, it results in acceleration \textbf{a} according to:
+# Newton's Second Law describes how the velocity of a particle changes when it is subjected to an external force, and in particular - when a force of magnitude $\textbf{F}$ is exerted on a body $i$, it results in acceleration $\textbf{a}$ according to:
 # 
 # $$
 # 	\textbf{a}=\frac{\textbf{F}}{m_i}
@@ -14,7 +14,7 @@
 # 
 # where $m_i$ is the mass of the given particle.
 # 
-# At any given time \textit{t} the position of A in Cartesian space is defined by the vector $\textbf{r}(t)=\left[x(t),y(t),z(t)\right]$. 
+# At any given time $\textit{t}$ the position of A in Cartesian space is defined by the vector $\textbf{r}(t)=\left[x(t),y(t),z(t)\right]$. 
 # 
 # The velocity of particle $i$, $\textbf{v}(t)$, is the derivative of the position vector with respect to time, while the acceleration \textbf{a}(t) is the derivative of the velocity with respect to time. 
 # 
@@ -76,7 +76,7 @@
 
 # ## System Setup
 
-# In[2]:
+# In[1]:
 
 
 get_ipython().run_line_magic('matplotlib', 'notebook')
@@ -124,7 +124,7 @@ v0=0.25*(np.random.rand(2,8)-0.5);
 
 # ### Initialise the system
 
-# In[3]:
+# In[2]:
 
 
 get_ipython().run_cell_magic('capture', '', '%matplotlib inline\n\n# Setup figure for plotting the trajectory\n\nfigure, axes = plt.subplots(figsize=(5, 5))\nplt.xticks(fontsize=14)\nplt.yticks(fontsize=14)\naxes.set_xlim([-5,5]);\naxes.set_ylim([-5,5]);\n\n## Compute a trajectory with the Verlet Algorithm\n# Initialise positions at t-dt\nxp=x0;\nyp=y0;\n\n# Position at time t\nx=xp+v0[0,:]*dt;\ny=yp+v0[1,:]*dt;\n\n# Position at time t+dt\nxnew=np.zeros(np.shape(x0));\nynew=np.zeros(np.shape(x0));\n\n# time\ntime=np.arange(0,nsteps);\ncolor=iter(cm.gist_heat(np.linspace(0,1,np.size(time)+1)))\nxx=np.zeros((np.size(time),np.size(x)));xx[0]=x0\nyy=np.zeros((np.size(time),np.size(y)));yy[0]=y0\ntime[0]=0;\ntime[1]=time[0]+dt;\n\n# Initialise Energy Potential and Kinetic\nPOT=np.zeros(np.shape(time));\nKIN=np.zeros(np.shape(time));\n')
@@ -132,7 +132,7 @@ get_ipython().run_cell_magic('capture', '', '%matplotlib inline\n\n# Setup figur
 
 # ### Compute Trajectory
 
-# In[4]:
+# In[3]:
 
 
 # Compute trajectory
@@ -183,13 +183,13 @@ for timestep in np.arange(1,nsteps): #Cycle over timesteps
 
 # ### Visualization of the trajectory
 
-# In[26]:
+# In[4]:
 
 
 get_ipython().run_cell_magic('capture', '', "%matplotlib inline\nfrom matplotlib.animation import FuncAnimation\nfrom matplotlib import animation, rc\nfrom IPython.display import HTML\n\nfig, ax = plt.subplots(figsize=(8, 8))\nline, = ax.plot([]) \nax.set_xlim(-5, 5)\nax.set_ylim(-5, 5)\nline, = ax.plot([], [], lw=2, marker='o', markersize=45, markerfacecolor=(0.8, 1.0, 0.8, 0.5),\n             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle='--',color='red')\n# initialization function: plot the background of each frame\ndef init():\n    line.set_data([], [])\n    return (line,)\n\ndef animate(frame_num):\n    x=xx[frame_num,:]\n    y=yy[frame_num,:]\n    line.set_data((x, y))\n    return (line,)\n\n# call the animator. blit=True means only re-draw the parts that have changed.\nanim = animation.FuncAnimation(fig, animate, init_func=init,\n                               frames=np.size(np.arange(1,nsteps)), interval=50);\n")
 
 
-# In[27]:
+# In[5]:
 
 
 HTML(anim.to_html5_video())

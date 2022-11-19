@@ -124,7 +124,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Week2_Exercise.html">
-   Liquid Vapour Equilibria
+   Week 2 Exercise: Liquid Vapour Equilibria
   </a>
  </li>
  <li class="toctree-l1">
@@ -138,18 +138,48 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Pure_Fluids.html">
+  <a class="reference internal" href="Week3_Canonical.html">
+   The Canonical Ensemble
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week3_Exercise_Harmonic.html">
+   Week 2 Exercise: The harmonic oscillator.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week34_IntermolecularPotentials.html">
+   Intermolecular Potentials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week4_Virial_Equation_of_State.html">
+   The Compressibility Factor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week4_Virial_Pure_Fluids.html">
    Volumetric Behaviour of Pure Fluids from Intermolecular Interactions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Binary_mixtures.html">
+  <a class="reference internal" href="Week4_Virial_Binary_mixtures.html">
    Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="MD_example.html">
+  <a class="reference internal" href="Week4_Exercise.html">
+   Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week5_Molecular_Dynamics.html">
    From Intermolecular Interactions to Dynamics at the Atomistic Scale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week5_Harmonic_Oscillator.html">
+   Week 5 exercise: Simple MD simulations
   </a>
  </li>
 </ul>
@@ -404,107 +434,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">__Canonical</span> <span class="n">Ensemble__</span>
-
-<span class="n">Basic</span> <span class="n">Thermodynamics</span>
-
-<span class="n">In</span> <span class="n">the</span> <span class="n">microcanonical</span> <span class="n">ensemble</span><span class="p">,</span> <span class="n">the</span> <span class="n">entropy</span> <span class="n">S</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">natural</span> <span class="n">function</span> <span class="n">of</span> <span class="n">N</span><span class="p">,</span><span class="n">V</span> <span class="ow">and</span> <span class="n">E</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="n">S</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">E</span><span class="p">)</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span> <span class="n">inverted</span> <span class="n">to</span> <span class="n">give</span> <span class="n">the</span> <span class="n">energy</span> <span class="k">as</span> <span class="n">a</span> <span class="n">function</span> <span class="n">of</span> <span class="n">N</span><span class="p">,</span><span class="n">V</span><span class="p">,</span> <span class="ow">and</span> <span class="n">S</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="n">E</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">S</span><span class="p">)</span><span class="o">.</span> <span class="n">Consider</span> <span class="n">using</span> <span class="n">Legendre</span> <span class="n">transformation</span> <span class="n">to</span> <span class="n">change</span> <span class="kn">from</span> <span class="nn">S</span> <span class="n">to</span> <span class="n">T</span> <span class="n">using</span> <span class="n">the</span> <span class="n">fact</span> <span class="n">that</span>
-
-<span class="n">displaymath135</span>
-
-<span class="n">The</span> <span class="n">Legendre</span> <span class="n">transform</span>  <span class="n">tex2html_wrap_inline606</span> <span class="n">of</span> <span class="n">E</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">S</span><span class="p">)</span> <span class="ow">is</span>
-
-<span class="n">eqnarray140</span>
-
-<span class="n">The</span> <span class="n">quantity</span>  <span class="n">tex2html_wrap_inline610</span> <span class="ow">is</span> <span class="n">called</span> <span class="n">the</span> <span class="n">Hemlholtz</span> <span class="n">free</span> <span class="n">energy</span> <span class="ow">and</span> <span class="ow">is</span> <span class="n">given</span> <span class="n">the</span> <span class="n">symbol</span> <span class="n">A</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">T</span><span class="p">)</span><span class="o">.</span> <span class="n">It</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">fundamental</span> <span class="n">energy</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">canonical</span> <span class="n">ensemble</span><span class="o">.</span>
-
-<span class="n">The</span> <span class="n">differential</span> <span class="n">of</span> <span class="n">A</span> <span class="ow">is</span>
-
-<span class="n">displaymath146</span>
-
-<span class="n">However</span><span class="p">,</span> <span class="kn">from</span> <span class="nn">A</span><span class="o">=</span><span class="n">E</span><span class="o">-</span><span class="n">TS</span><span class="p">,</span> <span class="n">we</span> <span class="n">have</span>
-
-<span class="n">displaymath154</span>
-
-<span class="n">From</span> <span class="n">the</span> <span class="n">first</span> <span class="n">law</span><span class="p">,</span> <span class="n">dE</span> <span class="ow">is</span> <span class="n">given</span> <span class="n">by</span>
-
-<span class="n">displaymath156</span>
-
-<span class="n">Thus</span><span class="p">,</span>
-
-<span class="n">displaymath158</span>
-
-<span class="n">Comparing</span> <span class="n">the</span> <span class="n">two</span> <span class="n">expressions</span><span class="p">,</span> <span class="n">we</span> <span class="n">see</span> <span class="n">that</span> <span class="n">the</span> <span class="n">thermodynamic</span> <span class="n">relations</span> <span class="n">are</span>
-
-<span class="n">eqnarray160</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">__Canonical</span> <span class="n">Ensemble__</span>
-                <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
-<p>The partition function</p>
-<p>Consider two systems (1 and 2) in thermal contact such that</p>
-<p>eqnarray169</p>
-<p>and the total Hamiltonian is just  tex2html_wrap_inline620</p>
-<p>Since system 2 is infinitely large compared to system 1, it acts as an infinite heat reservoir that keeps system 1 at a constant temperature T without gaining or losing an appreciable amount of heat, itself. Thus, system 1 is maintained at canonical conditions, N,V,T.</p>
-<p>The full partition function  tex2html_wrap_inline626 for the combined system is the microcanonical partition function</p>
-<p>displaymath173</p>
-<p>Now, we define the distribution function,  tex2html_wrap_inline628 of the phase space variables of system 1 as</p>
-<p>displaymath175</p>
-<p>Taking the natural log of both sides, we have</p>
-<p>displaymath177</p>
-<p>Since  tex2html_wrap_inline630 , it follows that  tex2html_wrap_inline632 , and we may expand the above expression about  tex2html_wrap_inline634 . To linear order, the expression becomes</p>
-<p>eqnarray179</p>
-<p>where, in the last line, the differentiation with respect to  tex2html_wrap_inline636 is replaced by differentiation with respect to E. Note that</p>
-<p>eqnarray184</p>
-<p>where T is the common temperature of the two systems. Using these two facts, we obtain</p>
-<p>eqnarray191</p>
-<p>Thus, the distribution function of the canonical ensemble is</p>
-<p>displaymath197</p>
-<p>The prefactor  tex2html_wrap_inline642 is an irrelevant constant that can be disregarded as it will not affect any physical properties.</p>
-<p>The normalization of the distribution function is the integral:</p>
-<p>displaymath200</p>
-<p>where Q(N,V,T) is the canonical partition function. It is convenient to define an inverse temperature  tex2html_wrap_inline646 . Q(N,V,T) is the canonical partition function. As in the microcanonical case, we add in the ad hoc quantum corrections to the classical result to give</p>
-<p>displaymath204</p>
-<p>The thermodynamic relations are thus,</p>
-<p>Hemlholtz free energy:
-displaymath210</p>
-<p>To see that this must be the definition of A(N,V,T), recall the definition of A:</p>
-<p>displaymath213</p>
-<p>But we saw that</p>
-<p>displaymath215</p>
-<p>Substituting this in gives</p>
-<p>displaymath219</p>
-<p>or, noting that</p>
-<p>displaymath222</p>
-<p>it follows that</p>
-<p>displaymath229</p>
-<p>This is a simple differential equation that can be solved for A. We will show that the solution is</p>
-<p>displaymath232</p>
-<p>Note that</p>
-<p>displaymath235</p>
-<p>Substituting in gives, therefore</p>
-<p>displaymath241</p>
-<p>so this form of A satisfies the differential equation.</p>
-<p>Other thermodynamics follow:</p>
-<p>Average energy:
-eqnarray244</p>
-<p>Pressure:
-displaymath250</p>
-<p>Entropy:
-eqnarray257</p>
-<p>Heat capacity at constant volume:
-displaymath269</p>
-
+  
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
