@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Week 2 Exercise: The harmonic oscillator. &#8212; Molecular Thermodynamics Virtual Notebook</title>
+    <title>&lt;no title&gt; &#8212; Molecular Thermodynamics Virtual Notebook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Intermolecular Potentials" href="Week34_IntermolecularPotentials.html" />
-    <link rel="prev" title="The Canonical Ensemble" href="Week3_Canonical.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -110,7 +106,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Week1_Notes_Thermodynamics.html">
    Thermodynamics Revision, with an eye to Statistical Mechanics
@@ -146,8 +142,8 @@ const thebe_selector_output = ".output, .cell_output"
    The Canonical Ensemble
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week3_Exercise_Harmonic.html">
    Week 2 Exercise: The harmonic oscillator.
   </a>
  </li>
@@ -245,7 +241,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Week3_Exercise_Harmonic.ipynb"
+        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Untitled3.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -305,7 +301,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek3_Exercise_Harmonic.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FUntitled3.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -322,7 +318,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week3_Exercise_Harmonic.ipynb"
+        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Untitled3.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -350,7 +346,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Week3_Exercise_Harmonic.ipynb"
+        <a href="_sources/Untitled3.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -387,23 +383,50 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Week 2 Exercise: The harmonic oscillator.</h1>
+                <h1><no title></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -411,100 +434,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="week-2-exercise-the-harmonic-oscillator">
-<h1>Week 2 Exercise: The harmonic oscillator.<a class="headerlink" href="#week-2-exercise-the-harmonic-oscillator" title="Permalink to this headline">#</a></h1>
-<p>Given a 1D Harmonic oscillator with characteristic frequency <span class="math notranslate nohighlight">\(\omega=5\)</span>Hz, mass of 20, starting at the initial position of 1, with an initial momentum of 1.</p>
-<ul class="simple">
-<li><p>Can You define the coordinates of the Phase space of the Harmonic oscillator?</p></li>
-<li><p>How would you represent the motion of the Harmonic oscillator in Phase Space?</p></li>
-<li><p>What is the most probable state for the Harmonic oscillator?</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1">## Parameters</span>
-<span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="c1">#mass</span>
-<span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="c1"># Harmonic Constant</span>
-<span class="n">v0</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> 
-<span class="n">x0</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> 
-
-<span class="n">om</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
-
-<span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-<span class="n">x</span><span class="o">=</span><span class="n">x0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">om</span><span class="p">,</span><span class="n">t</span><span class="p">))</span><span class="o">+</span><span class="n">v0</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">om</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.          0.1010101   0.2020202   0.3030303   0.4040404   0.50505051
-  0.60606061  0.70707071  0.80808081  0.90909091  1.01010101  1.11111111
-  1.21212121  1.31313131  1.41414141  1.51515152  1.61616162  1.71717172
-  1.81818182  1.91919192  2.02020202  2.12121212  2.22222222  2.32323232
-  2.42424242  2.52525253  2.62626263  2.72727273  2.82828283  2.92929293
-  3.03030303  3.13131313  3.23232323  3.33333333  3.43434343  3.53535354
-  3.63636364  3.73737374  3.83838384  3.93939394  4.04040404  4.14141414
-  4.24242424  4.34343434  4.44444444  4.54545455  4.64646465  4.74747475
-  4.84848485  4.94949495  5.05050505  5.15151515  5.25252525  5.35353535
-  5.45454545  5.55555556  5.65656566  5.75757576  5.85858586  5.95959596
-  6.06060606  6.16161616  6.26262626  6.36363636  6.46464646  6.56565657
-  6.66666667  6.76767677  6.86868687  6.96969697  7.07070707  7.17171717
-  7.27272727  7.37373737  7.47474747  7.57575758  7.67676768  7.77777778
-  7.87878788  7.97979798  8.08080808  8.18181818  8.28282828  8.38383838
-  8.48484848  8.58585859  8.68686869  8.78787879  8.88888889  8.98989899
-  9.09090909  9.19191919  9.29292929  9.39393939  9.49494949  9.5959596
-  9.6969697   9.7979798   9.8989899  10.        ]
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">40</span><span class="n">dbc28268a5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> 
-<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">x</span><span class="o">=</span><span class="n">x0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">om</span><span class="p">,</span><span class="n">t</span><span class="p">))</span><span class="o">+</span><span class="n">v0</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">om</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> 
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">prod</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">/Applications/anaconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">prod</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3050</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">3051</span><span class="s2">     return _wrapreduction(a, np.multiply, &#39;prod&#39;, axis, dtype, out,</span>
-<span class="ne">-&gt; </span><span class="mi">3052</span><span class="s2">                           keepdims=keepdims, initial=initial, where=where)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3053</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3054</span><span class="s2"> </span>
-
-<span class="nn">/Applications/anaconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">_wrapreduction</span><span class="nt">(obj, ufunc, method, axis, dtype, out, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="s2">                 return reduction(axis=axis, dtype=dtype, out=out, **passkwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="s2">             else:</span>
-<span class="ne">---&gt; </span><span class="mi">84</span><span class="s2">                 return reduction(axis=axis, out=out, **passkwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span><span class="s2">     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)</span>
-
-<span class="nn">/Applications/anaconda3/lib/python3.7/site-packages/numpy/core/_methods.py</span> in <span class="ni">_prod</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span><span class="s2"> def _prod(a, axis=None, dtype=None, out=None, keepdims=False,</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span><span class="s2">           initial=_NoValue, where=True):</span>
-<span class="ne">---&gt; </span><span class="mi">52</span><span class="s2">     return umr_prod(a, axis, dtype, out, keepdims, initial, where)</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span><span class="s2"> def _any(a, axis=None, dtype=None, out=None, keepdims=False, *, where=True):</span>
-
-<span class="ne">TypeError</span>: only integer scalar arrays can be converted to a scalar index
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-
+  
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -532,20 +462,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Week3_Canonical.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The Canonical Ensemble</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="Week34_IntermolecularPotentials.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Intermolecular Potentials</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

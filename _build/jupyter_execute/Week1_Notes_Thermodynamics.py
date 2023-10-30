@@ -54,9 +54,10 @@
 # The extensive function of state, $S(U, X)$, is the entropy of the system. Hence, the entropy change for a reversible adiabatic process is null. Note also that entropy is a function of state. That means it is defined for those states characterized by $U$ and $\mathbf{X}$.
 # 
 # ### Definition of Temperature: 
-# Since $S$ is a monotonically increasing function of $U$, $\rightarrow$ $\left(\frac{\partial{S}}{\partial{U}}\right)_X\geq{0}$. This derivative defines the absolute temperature $T$: 
+# Since $S$ is a monotonically increasing function of $U$, $\rightarrow$ $\left(\frac{\partial{S}}{\partial{U}}\right)_X>{0}$, or $\left(\frac{\partial{U}}{\partial{S}}\right)_X\geq{0}$. This derivative defines the absolute temperature $T$: 
+# 
 # $$
-# \left(\frac{\partial{S}}{\partial{U}}\right)_X\equiv{T}
+# \left(\frac{\partial{U}}{\partial{S}}\right)_X\equiv{T}
 # $$
 
 # ### Mathematical formulation of the Second Law: the first step towards deriving equilibrium criteria for processes at constant Temperature  
@@ -82,7 +83,7 @@
 # and 
 # 
 # $$
-# \left(\frac{\partial{S}}{\partial{X}}\right)_U=-\left(\frac{\partial{S}}{\partial{U}}\right)_X
+# \left(\frac{\partial{S}}{\partial{X}}\right)_U=-\left(\frac{\partial{S}}{\partial{U}}\right)_Xf
 # $$
 # 
 # By introducing the definition of absolute temperature gives: 
@@ -299,9 +300,3 @@
 # $$
 # DOF=\nu(m+1)-(\nu-1)(m+2)=m+2-\nu
 # $$
-
-# In[ ]:
-
-
-
-
