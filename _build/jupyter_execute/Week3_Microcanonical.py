@@ -46,7 +46,6 @@
 # 
 # and
 # 
-# 
 # $$
 # k\left(\frac{\partial{\ln{\Omega}}}{\partial{U}}\right)_{n_i,V}=\left(\frac{\partial{S}}{\partial{U}}\right)_{n_i,V}=\frac{1}{T}
 # $$

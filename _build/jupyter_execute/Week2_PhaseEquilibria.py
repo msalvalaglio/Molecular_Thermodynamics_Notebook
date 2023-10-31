@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation 
+# # Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation 
 # 
 # To express the partial pressure of component $i$ in a vapour phase in equilibrium with a multicomponent liquid phase we shall begin by expressing the fundamental condition that has to be fulfilled by all species at thermodynamic equilibrium at constant $T$ and $P$: 
 # 

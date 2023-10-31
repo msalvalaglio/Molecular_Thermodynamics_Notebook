@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Thermodynamics Revision, with an eye to Statistical Mechanics 
+# # Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics 
 # 
 # ## Recommended reading  
 # - Chapters 1, 2 Prausnitz 
