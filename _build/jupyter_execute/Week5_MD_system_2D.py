@@ -8,6 +8,11 @@
 # In[1]:
 
 
+get_ipython().run_line_magic('matplotlib', 'inline')
+## Import libraries to plot and do math
+import matplotlib.pyplot as plt 
+import numpy as np
+
 ## Useful functions
 verlet=lambda r, r_past, force, mass, dt:  2*r-r_past+(dt**2)*force/mass
 forcebox=lambda x, boxx,boxk: np.greater(np.abs(x),boxx)*(-boxk)*x
@@ -45,11 +50,10 @@ M_gas_diatomic=np.array([[0, 1, 0, 0, 0, 0, 0, 0],
 
 
 
-
 ######## "Force Field" Parameters #######
-HS=1; # Repulsive soft potential 
+HS=1;   # Repulsive soft potential 
 k=25.0; # Harmonic oscillator constant
-req=1; # Harmonic oscillator equilibrium distance
+req=1;  # Harmonic oscillator equilibrium distance
 KAPPA=k*M_gas_diatomic
 epsilon=0;
 
@@ -59,11 +63,11 @@ def forceij(xi,xj,yi,yj,HS,KAPPA,req,epsilon):
         r=np.sqrt((xi-xj)**2+(yi-yj)**2); #Distance      
                 
         #Ideal Gas
-        dVdr=0 
+        #dVdr=0 
         #Repulsive Wall 
         # dVdr=-12*HS/(np.power(r,13))
         #Repulsive Wall + Harmonic potential
-        #... ... ...
+        dVdr=-12*HS/(np.power(r,13))+KAPPA*(r-req)
         #Lennard Jones Potential
         #... .... .... ... ....         
         cx=-dVdr*((xi-xj))/r;  #Pairwise component of the force in x
@@ -79,13 +83,18 @@ def print_progress(iteration, total, bar_length=50):
     print(f'\r|{arrow}{spaces}| {int(progress * 100)}% | ', end='', flush=True)
 
 
-# In[ ]:
+# In[2]:
 
 
 ## Set the initial Conditions
 # Random initial positions
 x0=(np.random.rand(N)*2*boxx)-(boxx);     #Initial position in x
 y0=(np.random.rand(N)*2*boxy)-(boxy);     #Initial position in y 
+
+## Initialise molecules in a reasonable initial configuration
+for i in np.arange(0,N,2): 
+    x0[i+1]=x0[i]+req/np.sqrt(2)
+    y0[i+1]=y0[i]+req/np.sqrt(2)
 
 # Random initial velocities
 v0=(np.random.rand(2,N)-0.5); # Initial random velocitites
@@ -103,7 +112,7 @@ time=np.zeros(nsteps)
 
 # ### Initialise the system
 
-# In[ ]:
+# In[3]:
 
 
 ## Compute a trajectory with the Verlet Algorithm
@@ -131,7 +140,7 @@ yy=np.zeros((np.size(time),N));yy[0]=y0
 
 # ### Compute Trajectory
 
-# In[ ]:
+# In[4]:
 
 
 ## |------------------|
@@ -150,7 +159,7 @@ for timestep in np.arange(1,nsteps): #Cycle over timesteps
         fy[i]+=forcebox(y[i],boxy,boxk)
         for j in np.arange(i+1,N):
             
-            [cx,cy]=forceij(x[i],x[j],y[i],y[j],HS,KAPPA,req,epsilon)
+            [cx,cy]=forceij(x[i],x[j],y[i],y[j],HS,KAPPA[i,j],req,epsilon)
             
             fx[i]=fx[i]+cx;      #update total x-component of the force on particle i
             fx[j]=fx[j]-cx;      #update total x-component of the force on particle j 
@@ -173,19 +182,13 @@ for timestep in np.arange(1,nsteps): #Cycle over timesteps
 
 # ### Visualization of the trajectory
 
-# In[ ]:
+# In[5]:
 
 
 get_ipython().run_cell_magic('capture', '', "## Display the trajectory\n%matplotlib inline\nfrom matplotlib.animation import FuncAnimation\nfrom matplotlib import animation, rc\nfrom IPython.display import HTML\n\nfig, ax = plt.subplots(figsize=(10, 10))\nline, = ax.plot([]) \nax.set_xlim(-boxx, boxx)\nax.set_ylim(-boxy, boxy)\nline, = ax.plot([], [], lw=2, marker='o', markersize=40, markerfacecolor=(0.8, 1.0, 0.8, 0.5),\n             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle=' ',color='red')\n# initialization function: plot the background of each frame\ndef init():\n    line.set_data([], [])\n    return (line,)\n\ndef animate(frame_num):\n    x=xx[frame_num,:]\n    y=yy[frame_num,:]\n    line.set_data((x, y))\n    return (line,)\n\n# call the animator. blit=True means only re-draw the parts that have changed.\nanim = animation.FuncAnimation(fig, animate, init_func=init,\n                               frames=np.arange(1,int(nsteps),50), interval=50);\n")
 
 
-# In[ ]:
-
-
-HTML(anim.to_jshtml())
-
-
-# In[ ]:
+# In[6]:
 
 
 HTML(anim.to_jshtml())
