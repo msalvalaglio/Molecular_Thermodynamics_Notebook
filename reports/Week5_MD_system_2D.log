@@ -17,29 +17,92 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-HTML(anim.to_html5_video())
+## Useful functions
+verlet=lambda r, r_past, force, mass, dt:  2*r-r_past+(dt**2)*force/mass
+forcebox=lambda x, boxx,boxk: np.greater(np.abs(x),boxx)*(-boxk)*x
+
+
+#Define the system's box
+boxx=10 #x dimension of the simulation' box
+boxy=10 #y dimension of the simulation' box
+boxk=1  #k constant for harmonic repulsive force
+
+#Number of particles
+N=8
+
+#mass of the particles
+m=np.ones(N)
+
+# Topology
+M=np.array([[0, 1, 0, 0, 0, 0, 0, 1],
+           [1, 0, 1, 0, 0, 0, 0, 0],
+           [0, 1, 0, 1, 0, 0, 0, 0],
+           [0, 0, 1, 0, 1, 0, 0, 0],
+           [0, 0, 0, 1, 0, 1, 0, 0],
+           [0, 0, 0, 0, 1, 0, 1, 0],
+           [0, 0, 0, 0, 0, 1, 0, 1],
+           [1, 0, 0, 0, 0, 0, 1, 0]]); 
+
+M_gas_diatomic=np.array([[0, 1, 0, 0, 0, 0, 0, 0],
+           [1, 0, 0, 0, 0, 0, 0, 0],
+           [0, 0, 0, 1, 0, 0, 0, 0],
+           [0, 0, 1, 0, 0, 0, 0, 0],
+           [0, 0, 0, 0, 0, 1, 0, 0],
+           [0, 0, 0, 0, 1, 0, 0, 0],
+           [0, 0, 0, 0, 0, 0, 0, 1],
+           [0, 0, 0, 0, 0, 0, 1, 0]]); 
+
+
+
+
+######## "Force Field" Parameters #######
+HS=1; # Repulsive soft potential 
+k=25.0; # Harmonic oscillator constant
+req=1; # Harmonic oscillator equilibrium distance
+KAPPA=k*M_gas_diatomic
+epsilon=0;
+
+
+##Use this function to implement different potentials
+def forceij(xi,xj,yi,yj,HS,KAPPA,req,epsilon): 
+        r=np.sqrt((xi-xj)**2+(yi-yj)**2); #Distance      
+                
+        #Ideal Gas
+        dVdr=0 
+        #Repulsive Wall 
+        # dVdr=-12*HS/(np.power(r,13))
+        #Repulsive Wall + Harmonic potential
+        #... ... ...
+        #Lennard Jones Potential
+        #... .... .... ... ....         
+        cx=-dVdr*((xi-xj))/r;  #Pairwise component of the force in x
+        cy=-dVdr*((yi-yj))/r;  #Pairwise component of the force in y
+             
+        return [cx,cy]
+
+
+def print_progress(iteration, total, bar_length=50):
+    progress = (iteration / total)
+    arrow = '*' * int(round(bar_length * progress))
+    spaces = ' ' * (bar_length - len(arrow))
+    print(f'\r|{arrow}{spaces}| {int(progress * 100)}% | ', end='', flush=True)
+
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mRuntimeError[0m                              Traceback (most recent call last)
-Input [0;32mIn [5][0m, in [0;36m<cell line: 1>[0;34m()[0m
-[0;32m----> 1[0m HTML([43manim[49m[38;5;241;43m.[39;49m[43mto_html5_video[49m[43m([49m[43m)[49m)
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<cell line: 15>[0;34m()[0m
+[1;32m     12[0m N[38;5;241m=[39m[38;5;241m8[39m
+[1;32m     14[0m [38;5;66;03m#mass of the particles[39;00m
+[0;32m---> 15[0m m[38;5;241m=[39m[43mnp[49m[38;5;241m.[39mones(N)
+[1;32m     17[0m [38;5;66;03m# Topology[39;00m
+[1;32m     18[0m M[38;5;241m=[39mnp[38;5;241m.[39marray([[[38;5;241m0[39m, [38;5;241m1[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m1[39m],
+[1;32m     19[0m            [[38;5;241m1[39m, [38;5;241m0[39m, [38;5;241m1[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m],
+[1;32m     20[0m            [[38;5;241m0[39m, [38;5;241m1[39m, [38;5;241m0[39m, [38;5;241m1[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m],
+[0;32m   (...)[0m
+[1;32m     24[0m            [[38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m1[39m, [38;5;241m0[39m, [38;5;241m1[39m],
+[1;32m     25[0m            [[38;5;241m1[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m1[39m, [38;5;241m0[39m]]); 
 
-File [0;32m/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/matplotlib/animation.py:1264[0m, in [0;36mAnimation.to_html5_video[0;34m(self, embed_limit)[0m
-[1;32m   1261[0m path [38;5;241m=[39m Path(tmpdir, [38;5;124m"[39m[38;5;124mtemp.m4v[39m[38;5;124m"[39m)
-[1;32m   1262[0m [38;5;66;03m# We create a writer manually so that we can get the[39;00m
-[1;32m   1263[0m [38;5;66;03m# appropriate size for the tag[39;00m
-[0;32m-> 1264[0m Writer [38;5;241m=[39m [43mwriters[49m[43m[[49m[43mmpl[49m[38;5;241;43m.[39;49m[43mrcParams[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43manimation.writer[39;49m[38;5;124;43m'[39;49m[43m][49m[43m][49m
-[1;32m   1265[0m writer [38;5;241m=[39m Writer(codec[38;5;241m=[39m[38;5;124m'[39m[38;5;124mh264[39m[38;5;124m'[39m,
-[1;32m   1266[0m                 bitrate[38;5;241m=[39mmpl[38;5;241m.[39mrcParams[[38;5;124m'[39m[38;5;124manimation.bitrate[39m[38;5;124m'[39m],
-[1;32m   1267[0m                 fps[38;5;241m=[39m[38;5;241m1000.[39m [38;5;241m/[39m [38;5;28mself[39m[38;5;241m.[39m_interval)
-[1;32m   1268[0m [38;5;28mself[39m[38;5;241m.[39msave([38;5;28mstr[39m(path), writer[38;5;241m=[39mwriter)
-
-File [0;32m/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/matplotlib/animation.py:151[0m, in [0;36mMovieWriterRegistry.__getitem__[0;34m(self, name)[0m
-[1;32m    149[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mis_available(name):
-[1;32m    150[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_registered[name]
-[0;32m--> 151[0m [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mRequested MovieWriter ([39m[38;5;132;01m{[39;00mname[38;5;132;01m}[39;00m[38;5;124m) not available[39m[38;5;124m"[39m)
-
-[0;31mRuntimeError[0m: Requested MovieWriter (ffmpeg) not available
-RuntimeError: Requested MovieWriter (ffmpeg) not available
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
 
