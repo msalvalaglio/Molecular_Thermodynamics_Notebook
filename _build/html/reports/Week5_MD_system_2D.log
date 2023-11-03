@@ -22,7 +22,7 @@ HTML(anim.to_html5_video())
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mRuntimeError[0m                              Traceback (most recent call last)
-Input [0;32mIn [7][0m, in [0;36m<cell line: 1>[0;34m()[0m
+Input [0;32mIn [5][0m, in [0;36m<cell line: 1>[0;34m()[0m
 [0;32m----> 1[0m HTML([43manim[49m[38;5;241;43m.[39;49m[43mto_html5_video[49m[43m([49m[43m)[49m)
 
 File [0;32m/Applications/anaconda3/envs/plumed-masterclass-2022/lib/python3.10/site-packages/matplotlib/animation.py:1264[0m, in [0;36mAnimation.to_html5_video[0;34m(self, embed_limit)[0m

@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # MD in a system of pseudo-molecules in 2D
+# # MD in a system LJ particles in 3D
 # 
 # ## System Setup
 
-# In[8]:
+# In[30]:
 
 
 get_ipython().run_line_magic('matplotlib', 'notebook')
@@ -17,6 +17,7 @@ import numpy as np
 # positions
 x0=np.array([1, 2, 3, 4, 5, 6, 7, 8]);       
 y0=np.array([1, 2, 3, 4, 5, 6, 7, 8]);
+z0=np.array([1, 2, 3, 4, 5, 6, 7, 8]);
 
 # timestep
 dt=0.01;
@@ -56,26 +57,27 @@ M_gas_diatomic=np.array([[0, 1, 0, 0, 0, 0, 0, 0],
 k=k*M_gas_diatomic;
 
 # Random initial velocities
-v0=0.1*(np.random.rand(2,8)-0.5);
+v0=0.1*(np.random.rand(3,8)-0.5);
 
 
 boxx=10
 boxy=10
+boxz=10
 
 
 # ## Integration and Visualization
 
 # ### Initialise the system
 
-# In[9]:
+# In[31]:
 
 
-get_ipython().run_cell_magic('capture', '', '%matplotlib inline\n\n# Setup figure for plotting the trajectory\n\nfigure, axes = plt.subplots(figsize=(5, 5))\nplt.xticks(fontsize=14)\nplt.yticks(fontsize=14)\naxes.set_xlim([-5,5]);\naxes.set_ylim([-5,5]);\n\n## Compute a trajectory with the Verlet Algorithm\n# Initialise positions at t-dt\nxp=x0;\nyp=y0;\n\n# Position at time t\nx=xp+v0[0,:]*dt;\ny=yp+v0[1,:]*dt;\n\n# Position at time t+dt\nxnew=np.zeros(np.shape(x0));\nynew=np.zeros(np.shape(x0));\n\n# time\ntime=np.arange(0,nsteps);\ncolor=iter(cm.gist_heat(np.linspace(0,1,np.size(time)+1)))\nxx=np.zeros((np.size(time),np.size(x)));xx[0]=x0\nyy=np.zeros((np.size(time),np.size(y)));yy[0]=y0\ntime[0]=0;\ntime[1]=time[0]+dt;\n\n# Initialise Energy Potential and Kinetic\nPOT=np.zeros(np.shape(time));\nKIN=np.zeros(np.shape(time));\n')
+get_ipython().run_cell_magic('capture', '', '%matplotlib inline\n\n# Setup figure for plotting the trajectory\n\nfigure, axes = plt.subplots(figsize=(5, 5))\nplt.xticks(fontsize=14)\nplt.yticks(fontsize=14)\naxes.set_xlim([-5,5]);\naxes.set_ylim([-5,5]);\n\n## Compute a trajectory with the Verlet Algorithm\n# Initialise positions at t-dt\nxp=x0;\nyp=y0;\nzp=y0;\n\n# Position at time t\nx=xp+v0[0,:]*dt;\ny=yp+v0[1,:]*dt;\nz=zp+v0[1,:]*dt;\n\n# Position at time t+dt\nxnew=np.zeros(np.shape(x0));\nynew=np.zeros(np.shape(x0));\nznew=np.zeros(np.shape(x0));\n\n# time\ntime=np.arange(0,nsteps);\ncolor=iter(cm.gist_heat(np.linspace(0,1,np.size(time)+1)))\nxx=np.zeros((np.size(time),np.size(x)));xx[0]=x0\nyy=np.zeros((np.size(time),np.size(y)));yy[0]=y0\nzz=np.zeros((np.size(time),np.size(z)));zz[0]=z0\ntime[0]=0;\ntime[1]=time[0]+dt;\n\n# Initialise Energy Potential and Kinetic\nPOT=np.zeros(np.shape(time));\nKIN=np.zeros(np.shape(time));\n')
 
 
 # ### Compute Trajectory
 
-# In[10]:
+# In[32]:
 
 
 # Compute trajectory
@@ -88,38 +90,43 @@ for timestep in np.arange(1,nsteps): #Cycle over timesteps
     fy=np.zeros(np.size(x0)); 
     
     # Compute distances and the interparticle forces for every pair of particles
-    for i in np.arange(0,np.size(x0)): 
+    for i in np.arange(0,np.size(x0)):
         if np.abs(x[i])>=boxx:
             fx[i]=fx[i]-HS*x[i]
-        
         if np.abs(y[i])>=boxy:
             fy[i]=fy[i]-HS*y[i]
+
         for j in np.arange(i+1,np.size(x0)):
             
-            r=np.sqrt((x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j])); #Distance    
-               
-            cx=-(k[i,j]*(r-req)-2*HS/(np.power(r,3)))*((x[i]-x[j]))/r;  #Pairwise force in x
-            cy=-(k[i,j]*(r-req)-2*HS/(np.power(r,3)))*((y[i]-y[j]))/r;  #Pairwise force in y
-                
+            r=np.sqrt((x[i]-x[j])**2+(y[i]-y[j])**2+(z[i]-z[j])**2); #Distance    
+
+            dVdr=(k[i,j]*(r-req)-2*HS/(np.power(r,3)))
+
+            cx=-dVdr*((x[i]-x[j]))/r;  #Pairwise force in x
+            cy=-dVdr*((y[i]-y[j]))/r;  #Pairwise force in y
+
             fx[i]=fx[i]+cx;      #update total x-component of the force on particle i
             fx[j]=fx[j]-cx;      #update total x-component of the force on particle j 
 
             fy[i]=fy[i]+cy;      #update total y-component of the force on particle i
             fy[j]=fy[j]-cy;      #update total y-component of the force on particle j 
-           
+            
+             
        
     #Verlet integration
     for i in np.arange(0,np.size(x0)):
-        xnew[i]=2*x[i]-xp[i]+(dt*dt)*fx[i]/m[i]; # new position (x-component)
-        ynew[i]=2*y[i]-yp[i]+(dt*dt)*fy[i]/m[i]; # new position (y-component)
+        xnew[i]=2*x[i]-xp[i]+(dt**2)*fx[i]/m[i]; # new position (x-component)
+        ynew[i]=2*y[i]-yp[i]+(dt**2)*fy[i]/m[i]; # new position (y-component)
+        
     
     # Compute velocity     
     vx=(xnew-xp)/2/dt;
     vy=(ynew-yp)/2/dt;
-    v=np.sqrt(np.power(vx,2)+np.power(vy,2)); 
+    vz=(znew-zp)/2/dt;
+    v=np.sqrt(np.power(vx,2)+np.power(vy,2)+np.power(vz,2)); 
     
     # Reassign positions
-    xp=x; yp=y; x=xnew-1+1; y=ynew-1+1;
+    xp=x; yp=y; zp=z; x=xnew-1+1; y=ynew-1+1; z=znew-1+1;
     
     # Static representation of the trajectory
     line, = axes.plot(x,y,marker='o',color=c,markersize=10,linestyle='-')
@@ -127,24 +134,19 @@ for timestep in np.arange(1,nsteps): #Cycle over timesteps
     ## Store trajectory for animation 
     xx[timestep]=x;
     yy[timestep]=y;
+    zz[timestep]=y;
 
 
 # ### Visualization of the trajectory
 
-# In[13]:
+# In[37]:
 
 
 get_ipython().run_cell_magic('capture', '', "%matplotlib inline\nfrom matplotlib.animation import FuncAnimation\nfrom matplotlib import animation, rc\nfrom IPython.display import HTML\n\nfig, ax = plt.subplots(figsize=(8, 8))\nline, = ax.plot([]) \nax.set_xlim(-boxx, boxy)\nax.set_ylim(-boxx, boxy)\nline, = ax.plot([], [], lw=2, marker='o', markersize=25, markerfacecolor=(0.8, 1.0, 0.8, 0.5),\n             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle=' ',color='red')\n# initialization function: plot the background of each frame\ndef init():\n    line.set_data([], [])\n    return (line,)\n\ndef animate(frame_num):\n    x=xx[frame_num,:]\n    y=yy[frame_num,:]\n    line.set_data((x, y))\n    return (line,)\n\n# call the animator. blit=True means only re-draw the parts that have changed.\nanim = animation.FuncAnimation(fig, animate, init_func=init,\n                               frames=np.arange(1,int(nsteps),5), interval=50);\n")
 
 
-# In[14]:
+# In[38]:
 
 
 HTML(anim.to_html5_video())
-
-
-# In[ ]:
-
-
-
 

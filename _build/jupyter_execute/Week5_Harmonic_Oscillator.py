@@ -3,20 +3,27 @@
 
 # # Week 5 exercise: Simple MD simulations
 # 
+# In this session we will implememnt simple MD simulations of increasing complexity.
+# 
 # - Implement a numerical simulation of the dynamics of an Harmonic oscillator, using the verlet algorithm to integrate the equations of motion. 
 # 
-# - Represent the dynamics of the harmonic oscillator in phase space. 
+# - Implement a dynamic simulation of an ideal gas in 2D. 
 # 
-# - Is the total energy conserved? 
+# - Introduce an interaction $\Gamma_{ii}(r)=r^{-2}$ potential to model a system of _soft_ spheres, in a box defined by harminic repulsive walls. 
 # 
-# - What happens by changing the timestep? 
+# - Introduce a Lennard Jones interaction potential. 
+# 
+# - Observe what happens by performing simulations at different values of $\epsilon$
+# 
+# - Introduce harmonic potentials to model diatomic molecules. 
+# 
 # 
 # 
 
 # # 1D Harmonic Oscillator
 # ## System Setup
 
-# In[123]:
+# In[34]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -92,7 +99,7 @@ KIN=np.zeros(nsteps)
 # 
 # ```verlet=lambda r, r_past, force, mass, dt:  2*r-r_past+(dt**2)*force/mass```
 
-# In[124]:
+# In[35]:
 
 
 ## Useful functions
@@ -120,7 +127,7 @@ for i in np.arange(0,2):
 # 
 # Propagate the dynamics with the Verlet algorithm :
 
-# In[125]:
+# In[36]:
 
 
 # Compute trajectory
@@ -143,7 +150,7 @@ plt.legend();
 plt.xlabel('time');
 
 
-# In[126]:
+# In[37]:
 
 
 # Conservation of energy
@@ -155,7 +162,7 @@ plt.legend()
 plt.xlabel('time');
 
 
-# In[130]:
+# In[38]:
 
 
 # Motion in phase space
@@ -164,48 +171,71 @@ plt.xlabel('position');
 plt.ylabel('velocity');
 
 
-# In[127]:
+# In[56]:
 
 
-# Visualize trajectory
-get_ipython().run_line_magic('%capture', '')
-get_ipython().run_line_magic('matplotlib', 'inline')
-from matplotlib import animation, rc
-from IPython.display import HTML
-# Animate the results
-def init():
-    line.set_data([], [])
-    return (line,)
-
-fig, ax = plt.subplots(figsize=(8, 5))
-
-#ax.set_xlim(( 0, total_time))
-ax.set_xlim(-(np.max(r)/2+0.1*np.max(r)), np.max(r)/2+0.1*np.max(r))
-line, = ax.plot([], [], lw=2, marker='o', markersize=45, markerfacecolor=(0.8, 1.0, 0.8, 0.5),
-             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle='-.',color='r')
-
-def animate(i):
-    x = np.array([-r[i]/2,r[i]/2])
-    y = np.array([0,0])
-    line.set_data(x, y)
-    return (line,)
-
-# call the animator. blit=True means only re-draw the parts that have changed.
-anim = animation.FuncAnimation(fig, animate, init_func=init,
-                               frames=np.arange(1,nsteps,50), interval=100, blit=True)
+get_ipython().run_cell_magic('capture', '', "# Visualize trajectory\n%matplotlib inline\nfrom matplotlib import animation, rc\nfrom IPython.display import HTML\n\n\n# Animate the results\ndef init():\n    line.set_data([], [])\n    return (line,)\n\nfig, ax = plt.subplots(figsize=(8, 5))\n\n#ax.set_xlim(( 0, total_time))\nax.set_xlim(-(np.max(r)/2+0.1*np.max(r)), np.max(r)/2+0.1*np.max(r))\nline, = ax.plot([], [], lw=2, marker='o', markersize=45, markerfacecolor=(0.8, 1.0, 0.8, 0.5),\n             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle='-.',color='r')\n\ndef animate(i):\n    x = np.array([-r[i]/2,r[i]/2])\n    y = np.array([0,0])\n    line.set_data(x, y)\n    return (line,)\n\n# call the animator. blit=True means only re-draw the parts that have changed.\nanim = animation.FuncAnimation(fig, animate, init_func=init,\n                               frames=np.arange(1,nsteps,50), interval=100, blit=True)\n")
 
 
-# In[128]:
+# In[42]:
 
 
 HTML(anim.to_html5_video())
 
 
-# # Ideal Gas in a 2D box
+# # Model of a Fluid Phase in a 2D box
+# # Define Functions
+
+# In[108]:
+
+
+## Useful functions
+energy_pot=lambda r, k, req: 0.5*k*np.power(r-req,2)
+velocity=lambda rnew, r_past, dt: (rnew-r_past)/2/dt
+energy_kin=lambda v, m: 0.5*m*np.power(v,2)
+verlet=lambda r, r_past, force, mass, dt:  2*r-r_past+(dt**2)*force/mass
+
+forcebox=lambda x, boxx,boxk: np.greater(np.abs(x),boxx)*(-boxk)*x
+
+######## "Force Field" Parameters #######
+HS=1; # Repulsive soft potential 
+k=25.0; # Harmonic oscillator constant
+req=1; # Harmonic oscillator equilibrium distance
+KAPPA=k*np.zeros([N,N])
+
+
+##Use this function to implement different potentials
+def forceij(xi,xj,yi,yj,HS,KAPPA,req): 
+        r=np.sqrt((xi-xj)**2+(yi-yj)**2); #Distance      
+                
+        #Ideal Gas
+        #dVdr=0 
+        #Repulsive Wall 
+        dVdr=-2*HS/(np.power(r,3))
+        #Repulsive Wall + Harmonic potential
+        #dVdr=(KAPPA[i,j]*(r-req)-2*HS/(np.power(r,3)))
+        #Lennard Jones Potential
+        #... .... .... ... ....         
+        cx=-dVdr*((xi-xj))/r;  #Pairwise force in x
+        cy=-dVdr*((yi-yj))/r;  #Pairwise force in y
+             
+        return [cx,cy]
+
+
+def print_progress(iteration, total, bar_length=50):
+    progress = (iteration / total)
+    arrow = '*' * int(round(bar_length * progress))
+    spaces = ' ' * (bar_length - len(arrow))
+    print(f'\r|{arrow}{spaces}| {int(progress * 100)}% | ', end='', flush=True)
+
+
+
+# 
+# 
 # ## System Setup
 # 
 
-# In[184]:
+# In[109]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -213,36 +243,36 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 import matplotlib.pyplot as plt 
 import numpy as np
 
-## Setup parameters Lennard-Jones potential
-epsilon=1.0; #mass
-sigma=5; #Harmonic Constant 
-##
+#Define the system's box
+boxx=10 #x dimension of the simulation' box
+boxy=10 #y dimension of the simulation' box
+boxk=1  #k constant for harmonic repulsive force
+
+#Number of particles
+N=10
 
 #mass of the particles
-m=np.array([1,1,1,1,1,1,1,1]);
+m=np.ones(N)
 
 ## Set the initial Conditions
-x0=np.array([1, 2, 3, 3, 3, 2, 1, 1]);       
-y0=np.array([1, 1, 1, 2, 3, 3, 3, 2]);
+# Random initial positions
+x0=(np.random.rand(N)*2*boxx)-(boxx);     #Initial position in x
+y0=(np.random.rand(N)*2*boxy)-(boxy);     #Initial position in y 
 
 # Random initial velocities
-v0=(np.random.rand(2,8)-0.5);
+v0=(np.random.rand(2,N)-0.5); # Initial random velocitites
 
 ## Define the timestep and the total time
-dt=0.01; #timestep
-total_time=500; 
-# Compute the total number of steps
+dt=0.01; # Timestep
+total_time=500;  # Total simulation time
 nsteps=int(total_time/dt); # Total number of steps
 
 ## Initialise vectors 
-v=np.zeros(nsteps)
-r=np.zeros(nsteps)
 time=np.zeros(nsteps)
-POT=np.zeros(nsteps)
-KIN=np.zeros(nsteps)
 
 
-# In[189]:
+
+# In[110]:
 
 
 ## Compute a trajectory with the Verlet Algorithm
@@ -255,45 +285,50 @@ x=xp+v0[0,:]*dt;
 y=yp+v0[1,:]*dt;
 
 # Position at time t+dt
-xnew=np.zeros(np.shape(x0));
-ynew=np.zeros(np.shape(x0));
+xnew=np.zeros(N);
+ynew=np.zeros(N);
 
 # time
 time=np.arange(0,nsteps);
-xx=np.zeros((np.size(time),np.size(x)));xx[0]=x0
-yy=np.zeros((np.size(time),np.size(y)));yy[0]=y0
 time[0]=0;
 time[1]=time[0]+dt;
 
+## Initialize verctors for plotting 
+xx=np.zeros((np.size(time),N));xx[0]=x0
+yy=np.zeros((np.size(time),N));yy[0]=y0
 
-# Compute trajectory
+
+# In[113]:
+
+
+## |------------------|
+## |Compute trajectory|
+## |------------------|
 for timestep in np.arange(1,nsteps): #Cycle over timesteps
     timestep=int(timestep)           #Make sure timestep is an integer
     
     # Initialise force vectors
-    fx=np.zeros(np.size(x0));  
-    fy=np.zeros(np.size(x0)); 
+    fx=np.zeros(N);  
+    fy=np.zeros(N); 
     
-    # Compute distances and the interparticle forces for every pair of particles
-    for i in np.arange(0,np.size(x0)):
-       
+    # Cycle over all particles
+    for i in np.arange(0,N):
+        fx[i]+=forcebox(x[i],boxx,boxk)
+        fy[i]+=forcebox(y[i],boxy,boxk)
+        for j in np.arange(i+1,N):
+            
+            [cx,cy]=forceij(x[i],x[j],y[i],y[j],HS,KAPPA)
+            
+            fx[i]=fx[i]+cx;      #update total x-component of the force on particle i
+            fx[j]=fx[j]-cx;      #update total x-component of the force on particle j 
 
-        if np.abs(x[i])>=5:
-            fx[i]=fx[i]-1*x[i]
-        
-        if np.abs(y[i])>=5:
-            fy[i]=fy[i]-1*y[i]
-           
-       
-    #Verlet integration
-    for i in np.arange(0,np.size(x0)):
-        xnew[i]=2*x[i]-xp[i]+(dt*dt)*fx[i]/m[i]; # new position (x-component)
-        ynew[i]=2*y[i]-yp[i]+(dt*dt)*fy[i]/m[i]; # new position (y-component)
-    
-    # Compute velocity     
-    vx=(xnew-xp)/2/dt;
-    vy=(ynew-yp)/2/dt;
-    v=np.sqrt(np.power(vx,2)+np.power(vy,2)); 
+            fy[i]=fy[i]+cy;      #update total y-component of the force on particle i
+            fy[j]=fy[j]-cy;      #update total y-component of the force on particle j 
+
+        xnew[i]=verlet(x[i],xp[i],fx[i],m[i],dt) # new position (x-component)
+        ynew[i]=verlet(y[i],yp[i],fy[i],m[i],dt); # new position (y-component)
+
+    print_progress(timestep,nsteps)  
 
     # Reassign positions
     xp=x; yp=y; x=xnew+1-1; y=ynew+1-1;
@@ -303,14 +338,47 @@ for timestep in np.arange(1,nsteps): #Cycle over timesteps
     yy[timestep]=y;
 
 
-# In[190]:
+# In[114]:
 
 
-get_ipython().run_cell_magic('capture', '', "%matplotlib inline\nfrom matplotlib.animation import FuncAnimation\nfrom matplotlib import animation, rc\nfrom IPython.display import HTML\n\nfig, ax = plt.subplots(figsize=(8, 8))\nline, = ax.plot([]) \nax.set_xlim(-5, 5)\nax.set_ylim(-5, 5)\nline, = ax.plot([], [], lw=2, marker='o', markersize=45, markerfacecolor=(0.8, 1.0, 0.8, 0.5),\n             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle=' ',color='red')\n# initialization function: plot the background of each frame\ndef init():\n    line.set_data([], [])\n    return (line,)\n\ndef animate(frame_num):\n    x=xx[frame_num,:]\n    y=yy[frame_num,:]\n    line.set_data((x, y))\n    return (line,)\n\n# call the animator. blit=True means only re-draw the parts that have changed.\nanim = animation.FuncAnimation(fig, animate, init_func=init,\n                               frames=np.arange(1,int(nsteps),50), interval=50);\n")
+## Display the trajectory
+
+get_ipython().run_line_magic('%capture', '')
+get_ipython().run_line_magic('matplotlib', 'inline')
+from matplotlib.animation import FuncAnimation
+from matplotlib import animation, rc
+from IPython.display import HTML
+
+fig, ax = plt.subplots(figsize=(8, 8))
+line, = ax.plot([]) 
+ax.set_xlim(-boxx, boxx)
+ax.set_ylim(-boxy, boxy)
+line, = ax.plot([], [], lw=2, marker='o', markersize=25, markerfacecolor=(0.8, 1.0, 0.8, 0.5),
+             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle=' ',color='red')
+# initialization function: plot the background of each frame
+def init():
+    line.set_data([], [])
+    return (line,)
+
+def animate(frame_num):
+    x=xx[frame_num,:]
+    y=yy[frame_num,:]
+    line.set_data((x, y))
+    return (line,)
+
+# call the animator. blit=True means only re-draw the parts that have changed.
+anim = animation.FuncAnimation(fig, animate, init_func=init,
+                               frames=np.arange(1,int(nsteps),50), interval=50);
 
 
-# In[191]:
+# In[115]:
 
 
 HTML(anim.to_html5_video())
+
+
+# In[ ]:
+
+
+
 
