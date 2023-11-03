@@ -7,6 +7,8 @@
 # 
 # - Implement a numerical simulation of the dynamics of an Harmonic oscillator, using the verlet algorithm to integrate the equations of motion. 
 # 
+# Using this notebook as a starting point (also accessible on [Google colab](https://colab.research.google.com/drive/1kTwPnugWLoW7Y54JK4msnLYayx4Powvb?usp=sharing)): 
+# 
 # - Implement a dynamic simulation of an ideal gas in 2D. 
 # 
 # - Introduce an interaction $\Gamma_{ii}(r)=r^{-2}$ potential to model a system of _soft_ spheres, in a box defined by harminic repulsive walls. 
