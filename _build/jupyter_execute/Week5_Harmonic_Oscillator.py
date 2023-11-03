@@ -25,7 +25,7 @@
 # # 1D Harmonic Oscillator
 # ## System Setup
 
-# In[159]:
+# In[178]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -101,7 +101,7 @@ KIN=np.zeros(nsteps)
 # 
 # ```verlet=lambda r, r_past, force, mass, dt:  2*r-r_past+(dt**2)*force/mass```
 
-# In[160]:
+# In[179]:
 
 
 ## Useful functions
@@ -129,7 +129,7 @@ for i in np.arange(0,2):
 # 
 # Propagate the dynamics with the Verlet algorithm :
 
-# In[161]:
+# In[180]:
 
 
 # Compute trajectory
@@ -152,7 +152,7 @@ plt.legend();
 plt.xlabel('time');
 
 
-# In[162]:
+# In[181]:
 
 
 # Conservation of energy
@@ -164,7 +164,7 @@ plt.legend()
 plt.xlabel('time');
 
 
-# In[163]:
+# In[182]:
 
 
 # Motion in phase space
@@ -173,13 +173,13 @@ plt.xlabel('position');
 plt.ylabel('velocity');
 
 
-# In[164]:
+# In[183]:
 
 
 get_ipython().run_cell_magic('capture', '', "# Visualize trajectory\n%matplotlib inline\nfrom matplotlib import animation, rc\nfrom IPython.display import HTML\n\n\n# Animate the results\ndef init():\n    line.set_data([], [])\n    return (line,)\n\nfig, ax = plt.subplots(figsize=(8, 5))\n\n#ax.set_xlim(( 0, total_time))\nax.set_xlim(-(np.max(r)/2+0.1*np.max(r)), np.max(r)/2+0.1*np.max(r))\nline, = ax.plot([], [], lw=2, marker='o', markersize=45, markerfacecolor=(0.8, 1.0, 0.8, 0.5),\n             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle='-.',color='r')\n\ndef animate(i):\n    x = np.array([-r[i]/2,r[i]/2])\n    y = np.array([0,0])\n    line.set_data(x, y)\n    return (line,)\n\n# call the animator. blit=True means only re-draw the parts that have changed.\nanim = animation.FuncAnimation(fig, animate, init_func=init,\n                               frames=np.arange(1,nsteps,50), interval=100, blit=True)\n")
 
 
-# In[165]:
+# In[184]:
 
 
 HTML(anim.to_html5_video())
@@ -205,12 +205,24 @@ HTML(anim.to_html5_video())
 # 
 # # Define Functions
 
-# In[166]:
+# In[185]:
 
 
 ## Useful functions
 verlet=lambda r, r_past, force, mass, dt:  2*r-r_past+(dt**2)*force/mass
 forcebox=lambda x, boxx,boxk: np.greater(np.abs(x),boxx)*(-boxk)*x
+
+
+#Define the system's box
+boxx=10 #x dimension of the simulation' box
+boxy=10 #y dimension of the simulation' box
+boxk=1  #k constant for harmonic repulsive force
+
+#Number of particles
+N=10
+
+#mass of the particles
+m=np.ones(N)
 
 ######## "Force Field" Parameters #######
 HS=1; # Repulsive soft potential 
@@ -245,30 +257,13 @@ def print_progress(iteration, total, bar_length=50):
     print(f'\r|{arrow}{spaces}| {int(progress * 100)}% | ', end='', flush=True)
 
 
-
 # 
 # 
 # ## System Setup
 # 
 
-# In[167]:
+# In[186]:
 
-
-get_ipython().run_line_magic('matplotlib', 'inline')
-## Import libraries to plot and do math
-import matplotlib.pyplot as plt 
-import numpy as np
-
-#Define the system's box
-boxx=10 #x dimension of the simulation' box
-boxy=10 #y dimension of the simulation' box
-boxk=1  #k constant for harmonic repulsive force
-
-#Number of particles
-N=10
-
-#mass of the particles
-m=np.ones(N)
 
 ## Set the initial Conditions
 # Random initial positions
@@ -288,7 +283,7 @@ time=np.zeros(nsteps)
 
 
 
-# In[168]:
+# In[187]:
 
 
 ## Compute a trajectory with the Verlet Algorithm
@@ -314,7 +309,7 @@ xx=np.zeros((np.size(time),N));xx[0]=x0
 yy=np.zeros((np.size(time),N));yy[0]=y0
 
 
-# In[169]:
+# In[188]:
 
 
 ## |------------------|
@@ -356,16 +351,16 @@ for timestep in np.arange(1,nsteps): #Cycle over timesteps
 
 # ## Visualization
 
-# In[170]:
+# In[202]:
 
 
-get_ipython().run_cell_magic('capture', '', "## Display the trajectory\n%matplotlib inline\nfrom matplotlib.animation import FuncAnimation\nfrom matplotlib import animation, rc\nfrom IPython.display import HTML\n\nfig, ax = plt.subplots(figsize=(8, 8))\nline, = ax.plot([]) \nax.set_xlim(-boxx, boxx)\nax.set_ylim(-boxy, boxy)\nline, = ax.plot([], [], lw=2, marker='o', markersize=30, markerfacecolor=(0.8, 1.0, 0.8, 0.5),\n             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle=' ',color='red')\n# initialization function: plot the background of each frame\ndef init():\n    line.set_data([], [])\n    return (line,)\n\ndef animate(frame_num):\n    x=xx[frame_num,:]\n    y=yy[frame_num,:]\n    line.set_data((x, y))\n    return (line,)\n\n# call the animator. blit=True means only re-draw the parts that have changed.\nanim = animation.FuncAnimation(fig, animate, init_func=init,\n                               frames=np.arange(1,int(nsteps),50), interval=50);\n")
+get_ipython().run_cell_magic('capture', '', "## Display the trajectory\n%matplotlib inline\nfrom matplotlib.animation import FuncAnimation\nfrom matplotlib import animation, rc\nfrom IPython.display import HTML\n\nfig, ax = plt.subplots(figsize=(10, 10))\nline, = ax.plot([]) \nax.set_xlim(-boxx, boxx)\nax.set_ylim(-boxy, boxy)\nline, = ax.plot([], [], lw=2, marker='o', markersize=40, markerfacecolor=(0.8, 1.0, 0.8, 0.5),\n             markeredgewidth=1,  markeredgecolor=(0, 0, 0, .5), linestyle=' ',color='red')\n# initialization function: plot the background of each frame\ndef init():\n    line.set_data([], [])\n    return (line,)\n\ndef animate(frame_num):\n    x=xx[frame_num,:]\n    y=yy[frame_num,:]\n    line.set_data((x, y))\n    return (line,)\n\n# call the animator. blit=True means only re-draw the parts that have changed.\nanim = animation.FuncAnimation(fig, animate, init_func=init,\n                               frames=np.arange(1,int(nsteps),50), interval=50);\n")
 
 
-# In[171]:
+# In[197]:
 
 
-HTML(anim.to_html5_video())
+HTML(anim.to_jshtml())
 
 
 # In[ ]:
