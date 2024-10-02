@@ -18,41 +18,60 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-y1=np.linspace(0, 1, 20) # [-]
-y2=1-y1
+## Define the Temperature
+T=350;
+rho=np.linspace(0.1, 6, 50) # mol / l
 
-Y1, T = np.meshgrid(y1, Temperature) 
+rho_g, Y2 = np.meshgrid(rho, y1) 
+BT=np.zeros(np.size(SIGMA_mixture))
 
-Bmix=np.zeros((np.size(Temperature),np.size(y1)))
+for i in np.arange(0,np.size(SIGMA_mixture)):
+        BT[i]=2*np.pi*6E23*np.trapz((1-np.exp(-Gamma[:,i]/T))*np.power(r*1E-9,2),r*1E-9)
 
-figure=plt.figure(figsize=(12, 10))
-axes = figure.gca(projection ='3d') 
+BmixT=BT[0]*Y2*Y2+BT[1]*(1-Y2)*(1-Y2)+BT[2]*Y2*(1-Y2)
+        
 
-for i in np.arange(0,np.size(Temperature)):
-        Bmix[i,:]=B[i,0]*Y1[i,:]*Y1[i,:]+B[i,1]*(1-Y1[i,:])*(1-Y1[i,:])+B[i,2]*Y1[i,:]*(1-Y1[i,:])
 
-surf=axes.plot_surface(Y1,T,Bmix,cmap=cm.coolwarm,
-                       linewidth=0, antialiased=False,alpha=0.5)   
+P=T*R*rho_g+T*R*rho_g*rho_g*BmixT
 
-axes.view_init(25, -60)
+Z=1+rho_g*BmixT
+
+figure=plt.figure(figsize=(10, 8))
+axes = figure.add_subplot(projection ='3d') 
+axes.view_init(25, -55)
 plt.draw()
 
-axes.set_xlabel('$y$', fontsize=14);
-axes.set_ylabel('$Temperature, (K)$',fontsize=14);
-axes.set_zlabel('B$_{mix}$, dm$^3$ mol$^{-1}$',fontsize=14);     
+surf=axes.plot_surface(1/rho_g,Y2,P,cmap=cm.coolwarm,
+                       linewidth=0, antialiased=False,alpha=0.5)   
 
+axes.set_xlabel('molar volume [l mol$^{-1}$]', fontsize=14);
+axes.set_ylabel('y',fontsize=14);
+axes.set_zlabel('P [atm]',fontsize=14); 
+figure.colorbar(surf, shrink=0.5, aspect=10);
+
+figure=plt.figure(figsize=(10, 8))
+axes = figure.gca(projection ='3d') 
+axes.view_init(25, -55)
+plt.draw()
+
+surf=axes.plot_surface(1/rho_g,Y2,Z,cmap=cm.coolwarm,
+                       linewidth=0, antialiased=False,alpha=0.5)   
+
+axes.set_xlabel('molar volume [l mol$^{-1}$]', fontsize=14);
+axes.set_ylabel('y',fontsize=14);
+axes.set_zlabel('compressibility factor',fontsize=14);   
 figure.colorbar(surf, shrink=0.5, aspect=10);
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[4], line 9[0m
-[1;32m      6[0m Bmix[38;5;241m=[39mnp[38;5;241m.[39mzeros((np[38;5;241m.[39msize(Temperature),np[38;5;241m.[39msize(y1)))
-[1;32m      8[0m figure[38;5;241m=[39mplt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m12[39m, [38;5;241m10[39m))
-[0;32m----> 9[0m axes [38;5;241m=[39m [43mfigure[49m[38;5;241;43m.[39;49m[43mgca[49m[43m([49m[43mprojection[49m[43m [49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43m3d[39;49m[38;5;124;43m'[39;49m[43m)[49m 
-[1;32m     11[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m np[38;5;241m.[39marange([38;5;241m0[39m,np[38;5;241m.[39msize(Temperature)):
-[1;32m     12[0m         Bmix[i,:][38;5;241m=[39mB[i,[38;5;241m0[39m][38;5;241m*[39mY1[i,:][38;5;241m*[39mY1[i,:][38;5;241m+[39mB[i,[38;5;241m1[39m][38;5;241m*[39m([38;5;241m1[39m[38;5;241m-[39mY1[i,:])[38;5;241m*[39m([38;5;241m1[39m[38;5;241m-[39mY1[i,:])[38;5;241m+[39mB[i,[38;5;241m2[39m][38;5;241m*[39mY1[i,:][38;5;241m*[39m([38;5;241m1[39m[38;5;241m-[39mY1[i,:])
+Cell [0;32mIn[6], line 33[0m
+[1;32m     30[0m figure[38;5;241m.[39mcolorbar(surf, shrink[38;5;241m=[39m[38;5;241m0.5[39m, aspect[38;5;241m=[39m[38;5;241m10[39m);
+[1;32m     32[0m figure[38;5;241m=[39mplt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m10[39m, [38;5;241m8[39m))
+[0;32m---> 33[0m axes [38;5;241m=[39m [43mfigure[49m[38;5;241;43m.[39;49m[43mgca[49m[43m([49m[43mprojection[49m[43m [49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43m3d[39;49m[38;5;124;43m'[39;49m[43m)[49m 
+[1;32m     34[0m axes[38;5;241m.[39mview_init([38;5;241m25[39m, [38;5;241m-[39m[38;5;241m55[39m)
+[1;32m     35[0m plt[38;5;241m.[39mdraw()
 
 [0;31mTypeError[0m: FigureBase.gca() got an unexpected keyword argument 'projection'
 

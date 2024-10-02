@@ -549,7 +549,7 @@ B_{ij}=2\pi{N_A}\int_0^\infty((1-\exp(-\Gamma_{ij}/RT))r^2)dr)
 <span class="n">Bmix</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">y1</span><span class="p">)))</span>
 
 <span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
+<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">)):</span>
         <span class="n">Bmix</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">=</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">*</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">+</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">+</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
@@ -569,21 +569,7 @@ B_{ij}=2\pi{N_A}\int_0^\infty((1-\exp(-\Gamma_{ij}/RT))r^2)dr)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Bmix</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">y1</span><span class="p">)))</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Temperature</span><span class="p">)):</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">Bmix</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">=</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">*</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">+</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">+</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y1</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
-
-<span class="ne">TypeError</span>: FigureBase.gca() got an unexpected keyword argument &#39;projection&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1200x1000 with 0 Axes&gt;
-</pre></div>
-</div>
+<img alt="_images/5bb2617236f7a072ecdadb678e23f53a45ff68de3e1eb721e224ec32a2bcb1f3.png" src="_images/5bb2617236f7a072ecdadb678e23f53a45ff68de3e1eb721e224ec32a2bcb1f3.png" />
 </div>
 </div>
 </section>
@@ -600,7 +586,7 @@ B_{ij}=2\pi{N_A}\int_0^\infty((1-\exp(-\Gamma_{ij}/RT))r^2)dr)
 <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="n">rho</span><span class="o">*</span><span class="n">Bmix</span>
 
 <span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
+<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
 <span class="n">axes</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">55</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 
@@ -615,7 +601,7 @@ B_{ij}=2\pi{N_A}\int_0^\infty((1-\exp(-\Gamma_{ij}/RT))r^2)dr)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/73afb8ca5d2cea6ddb70fd1de0bc923f7c8c4d9b2e651352ced5fce3c56f66b2.png" src="_images/73afb8ca5d2cea6ddb70fd1de0bc923f7c8c4d9b2e651352ced5fce3c56f66b2.png" />
+<img alt="_images/b301b4598b481b50550cd43c046c8eb817528f0680dd6f719159ce236d3728b2.png" src="_images/b301b4598b481b50550cd43c046c8eb817528f0680dd6f719159ce236d3728b2.png" />
 </div>
 </div>
 </section>
@@ -643,7 +629,7 @@ B_{ij}=2\pi{N_A}\int_0^\infty((1-\exp(-\Gamma_{ij}/RT))r^2)dr)
 <span class="n">Z</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="n">rho_g</span><span class="o">*</span><span class="n">BmixT</span>
 
 <span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
+<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
 <span class="n">axes</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">55</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 
@@ -671,8 +657,22 @@ B_{ij}=2\pi{N_A}\int_0^\infty((1-\exp(-\Gamma_{ij}/RT))r^2)dr)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ba6081d829cf837745c6e534a5a631f692010340bcb4536e109e39435a9f4ee8.png" src="_images/ba6081d829cf837745c6e534a5a631f692010340bcb4536e109e39435a9f4ee8.png" />
-<img alt="_images/f2c71f57260a463565e80f125783550f8ffe3921256e932eb661c54a0926bb13.png" src="_images/f2c71f57260a463565e80f125783550f8ffe3921256e932eb661c54a0926bb13.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">33</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="n">figure</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">33</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span> 
+<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="n">axes</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">55</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="ne">TypeError</span>: FigureBase.gca() got an unexpected keyword argument &#39;projection&#39;
+</pre></div>
+</div>
+<img alt="_images/7d9d666ee242d156535b1bde62fed078e70174867f817571381759f4df519013.png" src="_images/7d9d666ee242d156535b1bde62fed078e70174867f817571381759f4df519013.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
