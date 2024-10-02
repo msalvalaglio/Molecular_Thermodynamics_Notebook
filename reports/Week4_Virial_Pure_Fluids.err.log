@@ -1,0 +1,93 @@
+Traceback (most recent call last):
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteo/anaconda3/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+## Z Diagram
+rho=np.linspace(1, 15, 100) # mol / l
+
+rho_g, Temperature_g = np.meshgrid(rho, Temperature) 
+
+Z=np.zeros((np.shape(rho_g)))
+Z_2=np.zeros((np.shape(rho_g)))
+
+# For a LJ gas
+for i in np.arange(0,np.size(rho)):
+    Z[:,i]=1+rho_g[:,i]*B[:,Chem_Sp]
+
+# For a Kihara gas
+for i in np.arange(0,np.size(rho)):
+    Z_2[:,i]=1+rho_g[:,i]*B_2[:,Chem_Sp]
+
+
+figure=plt.figure(figsize=(10, 8))
+axes = figure.gca(projection ='3d')
+
+plt.xticks(fontsize=14)
+plt.yticks(fontsize=14)
+
+# For a LJ gas
+surf=axes.plot_surface(rho_g,Temperature_g,Z,cmap=cm.coolwarm,
+                       linewidth=0, antialiased=False,alpha=0.5)
+
+# For a Kihara gas
+surf_2=axes.plot_surface(rho_g,Temperature_g,Z_2,cmap=cm.Spectral,
+                        linewidth=0, antialiased=False,alpha=0.5)
+
+axes.set_xlabel('molar density', fontsize=14, labelpad=10);
+axes.set_ylabel('Temperature',fontsize=14, labelpad=10);
+axes.set_zlabel('Z, [-]',fontsize=14, labelpad=10);
+for t in axes.zaxis.get_major_ticks(): t.label.set_fontsize(14)
+figure.colorbar(surf, shrink=0.5, aspect=10, pad=0);
+figure.colorbar(surf_2, shrink=0.5, aspect=10, pad=0.15);
+
+figure=plt.figure()
+axes = figure.add_axes([0.1,0.1,1.5,1.5])
+plt.xticks(fontsize=14)
+plt.yticks(fontsize=14)
+axes.set_xlabel('molar volume, [l mol$^{-1}$]', fontsize=14, labelpad=10);
+axes.set_ylabel('Z, [-]',fontsize=14,labelpad=10);
+
+color=iter(cm.coolwarm(np.linspace(0,1,np.size(Temperature)+1)))
+color_2=iter(cm.Spectral(np.linspace(0,1,np.size(Temperature)+1)))
+
+# For a LJ gas
+for i in np.arange(0,np.size(Temperature)):
+        c=next(color)
+        axes.plot(1/rho,Z[i,:], marker=' ' , c=c);
+figure.colorbar(surf, shrink=0.85, aspect=10);
+
+# For a Kihara gas
+#for i in np.arange(0,np.size(Temperature)):
+#        c_2=next(color_2)
+#        axes.plot(1/rho,Z_2[i,:], marker=' ' , c=c_2);
+#figure.colorbar(surf_2, shrink=0.85, aspect=10);
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[4], line 19[0m
+[1;32m     15[0m     Z_2[:,i][38;5;241m=[39m[38;5;241m1[39m[38;5;241m+[39mrho_g[:,i][38;5;241m*[39mB_2[:,Chem_Sp]
+[1;32m     18[0m figure[38;5;241m=[39mplt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m10[39m, [38;5;241m8[39m))
+[0;32m---> 19[0m axes [38;5;241m=[39m [43mfigure[49m[38;5;241;43m.[39;49m[43mgca[49m[43m([49m[43mprojection[49m[43m [49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43m3d[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m     21[0m plt[38;5;241m.[39mxticks(fontsize[38;5;241m=[39m[38;5;241m14[39m)
+[1;32m     22[0m plt[38;5;241m.[39myticks(fontsize[38;5;241m=[39m[38;5;241m14[39m)
+
+[0;31mTypeError[0m: FigureBase.gca() got an unexpected keyword argument 'projection'
+

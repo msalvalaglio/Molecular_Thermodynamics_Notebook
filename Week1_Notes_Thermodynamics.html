@@ -1,107 +1,171 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics &#8212; Molecular Thermodynamics Virtual Notebook</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week1_Notes_Thermodynamics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation" href="Week2_PhaseEquilibria.html" />
     <link rel="prev" title="Molecular Thermodynamics Notebook" href="index.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Molecular Thermodynamics Virtual Notebook</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Molecular Thermodynamics Virtual Notebook</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -111,564 +175,288 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week2_PhaseEquilibria.html">
-   Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week2_PhaseEquilibria2.html">
-   Liquid/Solid Equilibrium conditions: deriving solubility
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week2_Exercise.html">
-   Week 2 Exercise: Liquid Vapour Equilibria
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week3_StatMech.html">
-   An Introduction to Statistical Mechanics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week3_Microcanonical.html">
-   The Microcanonical Ensemble
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week3_Canonical.html">
-   The Canonical Ensemble
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week3_Exercise_Harmonic.html">
-   Week 3 Exercise: The harmonic oscillator.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week34_IntermolecularPotentials.html">
-   Intermolecular Potentials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week4_Virial_Equation_of_State.html">
-   The Compressibility Factor
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week4_Virial_Pure_Fluids.html">
-   Volumetric Behaviour of Pure Fluids from Intermolecular Interactions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week4_Virial_Binary_mixtures.html">
-   Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week4_Exercise.html">
-   Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week5_Molecular_Dynamics.html">
-   From Intermolecular Interactions to Dynamics at the Atomistic Scale
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week5_Harmonic_Oscillator.html">
-   Week 5 exercise: Simple MD simulations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week5_MD_system_2D.html">
-   MD in a system of pseudo-molecules in 2D
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Week5_MD_system_2D_LJ.html">
-   MD in a system of LJ particles in 2D
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria.html">Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria2.html">Liquid/Solid Equilibrium conditions: deriving solubility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_Exercise.html">Week 2 Exercise: Liquid Vapour Equilibria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_StatMech.html">An Introduction to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Microcanonical.html">The Microcanonical Ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Canonical.html">The Canonical Ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Exercise_Harmonic.html">Week 3 Exercise: The harmonic oscillator.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week34_IntermolecularPotentials.html">Intermolecular Potentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_Virial_Equation_of_State.html">The Compressibility Factor</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Week4_Virial_Pure_Fluids.html">Volumetric Behaviour of Pure Fluids from Intermolecular Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_Virial_Binary_mixtures.html">Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_Exercise.html">Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/msalvalaglio/Molecular_Thermodynamics_Notebook/master?urlpath=tree/Week1_Notes_Thermodynamics.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week1_Notes_Thermodynamics.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek1_Notes_Thermodynamics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Week1_Notes_Thermodynamics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek1_Notes_Thermodynamics.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week1_Notes_Thermodynamics.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/Week1_Notes_Thermodynamics.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#recommended-reading">
-     Recommended reading
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#objective-of-these-notes">
-     Objective of these notes:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#first-law-of-thermodynamics">
-     First Law of Thermodynamics.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#second-law-of-thermodynamics">
-     Second Law of Thermodynamics
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#definition-of-temperature">
-       Definition of Temperature:
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mathematical-formulation-of-the-second-law-the-first-step-towards-deriving-equilibrium-criteria-for-processes-at-constant-temperature">
-       Mathematical formulation of the Second Law: the first step towards deriving equilibrium criteria for processes at constant Temperature
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials">
-     Changing the fundamental grouping from V, S, U: Legendre transform and Thermodynamic potentials
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#swapping-t-and-s-from-energy-to-helmholtz-free-energy">
-       Swapping T and S, from Energy to Helmholtz Free Energy.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#swapping-p-and-v-from-energy-to-enthalpy">
-       Swapping P and V, from Energy to Enthalpy.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#gibbs-free-energy">
-       Gibbs Free Energy
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-phase-equilibrium-problem">
-   The Phase Equilibrium Problem
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-problem">
-     The problem:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definitions">
-     Definitions:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#equilirbium-in-a-multiphase-multicomponent-system">
-     Equilirbium in a multiphase, multicomponent, system:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#degrees-of-freedom-of-a-single-multicomponent-phase">
-     Degrees of freedom of a single multicomponent phase.
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-gibbs-duhem-equation">
-       The Gibbs Duhem Equation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule">
-     Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#recommended-reading">
-     Recommended reading
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#objective-of-these-notes">
-     Objective of these notes:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#first-law-of-thermodynamics">
-     First Law of Thermodynamics.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#second-law-of-thermodynamics">
-     Second Law of Thermodynamics
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#definition-of-temperature">
-       Definition of Temperature:
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mathematical-formulation-of-the-second-law-the-first-step-towards-deriving-equilibrium-criteria-for-processes-at-constant-temperature">
-       Mathematical formulation of the Second Law: the first step towards deriving equilibrium criteria for processes at constant Temperature
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials">
-     Changing the fundamental grouping from V, S, U: Legendre transform and Thermodynamic potentials
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#swapping-t-and-s-from-energy-to-helmholtz-free-energy">
-       Swapping T and S, from Energy to Helmholtz Free Energy.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#swapping-p-and-v-from-energy-to-enthalpy">
-       Swapping P and V, from Energy to Enthalpy.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#gibbs-free-energy">
-       Gibbs Free Energy
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-phase-equilibrium-problem">
-   The Phase Equilibrium Problem
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-problem">
-     The problem:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definitions">
-     Definitions:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#equilirbium-in-a-multiphase-multicomponent-system">
-     Equilirbium in a multiphase, multicomponent, system:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#degrees-of-freedom-of-a-single-multicomponent-phase">
-     Degrees of freedom of a single multicomponent phase.
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-gibbs-duhem-equation">
-       The Gibbs Duhem Equation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule">
-     Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-reading">Recommended reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-of-these-notes">Objective of these notes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-law-of-thermodynamics">First Law of Thermodynamics.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-law-of-thermodynamics">Second Law of Thermodynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-temperature">Definition of Temperature:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-formulation-of-the-second-law-the-fundamental-thermodynamic-equation">Mathematical formulation of the Second Law: the fundamental thermodynamic equation.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials">Changing the fundamental grouping from V, S, U: Legendre transform and Thermodynamic potentials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swapping-t-and-s-from-energy-to-helmholtz-free-energy">Swapping T and S, from Energy to Helmholtz Free Energy.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swapping-p-and-v-from-energy-to-enthalpy">Swapping P and V from Energy to Enthalpy.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-free-energy">Gibbs Free Energy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-phase-equilibrium-problem">The Phase Equilibrium Problem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilirbium-in-a-multiphase-multicomponent-system">Equilirbium in a multiphase, multicomponent, system:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom-of-a-single-multicomponent-phase">Degrees of freedom of a single multicomponent phase.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gibbs-duhem-equation">The Gibbs Duhem Equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule">Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributions">Contributions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="week-1-thermodynamics-revision-with-an-eye-to-statistical-mechanics">
-<h1>Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics<a class="headerlink" href="#week-1-thermodynamics-revision-with-an-eye-to-statistical-mechanics" title="Permalink to this headline">#</a></h1>
+<h1>Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics<a class="headerlink" href="#week-1-thermodynamics-revision-with-an-eye-to-statistical-mechanics" title="Permalink to this heading">#</a></h1>
 <section id="recommended-reading">
-<h2>Recommended reading<a class="headerlink" href="#recommended-reading" title="Permalink to this headline">#</a></h2>
+<h2>Recommended reading<a class="headerlink" href="#recommended-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Chapters 1, 2 Prausnitz</p></li>
 <li><p>Chapters 1, 2 Chandler (Introduction to Modern Statistical Mechanics)</p></li>
 </ul>
 </section>
 <section id="objective-of-these-notes">
-<h2>Objective of these notes:<a class="headerlink" href="#objective-of-these-notes" title="Permalink to this headline">#</a></h2>
+<h2>Objective of these notes:<a class="headerlink" href="#objective-of-these-notes" title="Permalink to this heading">#</a></h2>
 <p>To guide revision of the principles of Thermodynamics to:</p>
 <ul class="simple">
 <li><p>Revise the first and second law of thermodynamics</p></li>
@@ -678,9 +466,9 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="first-law-of-thermodynamics">
-<h2>First Law of Thermodynamics.<a class="headerlink" href="#first-law-of-thermodynamics" title="Permalink to this headline">#</a></h2>
+<h2>First Law of Thermodynamics.<a class="headerlink" href="#first-law-of-thermodynamics" title="Permalink to this heading">#</a></h2>
 <p>The first law of thermodynamics is about internal <strong>Energy</strong>. It is based on two postulates:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Internal Energy is an <strong>extensive property</strong>.</p></li>
 <li><p>Internal Energy is <strong>conserved</strong>.</p></li>
 </ol>
@@ -696,33 +484,35 @@ dU=\mathbf{d}Q+\mathbf{d}W
 dW=\mathbf{f}{d}\mathbf{X}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> represents a vector of applied forces and <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> a vector of their corresponding mechanical extensive variables.</p>
-<p>It should be noted that heat and work only represent forms of energy transfer, and once the tranfer has taken place there is no <span class="math notranslate nohighlight">\(Q\)</span> or <span class="math notranslate nohighlight">\(W\)</span> quantity remains associated with a given state. This is at why <span class="math notranslate nohighlight">\(\mathbf{d}Q\)</span> and <span class="math notranslate nohighlight">\(\mathbf{d}W\)</span> are <em>inexact</em> differentials.</p>
+<p>In its simplest formulation, <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> has a single element, the system’s volume <span class="math notranslate nohighlight">\(V\)</span>.
+The corresponding thermodynamic force, corresponding to volume <span class="math notranslate nohighlight">\(V\)</span>, is <span class="math notranslate nohighlight">\(-P\)</span>, where <span class="math notranslate nohighlight">\(P\)</span> is pressure.</p>
+<p>It should be noted that heat and work only represent forms of energy transfer, and once the transfer has taken place, there is no <span class="math notranslate nohighlight">\(Q\)</span> or <span class="math notranslate nohighlight">\(W\)</span> quantity that remains associated with a given state. This is why <span class="math notranslate nohighlight">\(\mathbf{d}Q\)</span> and <span class="math notranslate nohighlight">\(\mathbf{d}W\)</span> are <em>inexact</em> differentials.</p>
 </section>
 <section id="second-law-of-thermodynamics">
-<h2>Second Law of Thermodynamics<a class="headerlink" href="#second-law-of-thermodynamics" title="Permalink to this headline">#</a></h2>
-<p>The second law of thermodynamics concerns with the reversibility of transformations, and emerges from assmptions on the nature of equlibrium states.
-Following Chandler’s approach we start from a postulate of the second law:</p>
+<h2>Second Law of Thermodynamics<a class="headerlink" href="#second-law-of-thermodynamics" title="Permalink to this heading">#</a></h2>
+<p>The second law of thermodynamics concerns the reversibility of transformations and emerges from assumptions on the nature of equilibrium states.
+Following Chandler’s approach, we start with a postulate of the second law:</p>
 <ul class="simple">
 <li><p>There is an extensive function of state, <span class="math notranslate nohighlight">\(S(U, X)\)</span>, which is a monotonically increasing function of U, and if state B is adiabatically accessible from state A, then <span class="math notranslate nohighlight">\(S_B\geq{S}_A\)</span>.</p></li>
 </ul>
 <p>This implies that the change <span class="math notranslate nohighlight">\(\Delta{S} = S_B - S_A\)</span> is zero for a reversible adiabatic (<span class="math notranslate nohighlight">\(dQ=0\)</span>) process, and otherwise <span class="math notranslate nohighlight">\(\Delta{S}\)</span> is positive for any natural irreversible adiabatic process.</p>
-<p>The extensive function of state, <span class="math notranslate nohighlight">\(S(U, X)\)</span>, is the entropy of the system. Hence, the entropy change for a reversible adiabatic process is null. Note also that entropy is a function of state. That means it is defined for those states characterized by <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p>
+<p>The extensive function of the state, <span class="math notranslate nohighlight">\(S(U, X)\)</span>, is the system’s entropy. Hence, the entropy change for a reversible adiabatic process is null. Note also that entropy is a function of state. That means it is defined for those states characterized by <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p>
 <section id="definition-of-temperature">
-<h3>Definition of Temperature:<a class="headerlink" href="#definition-of-temperature" title="Permalink to this headline">#</a></h3>
+<h3>Definition of Temperature:<a class="headerlink" href="#definition-of-temperature" title="Permalink to this heading">#</a></h3>
 <p>Since <span class="math notranslate nohighlight">\(S\)</span> is a monotonically increasing function of <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(\left(\frac{\partial{S}}{\partial{U}}\right)_X&gt;{0}\)</span>, or <span class="math notranslate nohighlight">\(\left(\frac{\partial{U}}{\partial{S}}\right)_X\geq{0}\)</span>. This derivative defines the absolute temperature <span class="math notranslate nohighlight">\(T\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 \left(\frac{\partial{U}}{\partial{S}}\right)_X\equiv{T}
 \]</div>
 </section>
-<section id="mathematical-formulation-of-the-second-law-the-first-step-towards-deriving-equilibrium-criteria-for-processes-at-constant-temperature">
-<h3>Mathematical formulation of the Second Law: the first step towards deriving equilibrium criteria for processes at constant Temperature<a class="headerlink" href="#mathematical-formulation-of-the-second-law-the-first-step-towards-deriving-equilibrium-criteria-for-processes-at-constant-temperature" title="Permalink to this headline">#</a></h3>
-<p>Let’s start by writing the differential of the Entropy function, introduced above:</p>
+<section id="mathematical-formulation-of-the-second-law-the-fundamental-thermodynamic-equation">
+<h3>Mathematical formulation of the Second Law: the fundamental thermodynamic equation.<a class="headerlink" href="#mathematical-formulation-of-the-second-law-the-fundamental-thermodynamic-equation" title="Permalink to this heading">#</a></h3>
+<p>Let’s start by writing the differential of the Entropy function introduced above:</p>
 <div class="math notranslate nohighlight">
 \[
 dS(U,X)=\left(\frac{\partial{S}}{\partial{U}}\right)_XdU + \left(\frac{\partial{S}}{\partial{X}}\right)_UdX
 \]</div>
-<p>This indicates a variaton of entropy associated to any variation of internal energy <span class="math notranslate nohighlight">\(dU\)</span>, and of the vector of extensive mechanical properties <span class="math notranslate nohighlight">\(X\)</span>.
+<p>This indicates a variety of entropy associated with any variation of internal energy <span class="math notranslate nohighlight">\(dU\)</span> and of the vector of extensive mechanical properties <span class="math notranslate nohighlight">\(X\)</span>.
 For any reversible transition <span class="math notranslate nohighlight">\(dU=\mathbf{d}Q_{rev}+f\mathbf{d}X\)</span>, and <span class="math notranslate nohighlight">\(dS=0\)</span>, hence:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -741,56 +531,56 @@ For any reversible transition <span class="math notranslate nohighlight">\(dU=\m
 <p>By introducing the definition of absolute temperature gives:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{f}{T}=\left(\frac{\partial{S}}{\partial{X}}\right)_U
+-\frac{f}{T}=\left(\frac{\partial{S}}{\partial{X}}\right)_U
 \]</div>
 <p>This expression enables to rewrite the differential of entropy <span class="math notranslate nohighlight">\(dS\)</span> as:</p>
 <div class="math notranslate nohighlight">
 \[
 dS=\frac{1}{T}dU - \frac{f}{T}dX
 \]</div>
-<p>which, for a pure homogeneous phase leads to the fundamental expression:</p>
+<p>which, for a single component, systems unable to exchange matter with the environment (<span class="math notranslate nohighlight">\(dn=0\)</span>) leads to the fundamental expression:</p>
 <div class="math notranslate nohighlight">
 \[
 dU=TdS-PdV
 \]</div>
-<p><em>N.B.</em> This equation establishes the triplet of state variables <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span> as a so-called fundamental grouping. Different choices are possible, leading to the definition of different fundamental groupings with their own thermodynamic potential.</p>
+<p><em>N.B.</em> This equation establishes the triplet of state variables <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(V\)</span> as a so-called fundamental grouping. Different choices are possible, leading to the definition of different fundamental groupings with their thermodynamic potential.</p>
 </section>
 </section>
 <section id="changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials">
-<h2>Changing the fundamental grouping from V, S, U: Legendre transform and Thermodynamic potentials<a class="headerlink" href="#changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials" title="Permalink to this headline">#</a></h2>
+<h2>Changing the fundamental grouping from V, S, U: Legendre transform and Thermodynamic potentials<a class="headerlink" href="#changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials" title="Permalink to this heading">#</a></h2>
 <p>So far we have discussed of Energy, Entropy and Volume - and learned that the equilibrium conditions for a system as a function of S and V correspond to minimum E.
 If one needs to characterise equilibrium as a function of a different set of variables than entropy and volume, can a therodynamic function that plays the same role of Energy be identified?</p>
 <p>The answer is, yes. Such function, hereafter indicated as thermodynamic potential, can be obtained by swapping variables by performing a <em>Legendre Transform</em>.</p>
 <p>The simplest way of demonstrating the process of operating a Legendre transform to obtain a function of a new set of variables is to start from original function, and subtract the product of the variables that need to be swapped. Differentiating such new function allows to derive a new fundamental relationship defining a thermodynamic potential for the new grouping.</p>
 <section id="swapping-t-and-s-from-energy-to-helmholtz-free-energy">
-<h3>Swapping T and S, from Energy to Helmholtz Free Energy.<a class="headerlink" href="#swapping-t-and-s-from-energy-to-helmholtz-free-energy" title="Permalink to this headline">#</a></h3>
+<h3>Swapping T and S, from Energy to Helmholtz Free Energy.<a class="headerlink" href="#swapping-t-and-s-from-energy-to-helmholtz-free-energy" title="Permalink to this heading">#</a></h3>
 <p>If we define a new grouping in which the entropy and temperature are swapped, i.e. we want to define a new thermodynamic potential able to characterise equilibrium for a system at constant T and V we should start by defining a new function as follows:</p>
 <div class="math notranslate nohighlight">
 \[
 A=U-TS
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(A\)</span> is the new thermodynamic potential, the Helmholtz free energy, <span class="math notranslate nohighlight">\(T\)</span> is the temperature and <span class="math notranslate nohighlight">\(S\)</span> the entropy. Computing the differential for A give us:</p>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is the new thermodynamic potential, the Helmholtz free energy, <span class="math notranslate nohighlight">\(T\)</span> is the temperature, and <span class="math notranslate nohighlight">\(S\)</span> is the entropy. Computing the differential for A gives us:</p>
 <div class="math notranslate nohighlight">
 \[
 dA=dU-SdT-TdS=TdS-PdV-SdT-TdS=-SdT-PdV
 \]</div>
-<p>which is the new thermodynamic relationship that allows to characterise equilibrium as a function of <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(T\)</span>, rather than <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>which is the new thermodynamic relationship that allows the characterization of equilibrium as a function of <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(T\)</span> rather than <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
 </section>
 <section id="swapping-p-and-v-from-energy-to-enthalpy">
-<h3>Swapping P and V, from Energy to Enthalpy.<a class="headerlink" href="#swapping-p-and-v-from-energy-to-enthalpy" title="Permalink to this headline">#</a></h3>
+<h3>Swapping P and V from Energy to Enthalpy.<a class="headerlink" href="#swapping-p-and-v-from-energy-to-enthalpy" title="Permalink to this heading">#</a></h3>
 <p>Let’s start by Legendre transforming the <span class="math notranslate nohighlight">\(U\)</span> to swap <span class="math notranslate nohighlight">\(V\)</span> with its intensive conjugate variable <span class="math notranslate nohighlight">\(P\)</span>, this yields H, or enthalpy:</p>
 <div class="math notranslate nohighlight">
 \[
 H=U+PV
 \]</div>
-<p>the fundamental equation, in a system at constant P and S then becomes:</p>
+<p>the fundamental equation, in a system at constant P and S, then becomes:</p>
 <div class="math notranslate nohighlight">
 \[
 dH=dU+VdP+PdV=TdS-PdV+VdP+PdV=TdS+VdP
 \]</div>
 </section>
 <section id="gibbs-free-energy">
-<h3>Gibbs Free Energy<a class="headerlink" href="#gibbs-free-energy" title="Permalink to this headline">#</a></h3>
+<h3>Gibbs Free Energy<a class="headerlink" href="#gibbs-free-energy" title="Permalink to this heading">#</a></h3>
 <p>Gibbs Free Energy is obtained by swapping both T/S and P/V. It is defined as:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -805,27 +595,27 @@ dG=dH-SdT-TdS=TdS+VdP-SdT-TdS=-SdT+VdP
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="the-phase-equilibrium-problem">
-<h1>The Phase Equilibrium Problem<a class="headerlink" href="#the-phase-equilibrium-problem" title="Permalink to this headline">#</a></h1>
+<h1>The Phase Equilibrium Problem<a class="headerlink" href="#the-phase-equilibrium-problem" title="Permalink to this heading">#</a></h1>
 <section id="references">
-<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Chapters 1, 2 Prausnitz</p></li>
 <li><p>Chapters 1, 2 Chandler</p></li>
 </ul>
 </section>
 <section id="the-problem">
-<h2>The problem:<a class="headerlink" href="#the-problem" title="Permalink to this headline">#</a></h2>
+<h2>The problem:<a class="headerlink" href="#the-problem" title="Permalink to this heading">#</a></h2>
 <p><em>Relate quantitatively the variables that describe the state of equilibrium between two or more homogeneous phases that are free to exchange energy and matter.</em></p>
 </section>
 <section id="definitions">
-<h2>Definitions:<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
+<h2>Definitions:<a class="headerlink" href="#definitions" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Homogeneous phase at equilibrium</strong>: Region of space where the intensive properties are constant.</p></li>
 <li><p><strong>Intensive properties</strong>: properties that are independent of mass, size, or shape of the phase (i.e. T, P, r, x, y, etc.)</p></li>
 </ul>
 </section>
 <section id="equilirbium-in-a-multiphase-multicomponent-system">
-<h2>Equilirbium in a multiphase, multicomponent, system:<a class="headerlink" href="#equilirbium-in-a-multiphase-multicomponent-system" title="Permalink to this headline">#</a></h2>
+<h2>Equilirbium in a multiphase, multicomponent, system:<a class="headerlink" href="#equilirbium-in-a-multiphase-multicomponent-system" title="Permalink to this heading">#</a></h2>
 <p>Consider a system where:</p>
 <ul class="simple">
 <li><p>Two or more phases are present</p></li>
@@ -880,7 +670,7 @@ n_i=n_i^\alpha+n_i^\beta
 \]</div>
 </section>
 <section id="degrees-of-freedom-of-a-single-multicomponent-phase">
-<h2>Degrees of freedom of a single multicomponent phase.<a class="headerlink" href="#degrees-of-freedom-of-a-single-multicomponent-phase" title="Permalink to this headline">#</a></h2>
+<h2>Degrees of freedom of a single multicomponent phase.<a class="headerlink" href="#degrees-of-freedom-of-a-single-multicomponent-phase" title="Permalink to this heading">#</a></h2>
 <p>Given what we have seen so far, can we determine how many degrees of freedom are associated to a single phase?</p>
 <p>In a single homogeneous multicomponent phase at constant <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P\)</span>, containing <span class="math notranslate nohighlight">\(m\)</span> component the number of degrees of freedom is:</p>
 <div class="math notranslate nohighlight">
@@ -889,7 +679,7 @@ DOF=m+2-c
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(c\)</span> is the number of constraints. For a single phase there is only one constrain that applies, the Gibbs Duhem equation. Hence <span class="math notranslate nohighlight">\(DOF=m+1\)</span>.</p>
 <section id="the-gibbs-duhem-equation">
-<h3>The Gibbs Duhem Equation<a class="headerlink" href="#the-gibbs-duhem-equation" title="Permalink to this headline">#</a></h3>
+<h3>The Gibbs Duhem Equation<a class="headerlink" href="#the-gibbs-duhem-equation" title="Permalink to this heading">#</a></h3>
 <p>The fundamental equation emerging from the first and second laws of Thermodynamics for a multicomponent system reads:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -919,7 +709,7 @@ SdT-Vdp+\sum_{i}n_{i}d\mu_i=0
 </section>
 </section>
 <section id="degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule">
-<h2>Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule<a class="headerlink" href="#degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule" title="Permalink to this headline">#</a></h2>
+<h2>Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule<a class="headerlink" href="#degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule" title="Permalink to this heading">#</a></h2>
 <p>Let’s consider a system comprising <span class="math notranslate nohighlight">\(\nu\)</span> homogenous phases at equilibrium, each containing <span class="math notranslate nohighlight">\(m\)</span> components. The number of degrees of freedom associated to each phase is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -936,6 +726,10 @@ c=(\nu-1)(m+2)
 \[
 DOF=\nu(m+1)-(\nu-1)(m+2)=m+2-\nu
 \]</div>
+<section id="contributions">
+<h3>Contributions<a class="headerlink" href="#contributions" title="Permalink to this heading">#</a></h3>
+<p>Ivan Boguslavskyi, 1.10.2024</p>
+</section>
 </section>
 </section>
 
@@ -951,7 +745,7 @@ DOF=\nu(m+1)-(\nu-1)(m+2)=m+2-\nu
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -959,50 +753,135 @@ DOF=\nu(m+1)-(\nu-1)(m+2)=m+2-\nu
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Molecular Thermodynamics Notebook</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Molecular Thermodynamics Notebook</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="Week2_PhaseEquilibria.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="Week2_PhaseEquilibria.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-reading">Recommended reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-of-these-notes">Objective of these notes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-law-of-thermodynamics">First Law of Thermodynamics.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-law-of-thermodynamics">Second Law of Thermodynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-temperature">Definition of Temperature:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-formulation-of-the-second-law-the-fundamental-thermodynamic-equation">Mathematical formulation of the Second Law: the fundamental thermodynamic equation.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials">Changing the fundamental grouping from V, S, U: Legendre transform and Thermodynamic potentials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swapping-t-and-s-from-energy-to-helmholtz-free-energy">Swapping T and S, from Energy to Helmholtz Free Energy.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swapping-p-and-v-from-energy-to-enthalpy">Swapping P and V from Energy to Enthalpy.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-free-energy">Gibbs Free Energy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-phase-equilibrium-problem">The Phase Equilibrium Problem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilirbium-in-a-multiphase-multicomponent-system">Equilirbium in a multiphase, multicomponent, system:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom-of-a-single-multicomponent-phase">Degrees of freedom of a single multicomponent phase.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gibbs-duhem-equation">The Gibbs Duhem Equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule">Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributions">Contributions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Matteo Salvalaglio<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Matteo Salvalaglio
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
