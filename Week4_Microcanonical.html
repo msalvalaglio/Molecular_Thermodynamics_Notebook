@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 3 Exercise: The harmonic oscillator. &#8212; Molecular Thermodynamics Virtual Notebook</title>
+    <title>The Microcanonical Ensemble &#8212; Molecular Thermodynamics Virtual Notebook</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Week3_Exercise_Harmonic';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week4_Microcanonical';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Intermolecular Potentials" href="Week34_IntermolecularPotentials.html" />
-    <link rel="prev" title="The Canonical Ensemble" href="Week3_Canonical.html" />
+    <link rel="next" title="The Canonical Ensemble" href="Week4_Canonical.html" />
+    <link rel="prev" title="An Introduction to Statistical Mechanics" href="Week4_StatMech.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -150,8 +150,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/Logo.png" class="logo__image only-light" alt="Molecular Thermodynamics Virtual Notebook - Home"/>
+    <script>document.write(`<img src="_static/Logo.png" class="logo__image only-dark" alt="Molecular Thermodynamics Virtual Notebook - Home"/>`);</script>
   
-    <p class="title logo__title">Molecular Thermodynamics Virtual Notebook</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -179,18 +185,18 @@
 <li class="toctree-l1"><a class="reference internal" href="Week1_Notes_Thermodynamics.html">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria.html">Week 2: Phase Equilibria</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria2.html">Week 2  Liquid/Solid Equilibrium in multicomponent systems: defining solubility</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week2_Exercise.html">Week 2 Exercise: Liquid Vapour Equilibria</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week3_StatMech.html">An Introduction to Statistical Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week3_Microcanonical.html">The Microcanonical Ensemble</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week3_Canonical.html">The Canonical Ensemble</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 3 Exercise: The harmonic oscillator.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week34_IntermolecularPotentials.html">Intermolecular Potentials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week4_Virial_Equation_of_State.html">The Compressibility Factor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_Solubility.html">Week 2  Liquid/Solid Equilibrium in multicomponent systems: defining solubility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_Exercise_VLE.html">Week 2 Exercise: Liquid Vapour Equilibria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_IntermolecularPotentials.html">Intermolecular Potentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Virial_Equation_of_State.html">The Compressibility Factor</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="Week4_Virial_Pure_Fluids.html">Volumetric Behaviour of Pure Fluids from Intermolecular Interactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week4_Virial_Binary_mixtures.html">Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week4_Exercise.html">Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Virial_Pure_Fluids.html">Volumetric Behaviour of Pure Fluids from Intermolecular Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Virial_Binary_mixtures.html">Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Exercise.html">Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_StatMech.html">An Introduction to Statistical Mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The Microcanonical Ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_Canonical.html">The Canonical Ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_Exercise_Harmonic.html">Week 3 Exercise: The harmonic oscillator.</a></li>
 </ul>
 
     </div>
@@ -262,7 +268,7 @@
       
       
       
-      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week3_Exercise_Harmonic.ipynb" target="_blank"
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week4_Microcanonical.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -279,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek3_Exercise_Harmonic.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek4_Microcanonical.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -309,7 +315,7 @@
       
       
       
-      <li><a href="_sources/Week3_Exercise_Harmonic.ipynb" target="_blank"
+      <li><a href="_sources/Week4_Microcanonical.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -391,7 +397,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 3 Exercise: The harmonic oscillator.</h1>
+    <h1>The Microcanonical Ensemble</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -405,14 +411,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-3-exercise-the-harmonic-oscillator">
-<h1>Week 3 Exercise: The harmonic oscillator.<a class="headerlink" href="#week-3-exercise-the-harmonic-oscillator" title="Link to this heading">#</a></h1>
-<p>Given a 1D Harmonic oscillator with characteristic frequency <span class="math notranslate nohighlight">\(\omega=5\)</span>Hz, mass of 20, starting at the initial position of 1, with an initial momentum of 1.</p>
-<ul class="simple">
-<li><p>Can You define the coordinates of the Phase space of the Harmonic oscillator?</p></li>
-<li><p>How would you represent the motion of the Harmonic oscillator in Phase Space?</p></li>
-<li><p>What is the most probable state for the Harmonic oscillator?</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-microcanonical-ensemble">
+<h1>The Microcanonical Ensemble<a class="headerlink" href="#the-microcanonical-ensemble" title="Link to this heading">#</a></h1>
+<p>The microcanonical ensemble is built upon the so called postulate of equal a priori probabilities:</p>
+<p><em>Postulate of equal a priori probabilities: For an isolated macroscopic system in equilibrium, all microscopic states corresponding to the same set of macroscopic observables are equally probable.</em></p>
+<p>To intuitively absorb the idea of ensemble let’s consider a system and its phase space vector <span class="math notranslate nohighlight">\(\mathbf{x}(t)\)</span>, evolving in time at constant total energy, volume and number of particles. The configurations sampled, i.e. the realizations of <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> that constitute <span class="math notranslate nohighlight">\(\mathbf{x}(t)\)</span> are sampling the the constant energy hypersurface and are therefore equally probable.</p>
+<p>The number of equally probable states <span class="math notranslate nohighlight">\(\Omega(N,V,E)\)</span> defines the <strong>partition function</strong> for the Microcanonical ensemble.</p>
+<p>The partition function of the microcanonical ensemble is proportional to the integral in phase space over all the states at constant Energy:</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega(N,V,E)\propto\int{d\mathbf{x}}\delta(H(\mathbf{x})-E)
+\]</div>
+<p>the proportionality constant is equal to: <span class="math notranslate nohighlight">\(C_N=E_0/N!h^{3N}\)</span></p>
+<p>Here <span class="math notranslate nohighlight">\(h\)</span> is a constant with units Energy<span class="math notranslate nohighlight">\(\times\)</span>Time, and  <span class="math notranslate nohighlight">\(E_0\)</span> is a constant having units of energy. The extra factor of  <span class="math notranslate nohighlight">\(E_0\)</span> is needed because the <span class="math notranslate nohighlight">\(\delta\)</span> function has units of inverse energy. Such a constant however has no effect at all on any properties). Thus,  <span class="math notranslate nohighlight">\(\Omega(N,V,E)\)</span> is non-dimensional.</p>
+<p>The microcanonical partition function quantify the number of microstates accessible to a system at constant energy.
+Boltzmann identified <span class="math notranslate nohighlight">\(\Omega(N,V,E)\)</span> as the microscopic quantity defining <span class="math notranslate nohighlight">\(S\)</span> - the Entropy - which we was introduced as a postulate while stating the second law of Thermodynamics. As <span class="math notranslate nohighlight">\(S\)</span>,  <span class="math notranslate nohighlight">\(\Omega(N,V,E)\)</span> is a natural function of <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(E\)</span>.</p>
+<p>The famous Boltzmann’s relation between <span class="math notranslate nohighlight">\(S\)</span> and  <span class="math notranslate nohighlight">\(\Omega(N,V,E)\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+S(N,V,E)=k\ln{\Omega(N,V,E)}
+\]</div>
+<p>where k is Boltzmann’s constant.</p>
+<p>This is a key relation, as it establishes a connection between the macroscopically measurable thermodynamic properties of a system and its microscopic details.</p>
+<p>In particular, by recalling the relationships introduced in Week 1, defining T and the forces associated with the extensive mechanical variables we get:</p>
+<div class="math notranslate nohighlight">
+\[
+k\left(\frac{\partial{\ln{\Omega}}}{\partial{V}}\right)_U=\left(\frac{\partial{S}}{\partial{V}}\right)_U=-\left(\frac{\partial{S}}{\partial{U}}\right)_V=\frac{P}{T}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+k\left(\frac{\partial{\ln{\Omega}}}{\partial{n_i}}\right)_U=\left(\frac{\partial{S}}{\partial{n_i}}\right)_U=-\left(\frac{\partial{S}}{\partial{U}}\right)_{n_i}=-\frac{\mu_i}{T}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+k\left(\frac{\partial{\ln{\Omega}}}{\partial{U}}\right)_{n_i,V}=\left(\frac{\partial{S}}{\partial{U}}\right)_{n_i,V}=\frac{1}{T}
+\]</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -446,20 +480,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Week3_Canonical.html"
+       href="Week4_StatMech.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The Canonical Ensemble</p>
+        <p class="prev-next-title">An Introduction to Statistical Mechanics</p>
       </div>
     </a>
     <a class="right-next"
-       href="Week34_IntermolecularPotentials.html"
+       href="Week4_Canonical.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Intermolecular Potentials</p>
+        <p class="prev-next-title">The Canonical Ensemble</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
