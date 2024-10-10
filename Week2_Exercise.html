@@ -453,73 +453,6 @@ document.write(`
 The equations we can use to solve the problem are the equilibrium statements N-1 species in the system (i.e. the Raoult equation in the case of an ideal mixture of ideal gases) and the stoichiometric constraint on the composition of the <strong>vapour</strong> phase.</p>
 <p>When computing the <strong>Dew</strong> pressure, we are estimating the pressure (and the composition) of the very first droplet of liquid formed in a vapour at known composition (<span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is known).
 The equations we can use to solve the problem are the equilibrium statements N-1 species in the system (i.e. the Raoult equation in the case of an ideal mixture of ideal gases) and the stoichiometric constraint on the composition of the <strong>liquid</strong> phase.</p>
-</section>
-<section id="example-solution-bubble-and-dew-points">
-<h3>Example solution: Bubble and Dew points<a class="headerlink" href="#example-solution-bubble-and-dew-points" title="Link to this heading">#</a></h3>
-<div class="cell tag_{_____&quot;tags&quot;:_[_________&quot;hide-input&quot;,_____]_} tag_{_____&quot;tags&quot;:_[_________&quot;hide-output&quot;,_____]_} docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
-
-<span class="n">T</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">]</span>
-<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-
-<span class="n">AA</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.95465</span><span class="p">,</span> <span class="mf">8.08097</span><span class="p">])</span>
-<span class="n">AB</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1170.966</span><span class="p">,</span> <span class="mf">1582.271</span><span class="p">])</span>
-<span class="n">AC</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">226.232</span><span class="p">,</span> <span class="mf">239.726</span><span class="p">])</span>
-
-<span class="n">VLA12</span><span class="o">=</span><span class="mf">0.9726</span>
-<span class="n">VLA21</span><span class="o">=</span><span class="mf">1.9210</span>
-
-<span class="n">xinclass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span>  <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
-<span class="n">yinclass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.349</span><span class="p">,</span> <span class="mf">0.505</span><span class="p">,</span>  <span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.734</span><span class="p">])</span>
-<span class="n">Pinclass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.571</span><span class="p">,</span> <span class="mf">0.596</span><span class="p">,</span> <span class="mf">0.617</span><span class="p">,</span> <span class="mf">0.679</span><span class="p">,</span> <span class="mf">1.013</span><span class="p">])</span>
-
-<span class="n">gamma1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">VLA12</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">VLA12</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="n">VLA21</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">))))</span>
-<span class="n">gamma2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">VLA21</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">VLA21</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">VLA12</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
-
-<span class="n">Peq</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="n">AA</span><span class="o">-</span><span class="n">AB</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="n">AC</span><span class="p">))))</span><span class="o">/</span><span class="mi">750</span> <span class="c1">#bar</span>
-
-<span class="n">Pbubble</span><span class="o">=</span><span class="n">Peq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">gamma1</span><span class="o">+</span><span class="n">Peq</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">gamma2</span>
-<span class="n">K1</span><span class="o">=</span><span class="p">(</span><span class="n">Peq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">gamma1</span><span class="p">)</span><span class="o">/</span><span class="n">Pbubble</span>
-<span class="n">K2</span><span class="o">=</span><span class="p">(</span><span class="n">Peq</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">gamma2</span><span class="p">)</span><span class="o">/</span><span class="n">Pbubble</span>
-<span class="n">ybubble</span><span class="o">=</span><span class="n">K1</span><span class="o">*</span><span class="n">x</span>
-
-<span class="n">Pbubble_ideal</span><span class="o">=</span><span class="n">Peq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">Peq</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">ybubble_ideal</span><span class="o">=</span><span class="n">Peq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">Pbubble_ideal</span><span class="o">*</span><span class="n">x</span>
-
-<span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Pbubble</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, real&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ybubble</span><span class="p">,</span><span class="n">Pbubble</span><span class="p">,</span><span class="s1">&#39;r-&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, real&#39;</span><span class="p">)</span>
-
-
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Pbubble_ideal</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, ideal&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ybubble_ideal</span><span class="p">,</span><span class="n">Pbubble_ideal</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vapour Mixture, ideal&#39;</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yinclass</span><span class="p">,</span><span class="n">Pinclass</span><span class="p">,</span><span class="s1">&#39;go&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;In class calculations&#39;</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x, y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P [bar]&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span> 
-
-<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_14503/503369446.py:18: RuntimeWarning: divide by zero encountered in divide
-  gamma1=np.exp(VLA12/(1+VLA12*x/(VLA21*(1-x))))
-/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_14503/503369446.py:19: RuntimeWarning: divide by zero encountered in divide
-  gamma2=np.exp(VLA21/(1+VLA21*(1-x)/(VLA12*(x))))
-</pre></div>
-</div>
-<img alt="_images/05a5a725385716d475c91640a0ab1a15344c84891d1f2d65d68cc00e0ac935c1.png" src="_images/05a5a725385716d475c91640a0ab1a15344c84891d1f2d65d68cc00e0ac935c1.png" />
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
@@ -653,6 +586,73 @@ The equations we can use to solve the problem are the equilibrium statements N-1
     </script>
 </body>
 </html></div></div>
+</div>
+</section>
+<section id="example-solution-bubble-and-dew-points">
+<h3>Example solution: Bubble and Dew points<a class="headerlink" href="#example-solution-bubble-and-dew-points" title="Link to this heading">#</a></h3>
+<div class="cell tag_{_____&quot;tags&quot;:_[_________&quot;hide-input&quot;,_____]_} docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+
+<span class="n">T</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">]</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">AA</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.95465</span><span class="p">,</span> <span class="mf">8.08097</span><span class="p">])</span>
+<span class="n">AB</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1170.966</span><span class="p">,</span> <span class="mf">1582.271</span><span class="p">])</span>
+<span class="n">AC</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">226.232</span><span class="p">,</span> <span class="mf">239.726</span><span class="p">])</span>
+
+<span class="n">VLA12</span><span class="o">=</span><span class="mf">0.9726</span>
+<span class="n">VLA21</span><span class="o">=</span><span class="mf">1.9210</span>
+
+<span class="n">xinclass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span>  <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
+<span class="n">yinclass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.349</span><span class="p">,</span> <span class="mf">0.505</span><span class="p">,</span>  <span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.734</span><span class="p">])</span>
+<span class="n">Pinclass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.571</span><span class="p">,</span> <span class="mf">0.596</span><span class="p">,</span> <span class="mf">0.617</span><span class="p">,</span> <span class="mf">0.679</span><span class="p">,</span> <span class="mf">1.013</span><span class="p">])</span>
+
+<span class="n">gamma1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">VLA12</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">VLA12</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="n">VLA21</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">))))</span>
+<span class="n">gamma2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">VLA21</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">VLA21</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">VLA12</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
+
+<span class="n">Peq</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="n">AA</span><span class="o">-</span><span class="n">AB</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="n">AC</span><span class="p">))))</span><span class="o">/</span><span class="mi">750</span> <span class="c1">#bar</span>
+
+<span class="n">Pbubble</span><span class="o">=</span><span class="n">Peq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">gamma1</span><span class="o">+</span><span class="n">Peq</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">gamma2</span>
+<span class="n">K1</span><span class="o">=</span><span class="p">(</span><span class="n">Peq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">gamma1</span><span class="p">)</span><span class="o">/</span><span class="n">Pbubble</span>
+<span class="n">K2</span><span class="o">=</span><span class="p">(</span><span class="n">Peq</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">gamma2</span><span class="p">)</span><span class="o">/</span><span class="n">Pbubble</span>
+<span class="n">ybubble</span><span class="o">=</span><span class="n">K1</span><span class="o">*</span><span class="n">x</span>
+
+<span class="n">Pbubble_ideal</span><span class="o">=</span><span class="n">Peq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">Peq</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">ybubble_ideal</span><span class="o">=</span><span class="n">Peq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">Pbubble_ideal</span><span class="o">*</span><span class="n">x</span>
+
+<span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Pbubble</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, real&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ybubble</span><span class="p">,</span><span class="n">Pbubble</span><span class="p">,</span><span class="s1">&#39;r-&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, real&#39;</span><span class="p">)</span>
+
+
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Pbubble_ideal</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, ideal&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ybubble_ideal</span><span class="p">,</span><span class="n">Pbubble_ideal</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vapour Mixture, ideal&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yinclass</span><span class="p">,</span><span class="n">Pinclass</span><span class="p">,</span><span class="s1">&#39;go&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;In class calculations&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x, y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P [bar]&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span> 
+
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_14878/503369446.py:18: RuntimeWarning: divide by zero encountered in divide
+  gamma1=np.exp(VLA12/(1+VLA12*x/(VLA21*(1-x))))
+/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_14878/503369446.py:19: RuntimeWarning: divide by zero encountered in divide
+  gamma2=np.exp(VLA21/(1+VLA21*(1-x)/(VLA12*(x))))
+</pre></div>
+</div>
+<img alt="_images/05a5a725385716d475c91640a0ab1a15344c84891d1f2d65d68cc00e0ac935c1.png" src="_images/05a5a725385716d475c91640a0ab1a15344c84891d1f2d65d68cc00e0ac935c1.png" />
+</div>
 </div>
 </section>
 </section>
