@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -456,15 +456,9 @@ The equations we can use to solve the problem are the equilibrium statements N-1
 </section>
 <section id="example-solution-bubble-and-dew-points">
 <h3>Example solution: Bubble and Dew points<a class="headerlink" href="#example-solution-bubble-and-dew-points" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_{_____&quot;tags&quot;:_[_________&quot;hide-input&quot;,_____]_} tag_{_____&quot;tags&quot;:_[_________&quot;hide-output&quot;,_____]_} docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;hide-input&quot;</span><span class="p">,</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
 
 <span class="n">T</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">]</span>
@@ -517,9 +511,9 @@ The equations we can use to solve the problem are the equilibrium statements N-1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_11942/530090791.py:24: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_12955/503369446.py:18: RuntimeWarning: divide by zero encountered in divide
   gamma1=np.exp(VLA12/(1+VLA12*x/(VLA21*(1-x))))
-/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_11942/530090791.py:25: RuntimeWarning: divide by zero encountered in divide
+/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_12955/503369446.py:19: RuntimeWarning: divide by zero encountered in divide
   gamma2=np.exp(VLA21/(1+VLA21*(1-x)/(VLA12*(x))))
 </pre></div>
 </div>
@@ -529,7 +523,18 @@ The equations we can use to solve the problem are the equilibrium statements N-1
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from IPython.display import HTML</span>
-<span class="c1">#HTML(&#39;VLequilibrium_interactive.html&#39;)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;VLequilibrium_interactive.html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#from IPython.display import HTML</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;VLequilibrium_interactive.html&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;HTML&#39; is not defined
 </pre></div>
 </div>
 </div>
