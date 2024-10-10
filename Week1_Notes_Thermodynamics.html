@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics &#8212; Molecular Thermodynamics Virtual Notebook</title>
   
@@ -19,51 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Week1_Notes_Thermodynamics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation" href="Week2_PhaseEquilibria.html" />
+    <link rel="next" title="Week 2: Phase Equilibria" href="Week2_PhaseEquilibria.html" />
     <link rel="prev" title="Molecular Thermodynamics Notebook" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -142,6 +141,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="index.html">
   
@@ -157,7 +158,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -177,8 +178,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria.html">Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria2.html">Liquid/Solid Equilibrium conditions: deriving solubility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria.html">Week 2: Phase Equilibria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria2.html">Week 2  Liquid/Solid Equilibrium conditions: defining solubility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week2_Exercise.html">Week 2 Exercise: Liquid Vapour Equilibria</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3_StatMech.html">An Introduction to Statistical Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3_Microcanonical.html">The Microcanonical Ensemble</a></li>
@@ -219,9 +220,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -363,10 +364,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -374,14 +375,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -447,17 +448,18 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-1-thermodynamics-revision-with-an-eye-to-statistical-mechanics">
-<h1>Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics<a class="headerlink" href="#week-1-thermodynamics-revision-with-an-eye-to-statistical-mechanics" title="Permalink to this heading">#</a></h1>
+<h1>Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics<a class="headerlink" href="#week-1-thermodynamics-revision-with-an-eye-to-statistical-mechanics" title="Link to this heading">#</a></h1>
 <section id="recommended-reading">
-<h2>Recommended reading<a class="headerlink" href="#recommended-reading" title="Permalink to this heading">#</a></h2>
+<h2>Recommended reading<a class="headerlink" href="#recommended-reading" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Chapters 1, 2 Prausnitz</p></li>
 <li><p>Chapters 1, 2 Chandler (Introduction to Modern Statistical Mechanics)</p></li>
 </ul>
 </section>
 <section id="objective-of-these-notes">
-<h2>Objective of these notes:<a class="headerlink" href="#objective-of-these-notes" title="Permalink to this heading">#</a></h2>
-<p>To guide revision of the principles of Thermodynamics to:</p>
+<h2>Objective of these notes:<a class="headerlink" href="#objective-of-these-notes" title="Link to this heading">#</a></h2>
+<p>To guide revision of the principles of Thermodynamics to:
+olecu</p>
 <ul class="simple">
 <li><p>Revise the first and second law of thermodynamics</p></li>
 <li><p>Define the concept of thermodynamic equilibrium</p></li>
@@ -465,7 +467,7 @@ document.write(`
 </ul>
 </section>
 <section id="first-law-of-thermodynamics">
-<h2>First Law of Thermodynamics.<a class="headerlink" href="#first-law-of-thermodynamics" title="Permalink to this heading">#</a></h2>
+<h2>First Law of Thermodynamics.<a class="headerlink" href="#first-law-of-thermodynamics" title="Link to this heading">#</a></h2>
 <p>The first law of thermodynamics is about internal <strong>Energy</strong>. It is based on two postulates:</p>
 <ol class="arabic simple">
 <li><p>Internal Energy is an <strong>extensive property</strong>.</p></li>
@@ -488,7 +490,7 @@ The corresponding thermodynamic force, corresponding to volume <span class="math
 <p>It should be noted that heat and work only represent forms of energy transfer, and once the transfer has taken place, there is no <span class="math notranslate nohighlight">\(Q\)</span> or <span class="math notranslate nohighlight">\(W\)</span> quantity that remains associated with a given state. This is why <span class="math notranslate nohighlight">\(\mathbf{d}Q\)</span> and <span class="math notranslate nohighlight">\(\mathbf{d}W\)</span> are <em>inexact</em> differentials.</p>
 </section>
 <section id="second-law-of-thermodynamics">
-<h2>Second Law of Thermodynamics<a class="headerlink" href="#second-law-of-thermodynamics" title="Permalink to this heading">#</a></h2>
+<h2>Second Law of Thermodynamics<a class="headerlink" href="#second-law-of-thermodynamics" title="Link to this heading">#</a></h2>
 <p>The second law of thermodynamics concerns the reversibility of transformations and emerges from assumptions on the nature of equilibrium states.
 Following Chandler’s approach, we start with a postulate of the second law:</p>
 <ul class="simple">
@@ -497,7 +499,7 @@ Following Chandler’s approach, we start with a postulate of the second law:</p
 <p>This implies that the change <span class="math notranslate nohighlight">\(\Delta{S} = S_B - S_A\)</span> is zero for a reversible adiabatic (<span class="math notranslate nohighlight">\(dQ=0\)</span>) process, and otherwise <span class="math notranslate nohighlight">\(\Delta{S}\)</span> is positive for any natural irreversible adiabatic process.</p>
 <p>The extensive function of the state, <span class="math notranslate nohighlight">\(S(U, X)\)</span>, is the system’s entropy. Hence, the entropy change for a reversible adiabatic process is null. Note also that entropy is a function of state. That means it is defined for those states characterized by <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p>
 <section id="definition-of-temperature">
-<h3>Definition of Temperature:<a class="headerlink" href="#definition-of-temperature" title="Permalink to this heading">#</a></h3>
+<h3>Definition of Temperature:<a class="headerlink" href="#definition-of-temperature" title="Link to this heading">#</a></h3>
 <p>Since <span class="math notranslate nohighlight">\(S\)</span> is a monotonically increasing function of <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(\left(\frac{\partial{S}}{\partial{U}}\right)_X&gt;{0}\)</span>, or <span class="math notranslate nohighlight">\(\left(\frac{\partial{U}}{\partial{S}}\right)_X\geq{0}\)</span>. This derivative defines the absolute temperature <span class="math notranslate nohighlight">\(T\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -505,7 +507,7 @@ Following Chandler’s approach, we start with a postulate of the second law:</p
 \]</div>
 </section>
 <section id="mathematical-formulation-of-the-second-law-the-fundamental-thermodynamic-equation">
-<h3>Mathematical formulation of the Second Law: the fundamental thermodynamic equation.<a class="headerlink" href="#mathematical-formulation-of-the-second-law-the-fundamental-thermodynamic-equation" title="Permalink to this heading">#</a></h3>
+<h3>Mathematical formulation of the Second Law: the fundamental thermodynamic equation.<a class="headerlink" href="#mathematical-formulation-of-the-second-law-the-fundamental-thermodynamic-equation" title="Link to this heading">#</a></h3>
 <p>Let’s start by writing the differential of the Entropy function introduced above:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -546,13 +548,13 @@ dU=TdS-PdV
 </section>
 </section>
 <section id="changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials">
-<h2>Changing the fundamental grouping from V, S, U: Legendre transform and Thermodynamic potentials<a class="headerlink" href="#changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials" title="Permalink to this heading">#</a></h2>
+<h2>Changing the fundamental grouping from V, S, U: Legendre transform and Thermodynamic potentials<a class="headerlink" href="#changing-the-fundamental-grouping-from-v-s-u-legendre-transform-and-thermodynamic-potentials" title="Link to this heading">#</a></h2>
 <p>So far we have discussed of Energy, Entropy and Volume - and learned that the equilibrium conditions for a system as a function of S and V correspond to minimum E.
 If one needs to characterise equilibrium as a function of a different set of variables than entropy and volume, can a therodynamic function that plays the same role of Energy be identified?</p>
 <p>The answer is, yes. Such function, hereafter indicated as thermodynamic potential, can be obtained by swapping variables by performing a <em>Legendre Transform</em>.</p>
 <p>The simplest way of demonstrating the process of operating a Legendre transform to obtain a function of a new set of variables is to start from original function, and subtract the product of the variables that need to be swapped. Differentiating such new function allows to derive a new fundamental relationship defining a thermodynamic potential for the new grouping.</p>
 <section id="swapping-t-and-s-from-energy-to-helmholtz-free-energy">
-<h3>Swapping T and S, from Energy to Helmholtz Free Energy.<a class="headerlink" href="#swapping-t-and-s-from-energy-to-helmholtz-free-energy" title="Permalink to this heading">#</a></h3>
+<h3>Swapping T and S, from Energy to Helmholtz Free Energy.<a class="headerlink" href="#swapping-t-and-s-from-energy-to-helmholtz-free-energy" title="Link to this heading">#</a></h3>
 <p>If we define a new grouping in which the entropy and temperature are swapped, i.e. we want to define a new thermodynamic potential able to characterise equilibrium for a system at constant T and V we should start by defining a new function as follows:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -566,7 +568,7 @@ dA=dU-SdT-TdS=TdS-PdV-SdT-TdS=-SdT-PdV
 <p>which is the new thermodynamic relationship that allows the characterization of equilibrium as a function of <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(T\)</span> rather than <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(S\)</span>.</p>
 </section>
 <section id="swapping-p-and-v-from-energy-to-enthalpy">
-<h3>Swapping P and V from Energy to Enthalpy.<a class="headerlink" href="#swapping-p-and-v-from-energy-to-enthalpy" title="Permalink to this heading">#</a></h3>
+<h3>Swapping P and V from Energy to Enthalpy.<a class="headerlink" href="#swapping-p-and-v-from-energy-to-enthalpy" title="Link to this heading">#</a></h3>
 <p>Let’s start by Legendre transforming the <span class="math notranslate nohighlight">\(U\)</span> to swap <span class="math notranslate nohighlight">\(V\)</span> with its intensive conjugate variable <span class="math notranslate nohighlight">\(P\)</span>, this yields H, or enthalpy:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -579,7 +581,7 @@ dH=dU+VdP+PdV=TdS-PdV+VdP+PdV=TdS+VdP
 \]</div>
 </section>
 <section id="gibbs-free-energy">
-<h3>Gibbs Free Energy<a class="headerlink" href="#gibbs-free-energy" title="Permalink to this heading">#</a></h3>
+<h3>Gibbs Free Energy<a class="headerlink" href="#gibbs-free-energy" title="Link to this heading">#</a></h3>
 <p>Gibbs Free Energy is obtained by swapping both T/S and P/V. It is defined as:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -594,27 +596,27 @@ dG=dH-SdT-TdS=TdS+VdP-SdT-TdS=-SdT+VdP
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="the-phase-equilibrium-problem">
-<h1>The Phase Equilibrium Problem<a class="headerlink" href="#the-phase-equilibrium-problem" title="Permalink to this heading">#</a></h1>
+<h1>The Phase Equilibrium Problem<a class="headerlink" href="#the-phase-equilibrium-problem" title="Link to this heading">#</a></h1>
 <section id="references">
-<h2>References:<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Chapters 1, 2 Prausnitz</p></li>
 <li><p>Chapters 1, 2 Chandler</p></li>
 </ul>
 </section>
 <section id="the-problem">
-<h2>The problem:<a class="headerlink" href="#the-problem" title="Permalink to this heading">#</a></h2>
+<h2>The problem:<a class="headerlink" href="#the-problem" title="Link to this heading">#</a></h2>
 <p><em>Relate quantitatively the variables that describe the state of equilibrium between two or more homogeneous phases that are free to exchange energy and matter.</em></p>
 </section>
 <section id="definitions">
-<h2>Definitions:<a class="headerlink" href="#definitions" title="Permalink to this heading">#</a></h2>
+<h2>Definitions:<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Homogeneous phase at equilibrium</strong>: Region of space where the intensive properties are constant.</p></li>
 <li><p><strong>Intensive properties</strong>: properties that are independent of mass, size, or shape of the phase (i.e. T, P, r, x, y, etc.)</p></li>
 </ul>
 </section>
 <section id="equilirbium-in-a-multiphase-multicomponent-system">
-<h2>Equilirbium in a multiphase, multicomponent, system:<a class="headerlink" href="#equilirbium-in-a-multiphase-multicomponent-system" title="Permalink to this heading">#</a></h2>
+<h2>Equilirbium in a multiphase, multicomponent, system:<a class="headerlink" href="#equilirbium-in-a-multiphase-multicomponent-system" title="Link to this heading">#</a></h2>
 <p>Consider a system where:</p>
 <ul class="simple">
 <li><p>Two or more phases are present</p></li>
@@ -669,7 +671,7 @@ n_i=n_i^\alpha+n_i^\beta
 \]</div>
 </section>
 <section id="degrees-of-freedom-of-a-single-multicomponent-phase">
-<h2>Degrees of freedom of a single multicomponent phase.<a class="headerlink" href="#degrees-of-freedom-of-a-single-multicomponent-phase" title="Permalink to this heading">#</a></h2>
+<h2>Degrees of freedom of a single multicomponent phase.<a class="headerlink" href="#degrees-of-freedom-of-a-single-multicomponent-phase" title="Link to this heading">#</a></h2>
 <p>Given what we have seen so far, can we determine how many degrees of freedom are associated to a single phase?</p>
 <p>In a single homogeneous multicomponent phase at constant <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P\)</span>, containing <span class="math notranslate nohighlight">\(m\)</span> component the number of degrees of freedom is:</p>
 <div class="math notranslate nohighlight">
@@ -678,7 +680,7 @@ DOF=m+2-c
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(c\)</span> is the number of constraints. For a single phase there is only one constrain that applies, the Gibbs Duhem equation. Hence <span class="math notranslate nohighlight">\(DOF=m+1\)</span>.</p>
 <section id="the-gibbs-duhem-equation">
-<h3>The Gibbs Duhem Equation<a class="headerlink" href="#the-gibbs-duhem-equation" title="Permalink to this heading">#</a></h3>
+<h3>The Gibbs Duhem Equation<a class="headerlink" href="#the-gibbs-duhem-equation" title="Link to this heading">#</a></h3>
 <p>The fundamental equation emerging from the first and second laws of Thermodynamics for a multicomponent system reads:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -708,7 +710,7 @@ SdT-Vdp+\sum_{i}n_{i}d\mu_i=0
 </section>
 </section>
 <section id="degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule">
-<h2>Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule<a class="headerlink" href="#degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule" title="Permalink to this heading">#</a></h2>
+<h2>Degrees of fredom in a multiphase, multicomponent system: The Gibbs phase rule<a class="headerlink" href="#degrees-of-fredom-in-a-multiphase-multicomponent-system-the-gibbs-phase-rule" title="Link to this heading">#</a></h2>
 <p>Let’s consider a system comprising <span class="math notranslate nohighlight">\(\nu\)</span> homogenous phases at equilibrium, each containing <span class="math notranslate nohighlight">\(m\)</span> components. The number of degrees of freedom associated to each phase is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -726,7 +728,7 @@ c=(\nu-1)(m+2)
 DOF=\nu(m+1)-(\nu-1)(m+2)=m+2-\nu
 \]</div>
 <section id="contributions">
-<h3>Contributions<a class="headerlink" href="#contributions" title="Permalink to this heading">#</a></h3>
+<h3>Contributions<a class="headerlink" href="#contributions" title="Link to this heading">#</a></h3>
 <p>Ivan Boguslavskyi, 1.10.2024</p>
 </section>
 </section>
@@ -776,7 +778,7 @@ DOF=\nu(m+1)-(\nu-1)(m+2)=m+2-\nu
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</p>
+        <p class="prev-next-title">Week 2: Phase Equilibria</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -877,8 +879,8 @@ By Matteo Salvalaglio
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

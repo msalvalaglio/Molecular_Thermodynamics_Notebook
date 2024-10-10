@@ -1,15 +1,14 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation &#8212; Molecular Thermodynamics Virtual Notebook</title>
+    <title>Week 2: Phase Equilibria &#8212; Molecular Thermodynamics Virtual Notebook</title>
   
   
   
@@ -19,51 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Week2_PhaseEquilibria';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Liquid/Solid Equilibrium conditions: deriving solubility" href="Week2_PhaseEquilibria2.html" />
+    <link rel="next" title="Week 2 Liquid/Solid Equilibrium conditions: defining solubility" href="Week2_PhaseEquilibria2.html" />
     <link rel="prev" title="Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics" href="Week1_Notes_Thermodynamics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -142,6 +141,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="index.html">
   
@@ -157,7 +158,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -177,8 +178,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Week1_Notes_Thermodynamics.html">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria2.html">Liquid/Solid Equilibrium conditions: deriving solubility</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 2: Phase Equilibria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria2.html">Week 2  Liquid/Solid Equilibrium conditions: defining solubility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week2_Exercise.html">Week 2 Exercise: Liquid Vapour Equilibria</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3_StatMech.html">An Introduction to Statistical Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3_Microcanonical.html">The Microcanonical Ensemble</a></li>
@@ -219,9 +220,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -363,10 +364,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -374,12 +375,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -390,11 +393,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</h1>
+    <h1>Week 2: Phase Equilibria</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-potential">Chemical potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-conditions">Equilibrium conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-chemical-potential-and-fugacity">Residual Chemical Potential and Fugacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excess-chemical-potential-and-activity">Excess chemical potential and activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria-in-monocomponent-systems-the-clausius-clapeyron-equation">Equilibria in monocomponent systems: the Clausius Clapeyron Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation">Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -404,11 +420,110 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-2-liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation">
-<h1>Week 2 Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation<a class="headerlink" href="#week-2-liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2-phase-equilibria">
+<h1>Week 2: Phase Equilibria<a class="headerlink" href="#week-2-phase-equilibria" title="Link to this heading">#</a></h1>
+<section id="chemical-potential">
+<h2>Chemical potential<a class="headerlink" href="#chemical-potential" title="Link to this heading">#</a></h2>
+<p>A useful definition of the Chemical Potential is <span class="math notranslate nohighlight">\(\left(\frac{\partial{G}}{\partial{n_i}}\right)_{T,P,n_{j\neq{i}}}\)</span>.</p>
+<p>The change in chemical potential can be obtained rearranging the Gibbs Duhem equation for a single component system:</p>
+<div class="math notranslate nohighlight">
+\[
+d\mu=-sdT+vdP
+\]</div>
+<p>This expression is useful in different contexts, from computing the chemical potential of an ideal gas, to deriving an equation for phase coexistence conditions.</p>
+</section>
+<section id="equilibrium-conditions">
+<h2>Equilibrium conditions<a class="headerlink" href="#equilibrium-conditions" title="Link to this heading">#</a></h2>
+<p>As discussed in Week 1, two phases <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are in equilibrium when their temperatures are equal, their pressures are equal, and all the chemical potentials of all the species that are present in both phases are equal:</p>
+<div class="math notranslate nohighlight">
+\[
+T^\alpha=T^\beta
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P^\alpha=P^\beta
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mu_i^\alpha=\mu_i^\beta
+\]</div>
+<p>In conditions of constant temperature and pressure, the equality between chemical potentials defines the equilibrium conditions across phases: <span class="math notranslate nohighlight">\(\mu_i^\alpha(T,P)=\mu_i^\beta(T,P)\)</span></p>
+</section>
+<section id="residual-chemical-potential-and-fugacity">
+<h2>Residual Chemical Potential and Fugacity<a class="headerlink" href="#residual-chemical-potential-and-fugacity" title="Link to this heading">#</a></h2>
+<p>The chemical potential of an ideal gas at pressure <span class="math notranslate nohighlight">\(P\)</span> and temperature <span class="math notranslate nohighlight">\(T\)</span> can be computed by integrating the Gibbs-Duhem equation along a path where the temperature is raised from 0 to <span class="math notranslate nohighlight">\(P\)</span> at constant <span class="math notranslate nohighlight">\(T\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{0,T}^{P,T}d\mu=\int_T^T-sdT^\prime+\int_0^PvdP^\prime = RT\int_0^P\frac{1}{P^{\prime}}dP^\prime
+\]</div>
+<p>which gives the chemical potential for an ideal gas at temperature <span class="math notranslate nohighlight">\(T\)</span> and pressure <span class="math notranslate nohighlight">\(P\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mu^{id}=RT\ln{P}
+\]</div>
+<p>The chemical potential of a real gas can be expressed as the chemical potential of an ideal gas, plus a residual chemical potential capturing the effect of intermolecular interactions: <span class="math notranslate nohighlight">\(\mu=\mu^{id}+\mu^{res}\)</span>.<br />
+Using the definition of <span class="math notranslate nohighlight">\(\mu^{id}\)</span> above as a blueprint we can define the residual chemical potential <span class="math notranslate nohighlight">\(\mu^r=RT\ln{\phi}\)</span>, and thus the chemical potential of a real fluid at pressure <span class="math notranslate nohighlight">\(P\)</span> and temperature <span class="math notranslate nohighlight">\(T\)</span> becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+\mu^{real}=RT\ln{P\phi}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\phi\)</span> is the so-called fugacity coefficient and the product <span class="math notranslate nohighlight">\(P\phi\)</span> defines the fugacity of a real gas. The fugacity coefficient of a pure fluid depends on <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P\)</span>, and it is indicated as <span class="math notranslate nohighlight">\(\phi(T,P)\)</span>.</p>
+</section>
+<section id="excess-chemical-potential-and-activity">
+<h2>Excess chemical potential and activity<a class="headerlink" href="#excess-chemical-potential-and-activity" title="Link to this heading">#</a></h2>
+<p>A mixture (an homogeneous fluid phase with more than one component) is considered ideal when its properties are a linear combination of the properties of the pure components.
+In particular the fugacity of component <span class="math notranslate nohighlight">\(i\)</span> in an ideal mixture, in which its molar fraction is <span class="math notranslate nohighlight">\(x_i\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+f_i^\circ(T,P,x_i)=x_if_i(T,P)
+\]</div>
+<p>The activity of component <span class="math notranslate nohighlight">\(i\)</span> is defined as the ratio between the fugacity of component <span class="math notranslate nohighlight">\(i\)</span> in a real mixture (<span class="math notranslate nohighlight">\(\hat{f}_i(T,P,x)\)</span>) and <span class="math notranslate nohighlight">\(f_i^\circ(T,P,x_i)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\gamma_i(T,P,x)=\frac{\hat{f}_i(T,P,x)}{f_i^\circ(T,P,x_i)}
+\]</div>
+<p>The activity of component <span class="math notranslate nohighlight">\(i\)</span> is then defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+a_i(T,P,x)=x_i\gamma_i(T,P,x)
+\]</div>
+</section>
+<section id="equilibria-in-monocomponent-systems-the-clausius-clapeyron-equation">
+<h2>Equilibria in monocomponent systems: the Clausius Clapeyron Equation<a class="headerlink" href="#equilibria-in-monocomponent-systems-the-clausius-clapeyron-equation" title="Link to this heading">#</a></h2>
+<p>Let’s consider varying the temperature and pressure in such a way that remain on the coexistence line between the liquid (<span class="math notranslate nohighlight">\(L\)</span>) and vapour phases (<span class="math notranslate nohighlight">\(V\)</span>), where <span class="math notranslate nohighlight">\(\mu^L=\mu^V\)</span>.
+In this process <span class="math notranslate nohighlight">\(d\mu^L=d\mu^V\)</span>, by using the Gibbs Duhem equation this can be restated as:
+$<span class="math notranslate nohighlight">\(
+v^LdP-s^LdT=v^VdP-sVdT
+\)</span><span class="math notranslate nohighlight">\(
+which can be rearranged as: 
+\)</span><span class="math notranslate nohighlight">\(
+\frac{dP}{dT}=\frac{s^V-s^L}{v^V-v^L}
+\)</span>$</p>
+<p>Considering now that <span class="math notranslate nohighlight">\(\mu^L=\mu^V\)</span>, which can be rewritten as <span class="math notranslate nohighlight">\(h^L-Ts^L=h^V-Ts^V\)</span> the expression above becomes:
+$<span class="math notranslate nohighlight">\(
+\frac{dP}{dT}=\frac{h^V-h^L}{T(v^V-v^L)}=\frac{\Delta{h}_{ev}}{T(v^V-v^L)}
+\)</span>$
+which takes the name of Clapeyron equation.</p>
+<p>By introducing the approximation <span class="math notranslate nohighlight">\((v^V-v^L)\simeq{v^V}\simeq{\frac{RT}{P}}\)</span>, we obtain the so called Clausis-Clapeyron equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dP}{dT}=\frac{P\Delta{h}_{ev}}{RT^2}
+\]</div>
+<p>which integrated provide an expression for the equilibrium vapour pressure <span class="math notranslate nohighlight">\(P^\circ(T)\)</span> as a function of the temperature:</p>
+<div class="math notranslate nohighlight">
+\[
+\int\frac{dP}{P}=\int\frac{\Delta{h}_{ev}}{RT^2}dT\simeq{\frac{\Delta{h}_{ev}}{R}\int\frac{dT}{T^2}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\ln{P^\circ(T)}=-\frac{\Delta{h}_{ev}}{RT}+C
+\]</div>
+</section>
+<section id="liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation">
+<h2>Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation<a class="headerlink" href="#liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation" title="Link to this heading">#</a></h2>
 <p>To express the partial pressure of component <span class="math notranslate nohighlight">\(i\)</span> in a vapour phase in equilibrium with a multicomponent liquid phase we shall begin by expressing the fundamental condition that has to be fulfilled by all species at thermodynamic equilibrium at constant <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-pvapeq-fund">
-<span class="eqno">(1)<a class="headerlink" href="#equation-pvapeq-fund" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1)<a class="headerlink" href="#equation-pvapeq-fund" title="Link to this equation">#</a></span>\[
 \mu_i^L(T,P,\vec{x})=\mu_i^V(T,P,\vec{y})
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu_i^L(T,P,\vec{x})\)</span> and <span class="math notranslate nohighlight">\(\mu_i^V(T,P,\vec{y})\)</span> are the chemical potentials for specie <span class="math notranslate nohighlight">\(i\)</span> in the liquid and vapour phase, respectively.</p>
@@ -420,36 +535,37 @@ document.write(`
 \int_{L,T,P,\vec{x}}^{V,T,P,\vec{y}}d\mu_i=\int_{L,T,P,\vec{x}}^{V,T,P,\vec{y}}RTd\ln{f_i}
 \]</div>
 <div class="math notranslate nohighlight" id="equation-pvapeq-chempot">
-<span class="eqno">(2)<a class="headerlink" href="#equation-pvapeq-chempot" title="Permalink to this equation">#</a></span>\[
-\mu_i^V(T,P,\vec{y})-\mu_i^L(T,P,\vec{x})=RT\ln\frac{f_i^V(T,P,\vec{y}}{f_i^L(T,P,\vec{x})}
+<span class="eqno">(2)<a class="headerlink" href="#equation-pvapeq-chempot" title="Link to this equation">#</a></span>\[
+\mu_i^V(T,P,\vec{y})-\mu_i^L(T,P,\vec{x})=RT\ln\frac{\hat{f}_i^V(T,P,\vec{y}}{\hat{f}_i^L(T,P,\vec{x})}
 \]</div>
 <p>Hence, the equilibrium condition expressed by Eq. <a class="reference internal" href="#equation-pvapeq-fund">(1)</a> can be conveniently stated as:</p>
 <div class="math notranslate nohighlight" id="equation-pvapeq-equi">
-<span class="eqno">(3)<a class="headerlink" href="#equation-pvapeq-equi" title="Permalink to this equation">#</a></span>\[
-f_i^V(T,P,\vec{y})=f_i^L(T,P,\vec{x})
+<span class="eqno">(3)<a class="headerlink" href="#equation-pvapeq-equi" title="Link to this equation">#</a></span>\[
+\hat{f}_i^V(T,P,\vec{y})=\hat{f}_i^L(T,P,\vec{x})
 \]</div>
 <p>The left-hand term can be written as:</p>
 <div class="math notranslate nohighlight" id="equation-pvapeq-vapour">
-<span class="eqno">(4)<a class="headerlink" href="#equation-pvapeq-vapour" title="Permalink to this equation">#</a></span>\[
-f_i^V(T,P,\vec{y})=\phi(T,P,\vec{y})Py_i
+<span class="eqno">(4)<a class="headerlink" href="#equation-pvapeq-vapour" title="Link to this equation">#</a></span>\[
+\hat{f}_i^V(T,P,\vec{y})=\hat{\phi}(T,P,\vec{y})Py_i
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\phi(T,P,\vec{y})\)</span> is the fugacity coefficient, <span class="math notranslate nohighlight">\(P\)</span> the pressure and <span class="math notranslate nohighlight">\(y_i\)</span> the molar fraction in the vapour phase.</p>
+<p>where <span class="math notranslate nohighlight">\(\hat{\phi}(T,P,\vec{y})\)</span> is the fugacity coefficient, <span class="math notranslate nohighlight">\(P\)</span> the pressure and <span class="math notranslate nohighlight">\(y_i\)</span> the molar fraction in the vapour phase.</p>
 <p>The right hand side term can instead be written as:</p>
 <div class="math notranslate nohighlight" id="equation-pvapeq-liquid">
-<span class="eqno">(5)<a class="headerlink" href="#equation-pvapeq-liquid" title="Permalink to this equation">#</a></span>\[
-f_i^L(T,P,\vec{x})=\gamma_i(T,P,\vec{x})x_i\phi(T,P^o(T))P^o(T)e^{\frac{v_i(P-P^o(T))}{RT}}
+<span class="eqno">(5)<a class="headerlink" href="#equation-pvapeq-liquid" title="Link to this equation">#</a></span>\[
+\hat{f}_i^L(T,P,\vec{x})=\gamma_i(T,P,\vec{x})x_i\phi(T,P^\circ(T))P^o(T)e^{\frac{v^L_i(P-P^o(T))}{RT}}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(x_i\)</span> is the molar fraction of component <span class="math notranslate nohighlight">\(i\)</span> in the liquid phase, <span class="math notranslate nohighlight">\(\gamma_i(T,P,\vec{x})\)</span> is the activity coefficient for component i in the liquid mixture, <span class="math notranslate nohighlight">\(P^o(T)\)</span> is the equilibrium vapour pressure of the pure component <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\phi(T,P^o(T))\)</span> is the fugacity coefficient for the pure component <span class="math notranslate nohighlight">\(i\)</span> at <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P^o(T)\)</span>, and the term <span class="math notranslate nohighlight">\(e^{\frac{v_i(P-P^o(T))}{RT}}\)</span> is the Poynting correction, which captures the difference in fugacity of the pure liquid component associated with the difference in pressure between <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(P^o(T)\)</span>.</p>
 <p>Introducing Eq.<a class="reference internal" href="#equation-pvapeq-vapour">(4)</a> and Eq. <a class="reference internal" href="#equation-pvapeq-liquid">(5)</a> in Eq.<a class="reference internal" href="#equation-pvapeq-equi">(3)</a>, while considering negligible the Poynting correction, and ideal gas approximation applicable yields:</p>
 <div class="math notranslate nohighlight" id="equation-pvapeq-final">
-<span class="eqno">(6)<a class="headerlink" href="#equation-pvapeq-final" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(6)<a class="headerlink" href="#equation-pvapeq-final" title="Link to this equation">#</a></span>\[
 Py_i=\gamma_i(T,P,\vec{x})P^o(T)x_i
 \]</div>
 <p>It should be noted that introducing the further hypothesis of ideal liquid mixture yields the Raoult law:</p>
 <div class="math notranslate nohighlight" id="equation-pvapeq-raoult">
-<span class="eqno">(7)<a class="headerlink" href="#equation-pvapeq-raoult" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(7)<a class="headerlink" href="#equation-pvapeq-raoult" title="Link to this equation">#</a></span>\[
 Py_i=P^o(T)x_i
 \]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -496,7 +612,7 @@ Py_i=P^o(T)x_i
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Liquid/Solid Equilibrium conditions: deriving solubility</p>
+        <p class="prev-next-title">Week 2  Liquid/Solid Equilibrium conditions: defining solubility</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -506,6 +622,26 @@ Py_i=P^o(T)x_i
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-potential">Chemical potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-conditions">Equilibrium conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-chemical-potential-and-fugacity">Residual Chemical Potential and Fugacity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excess-chemical-potential-and-activity">Excess chemical potential and activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria-in-monocomponent-systems-the-clausius-clapeyron-equation">Equilibria in monocomponent systems: the Clausius Clapeyron Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation">Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -550,8 +686,8 @@ By Matteo Salvalaglio
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
