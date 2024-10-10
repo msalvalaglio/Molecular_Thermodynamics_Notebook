@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Week2_PhaseEquilibria';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Week 2 Liquid/Solid Equilibrium conditions: defining solubility" href="Week2_PhaseEquilibria2.html" />
+    <link rel="next" title="Week 2 Liquid/Solid Equilibrium in multicomponent systems: defining solubility" href="Week2_PhaseEquilibria2.html" />
     <link rel="prev" title="Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics" href="Week1_Notes_Thermodynamics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,7 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Week1_Notes_Thermodynamics.html">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 2: Phase Equilibria</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria2.html">Week 2  Liquid/Solid Equilibrium conditions: defining solubility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria2.html">Week 2  Liquid/Solid Equilibrium in multicomponent systems: defining solubility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week2_Exercise.html">Week 2 Exercise: Liquid Vapour Equilibria</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3_StatMech.html">An Introduction to Statistical Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3_Microcanonical.html">The Microcanonical Ensemble</a></li>
@@ -407,8 +407,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-conditions">Equilibrium conditions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-chemical-potential-and-fugacity">Residual Chemical Potential and Fugacity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excess-chemical-potential-and-activity">Excess chemical potential and activity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria-in-monocomponent-systems-the-clausius-clapeyron-equation">Equilibria in monocomponent systems: the Clausius Clapeyron Equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation">Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria-in-monocomponent-systems-the-clapeyron-equation">Equilibria in monocomponent systems: the Clapeyron Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-vapour-equilibria-in-monocomponent-systems-the-clausis-clapeyron-equation">Liquid-Vapour Equilibria in monocomponent systems: the Clausis-Clapeyron Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-vapour-equilibria-in-monocomponent-systems">Solid-Vapour Equilibria in monocomponent systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application">Example application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-vapour-equilibrium-in-multicomponent-systems-deriving-the-raoult-equation">Liquid/Vapour Equilibrium in multicomponent systems: deriving the Raoult Equation</a></li>
 </ul>
             </nav>
         </div>
@@ -488,8 +491,8 @@ f_i^\circ(T,P,x_i)=x_if_i(T,P)
 a_i(T,P,x)=x_i\gamma_i(T,P,x)
 \]</div>
 </section>
-<section id="equilibria-in-monocomponent-systems-the-clausius-clapeyron-equation">
-<h2>Equilibria in monocomponent systems: the Clausius Clapeyron Equation<a class="headerlink" href="#equilibria-in-monocomponent-systems-the-clausius-clapeyron-equation" title="Link to this heading">#</a></h2>
+<section id="equilibria-in-monocomponent-systems-the-clapeyron-equation">
+<h2>Equilibria in monocomponent systems: the Clapeyron Equation<a class="headerlink" href="#equilibria-in-monocomponent-systems-the-clapeyron-equation" title="Link to this heading">#</a></h2>
 <p>Let’s consider varying the temperature and pressure in such a way that remain on the coexistence line between the liquid (<span class="math notranslate nohighlight">\(L\)</span>) and vapour phases (<span class="math notranslate nohighlight">\(V\)</span>), where <span class="math notranslate nohighlight">\(\mu^L=\mu^V\)</span>.
 In this process <span class="math notranslate nohighlight">\(d\mu^L=d\mu^V\)</span>, by using the Gibbs Duhem equation this can be restated as:</p>
 <div class="math notranslate nohighlight">
@@ -508,7 +511,10 @@ v^LdP-s^LdT=v^VdP-sVdT
 \]</div>
 <p>x
 which takes the name of Clapeyron equation.</p>
-<p>By introducing the approximation <span class="math notranslate nohighlight">\((v^V-v^L)\simeq{v^V}\simeq{\frac{RT}{P}}\)</span>, we obtain the so called Clausis-Clapeyron equation:</p>
+</section>
+<section id="liquid-vapour-equilibria-in-monocomponent-systems-the-clausis-clapeyron-equation">
+<h2>Liquid-Vapour Equilibria in monocomponent systems: the Clausis-Clapeyron Equation<a class="headerlink" href="#liquid-vapour-equilibria-in-monocomponent-systems-the-clausis-clapeyron-equation" title="Link to this heading">#</a></h2>
+<p>By introducing the approximation <span class="math notranslate nohighlight">\((v^V-v^L)\simeq{v^V}\simeq{\frac{RT}{P}}\)</span> in the Clapeyron equation, we obtain the so called Clausis-Clapeyron equation:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{dP}{dT}=\frac{P\Delta{h}_{ev}}{RT^2}
@@ -523,8 +529,32 @@ which takes the name of Clapeyron equation.</p>
 \ln{P^\circ(T)}=-\frac{\Delta{h}_{ev}}{RT}+C
 \]</div>
 </section>
-<section id="liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation">
-<h2>Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation<a class="headerlink" href="#liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation" title="Link to this heading">#</a></h2>
+<section id="solid-vapour-equilibria-in-monocomponent-systems">
+<h2>Solid-Vapour Equilibria in monocomponent systems<a class="headerlink" href="#solid-vapour-equilibria-in-monocomponent-systems" title="Link to this heading">#</a></h2>
+<p>Solid-vapour equilibria are can be characterised by a Clausis-Clapeyron equation, analogous to the liquid-vapour equilibria discussed above.
+The Clapeyron equation is obtained without introducing any phase specific semplification, and for a solid-vapour equilibrium would look like:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dP}{dT}=\frac{h^V-h^S}{T(v^V-v^S)}=\frac{\Delta{h}_{sub}}{T(v^V-v^S)}
+\]</div>
+<p>where the superscript <span class="math notranslate nohighlight">\(S\)</span> refers to the <em>solid</em> phase, and <span class="math notranslate nohighlight">\(\Delta{h}_{sub}\)</span> is the sublimation enthalpy defined as <span class="math notranslate nohighlight">\(h^V-h^S\)</span>.</p>
+<p>The semplifications introduced above to obtain the Clausius-Clapeyron apply also in this case, <span class="math notranslate nohighlight">\((v^V-v^S)\simeq{v^V}\simeq{\frac{RT}{P}}\)</span>, leading to the following integrated expression for the equilibrium vapour pressure with respect to a solid:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln{P^s(T)}=-\frac{\Delta{h}_{sub}}{RT}+C
+\]</div>
+</section>
+<section id="example-application">
+<h2>Example application<a class="headerlink" href="#example-application" title="Link to this heading">#</a></h2>
+<p>Compute the VLE and SLE equilibrium lines, and the conditions in the T/P phase diagram where water vapour is in equilirbium simultaneously with ice and liquid water:</p>
+<p><span class="math notranslate nohighlight">\(\Delta{h}_{ev}\)</span>=</p>
+<p><span class="math notranslate nohighlight">\(\Delta{h}_{sub}\)</span>=</p>
+<p><span class="math notranslate nohighlight">\(P^\circ(373 K)=1 bar\)</span></p>
+<p><span class="math notranslate nohighlight">\(P^v( K)=1 bar\)</span></p>
+<p>Demonstrate that the conditions defining the T and P where water vapour is in equilirbium simultaneously with ice and liquid water correspond to the triple point.</p>
+</section>
+<section id="liquid-vapour-equilibrium-in-multicomponent-systems-deriving-the-raoult-equation">
+<h2>Liquid/Vapour Equilibrium in multicomponent systems: deriving the Raoult Equation<a class="headerlink" href="#liquid-vapour-equilibrium-in-multicomponent-systems-deriving-the-raoult-equation" title="Link to this heading">#</a></h2>
 <p>To express the partial pressure of component <span class="math notranslate nohighlight">\(i\)</span> in a vapour phase in equilibrium with a multicomponent liquid phase we shall begin by expressing the fundamental condition that has to be fulfilled by all species at thermodynamic equilibrium at constant <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-pvapeq-fund">
 <span class="eqno">(1)<a class="headerlink" href="#equation-pvapeq-fund" title="Link to this equation">#</a></span>\[
@@ -616,7 +646,7 @@ Py_i=P^o(T)x_i
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 2  Liquid/Solid Equilibrium conditions: defining solubility</p>
+        <p class="prev-next-title">Week 2  Liquid/Solid Equilibrium in multicomponent systems: defining solubility</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -640,8 +670,11 @@ Py_i=P^o(T)x_i
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-conditions">Equilibrium conditions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-chemical-potential-and-fugacity">Residual Chemical Potential and Fugacity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excess-chemical-potential-and-activity">Excess chemical potential and activity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria-in-monocomponent-systems-the-clausius-clapeyron-equation">Equilibria in monocomponent systems: the Clausius Clapeyron Equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-vapour-equilibrium-conditions-deriving-the-raoult-equation">Liquid/Vapour Equilibrium conditions: deriving the Raoult Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria-in-monocomponent-systems-the-clapeyron-equation">Equilibria in monocomponent systems: the Clapeyron Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-vapour-equilibria-in-monocomponent-systems-the-clausis-clapeyron-equation">Liquid-Vapour Equilibria in monocomponent systems: the Clausis-Clapeyron Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-vapour-equilibria-in-monocomponent-systems">Solid-Vapour Equilibria in monocomponent systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application">Example application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-vapour-equilibrium-in-multicomponent-systems-deriving-the-raoult-equation">Liquid/Vapour Equilibrium in multicomponent systems: deriving the Raoult Equation</a></li>
 </ul>
   </nav></div>
 
