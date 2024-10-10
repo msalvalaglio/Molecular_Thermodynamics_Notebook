@@ -511,9 +511,9 @@ The equations we can use to solve the problem are the equilibrium statements N-1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_13473/503369446.py:18: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_13817/503369446.py:18: RuntimeWarning: divide by zero encountered in divide
   gamma1=np.exp(VLA12/(1+VLA12*x/(VLA21*(1-x))))
-/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_13473/503369446.py:19: RuntimeWarning: divide by zero encountered in divide
+/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_13817/503369446.py:19: RuntimeWarning: divide by zero encountered in divide
   gamma2=np.exp(VLA21/(1+VLA21*(1-x)/(VLA12*(x))))
 </pre></div>
 </div>
@@ -522,22 +522,149 @@ The equations we can use to solve the problem are the equilibrium statements N-1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from IPython.display import HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;VLequilibrium_interactive.html&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#from IPython.display import HTML</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;VLequilibrium_interactive.html&#39;</span><span class="p">)</span>
+<div class="output text_html"><!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Phase Diagram</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js"></script>
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .slider-container {
+            margin: 20px 0;
+        }
+        .slider {
+            width: 100%;
+        }
+        .slider-value {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Phase Diagram</h1>
+        <div class="slider-container">
+            <label for="gamma-slider">γ Interpolation Factor:</label>
+            <input type="range" min="0" max="1" step="0.01" value="0" 
+                   class="slider" id="gamma-slider">
+            <div class="slider-value">Value: <span id="slider-value">0</span></div>
+        </div>
+        <div id="plot"></div>
+    </div>
 
-<span class="ne">NameError</span>: name &#39;HTML&#39; is not defined
-</pre></div>
-</div>
-</div>
+    <script>
+        // Constants
+        const T = 50;
+        const VLA12 = 0.9726;
+        const VLA21 = 1.9210;
+        const AA = [6.95465, 8.08097];
+        const AB = [1170.966, 1582.271];
+        const AC = [226.232, 239.726];
+
+        // Experimental data
+        const xinclass = [0.15, 0.3, 0.45, 0.9, 0.9];
+        const yinclass = [0.18, 0.349, 0.505, 0.92, 0.734];
+        const Pinclass = [0.571, 0.596, 0.617, 0.679, 1.013];
+
+        function linspace(start, stop, num) {
+            const step = (stop - start) / (num - 1);
+            return Array.from({length: num}, (_, i) => start + step * i);
+        }
+
+        function calculatePhaseData(interpolationFactor) {
+            const x = linspace(0, 1, 50);
+            const Peq = AA.map((a, i) => Math.pow(10, (a - AB[i]/(T + AC[i])))/750);
+            
+            const gamma1_actual = x.map(xi => 
+                Math.exp(VLA12/(1 + VLA12*xi/(VLA21*(1-xi))))
+            );
+            const gamma2_actual = x.map(xi => 
+                Math.exp(VLA21/(1 + VLA21*(1-xi)/(VLA12*xi)))
+            );
+
+            const gamma1 = gamma1_actual.map(g => 1 + (g - 1) * interpolationFactor);
+            const gamma2 = gamma2_actual.map(g => 1 + (g - 1) * interpolationFactor);
+
+            const Pbubble = x.map((xi, i) => 
+                Peq[0]*xi*gamma1[i] + Peq[1]*(1-xi)*gamma2[i]
+            );
+            const K1 = gamma1.map((g, i) => (Peq[0]*g)/Pbubble[i]);
+            const ybubble = x.map((xi, i) => K1[i]*xi);
+
+            return { x, Pbubble, ybubble };
+        }
+
+        function updatePlot(interpolationFactor) {
+            const { x, Pbubble, ybubble } = calculatePhaseData(interpolationFactor);
+
+            const data = [
+                {
+                    x: x,
+                    y: Pbubble,
+                    mode: 'lines',
+                    name: 'Liquid Mixture',
+                    line: { color: 'blue' }
+                },
+                {
+                    x: ybubble,
+                    y: Pbubble,
+                    mode: 'lines',
+                    name: 'Vapor Mixture',
+                    line: { color: 'red' }
+                },
+                {
+                    x: yinclass,
+                    y: Pinclass,
+                    mode: 'markers',
+                    name: 'Experimental Data',
+                    marker: { color: 'green', size: 10 }
+                }
+            ];
+
+            const layout = {
+                title: `Phase Diagram (γ interpolation factor = ${interpolationFactor.toFixed(2)})`,
+                xaxis: { 
+                    title: 'x, y',
+                    range: [0, 1]
+                },
+                yaxis: { 
+                    title: 'P [bar]',
+                    range: [0.5, 1.2]
+                },
+                width: 800,
+                height: 600
+            };
+
+            Plotly.newPlot('plot', data, layout);
+        }
+
+        // Initialize plot
+        updatePlot(0);
+
+        // Add slider event listener
+        const slider = document.getElementById('gamma-slider');
+        const sliderValue = document.getElementById('slider-value');
+        
+        slider.addEventListener('input', (event) => {
+            const value = parseFloat(event.target.value);
+            sliderValue.textContent = value.toFixed(2);
+            updatePlot(value);
+        });
+    </script>
+</body>
+</html></div></div>
 </div>
 </section>
 </section>
