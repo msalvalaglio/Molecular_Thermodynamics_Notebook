@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -412,7 +412,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bubble-and-dew-points">Bubble and Dew points</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-useful-information">Data and useful information</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-definitions">Problem definitions:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-bubble-and-dew-points">Example solution: Bubble and Dew points</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-bubble-points">Example solution: Bubble points</a></li>
 </ul>
 </li>
 </ul>
@@ -594,8 +594,8 @@ The equations we can use to solve the problem are the equilibrium statements N-1
 </html></div></div>
 </div>
 </section>
-<section id="example-solution-bubble-and-dew-points">
-<h3>Example solution: Bubble and Dew points<a class="headerlink" href="#example-solution-bubble-and-dew-points" title="Link to this heading">#</a></h3>
+<section id="example-solution-bubble-points">
+<h3>Example solution: Bubble points<a class="headerlink" href="#example-solution-bubble-points" title="Link to this heading">#</a></h3>
 <div class="cell tag_{_____&quot;tags&quot;:_[_________&quot;hide-input&quot;,_____]_} docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -634,8 +634,8 @@ The equations we can use to solve the problem are the equilibrium statements N-1
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Pbubble</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, real&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ybubble</span><span class="p">,</span><span class="n">Pbubble</span><span class="p">,</span><span class="s1">&#39;r-&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, real&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Pbubble</span><span class="p">,</span><span class="s1">&#39;b-o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, real&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ybubble</span><span class="p">,</span><span class="n">Pbubble</span><span class="p">,</span><span class="s1">&#39;r-^&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vapour Mixture, real&#39;</span><span class="p">)</span>
 
 
 <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Pbubble_ideal</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquid Mixture, ideal&#39;</span><span class="p">)</span>
@@ -651,13 +651,13 @@ The equations we can use to solve the problem are the equilibrium statements N-1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_83716/503369446.py:18: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_21849/1455094392.py:18: RuntimeWarning: divide by zero encountered in divide
   gamma1=np.exp(VLA12/(1+VLA12*x/(VLA21*(1-x))))
-/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_83716/503369446.py:19: RuntimeWarning: divide by zero encountered in divide
+/var/folders/4v/jxb311rn5nq2q59y91zzgxd40000gp/T/ipykernel_21849/1455094392.py:19: RuntimeWarning: divide by zero encountered in divide
   gamma2=np.exp(VLA21/(1+VLA21*(1-x)/(VLA12*(x))))
 </pre></div>
 </div>
-<img alt="_images/05a5a725385716d475c91640a0ab1a15344c84891d1f2d65d68cc00e0ac935c1.png" src="_images/05a5a725385716d475c91640a0ab1a15344c84891d1f2d65d68cc00e0ac935c1.png" />
+<img alt="_images/728a140a34e0e1f24c03c948d07cae71054613f93d0def61b189c65f738dee16.png" src="_images/728a140a34e0e1f24c03c948d07cae71054613f93d0def61b189c65f738dee16.png" />
 </div>
 </div>
 </section>
@@ -731,7 +731,7 @@ The equations we can use to solve the problem are the equilibrium statements N-1
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bubble-and-dew-points">Bubble and Dew points</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-useful-information">Data and useful information</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-definitions">Problem definitions:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-bubble-and-dew-points">Example solution: Bubble and Dew points</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-bubble-points">Example solution: Bubble points</a></li>
 </ul>
 </li>
 </ul>
