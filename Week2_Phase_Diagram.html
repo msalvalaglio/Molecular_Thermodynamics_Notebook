@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 4 Exercise: Second Virial Coefficient from Interatomic potentials. &#8212; Molecular Thermodynamics Virtual Notebook</title>
+    <title>Week 2 Exercise 1: Water and Ice equilibria with vapour &#8212; Molecular Thermodynamics Virtual Notebook</title>
   
   
   
@@ -59,11 +59,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Week3_Exercise';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week2_Phase_Diagram';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="An Introduction to Statistical Mechanics" href="Week4_StatMech.html" />
-    <link rel="prev" title="Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions" href="Week3_Virial_Binary_mixtures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,6 +124,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Week1_Notes_Thermodynamics.html">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria.html">Week 2: Phase Equilibria</a></li>
@@ -192,7 +192,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="Week3_Virial_Pure_Fluids.html">Volumetric Behaviour of Pure Fluids from Intermolecular Interactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3_Virial_Binary_mixtures.html">Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Exercise.html">Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4_StatMech.html">An Introduction to Statistical Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4_Microcanonical.html">The Microcanonical Ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4_Canonical.html">The Canonical Ensemble</a></li>
@@ -268,7 +268,7 @@
       
       
       
-      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week3_Exercise.ipynb" target="_blank"
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week2_Phase_Diagram.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek3_Exercise.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek2_Phase_Diagram.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +315,7 @@
       
       
       
-      <li><a href="_sources/Week3_Exercise.ipynb" target="_blank"
+      <li><a href="_sources/Week2_Phase_Diagram.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -386,7 +386,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -397,11 +399,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.</h1>
+    <h1>Week 2 Exercise 1: Water and Ice equilibria with vapour</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application">Example application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-1">Example solution 1</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -411,19 +422,64 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-4-exercise-second-virial-coefficient-from-interatomic-potentials">
-<h1>Week 4 Exercise: Second Virial Coefficient from Interatomic potentials.<a class="headerlink" href="#week-4-exercise-second-virial-coefficient-from-interatomic-potentials" title="Link to this heading">#</a></h1>
-<p>Using the expression:</p>
-<div class="math notranslate nohighlight">
-\[
-B_{ii}=2\pi{N_A}\int_0^\infty\left(1-e^{-\Gamma_{ii}/RT}\right)r^2dr
-\]</div>
-<p>Compute the second virial coefficient for the following interatomic potentials:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span> for <span class="math notranslate nohighlight">\(r&gt; \sigma\)</span> ; <span class="math notranslate nohighlight">\(\infty\)</span> for <span class="math notranslate nohighlight">\(r \leq \sigma\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span> for <span class="math notranslate nohighlight">\(r&gt;R\sigma\)</span> ; <span class="math notranslate nohighlight">\(-\epsilon\)</span> for <span class="math notranslate nohighlight">\(\sigma&lt;r\leq{R}\sigma\)</span> ; <span class="math notranslate nohighlight">\(\infty\)</span> for <span class="math notranslate nohighlight">\(r \leq \sigma\)</span></p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2-exercise-1-water-and-ice-equilibria-with-vapour">
+<h1>Week 2 Exercise 1: Water and Ice equilibria with vapour<a class="headerlink" href="#week-2-exercise-1-water-and-ice-equilibria-with-vapour" title="Link to this heading">#</a></h1>
+<section id="example-application">
+<h2>Example application<a class="headerlink" href="#example-application" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Compute the VLE and SLE equilibrium lines, and the conditions in the T/P phase diagram where water vapour is in equilirbium simultaneously with ice and liquid water:</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\Delta{h}_{ev}\)</span>= 40.657 kJ/mol</p>
+<p><span class="math notranslate nohighlight">\(\Delta{h}_{sub}\)</span>= 54.153 kJ/mol</p>
+<p><span class="math notranslate nohighlight">\(P^\circ(373 K)\)</span>=101300 Pa</p>
+<p><span class="math notranslate nohighlight">\(P^v(273 K)\)</span>=611.153 Pa</p>
+<ol class="arabic simple" start="2">
+<li><p>Demonstrate that the conditions defining the T and P where water vapour is in equilirbium simultaneously with ice and liquid water correspond to the triple point.</p></li>
+</ol>
+</section>
+<section id="example-solution-1">
+<h2>Example solution 1<a class="headerlink" href="#example-solution-1" title="Link to this heading">#</a></h2>
+<div class="cell tag_{_____&quot;tags&quot;:_[_________&quot;hide-input&quot;,_____]_} docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+
+<span class="n">Ttriple</span><span class="o">=</span>
+<span class="n">Ptriple</span><span class="o">=</span>
+
+<span class="n">T1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Ttriple</span><span class="p">)</span>
+<span class="n">T2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Ttriple</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">450</span><span class="p">)</span>
+
+<span class="n">Pv_T</span><span class="o">=</span>
+<span class="n">Po_T</span><span class="o">=</span>
+
+<span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">Pv_T</span><span class="p">,</span><span class="s1">&#39;b-o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SLE&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span><span class="n">Po_T</span><span class="p">,</span><span class="s1">&#39;r-^&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;VLE&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ttriple</span><span class="p">,</span><span class="n">Ptriple</span><span class="p">,</span><span class="s1">&#39;ks&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Triple Point&#39;</span><span class="p">)</span>
+
+
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T, [K]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P [Pa]&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span> 
+
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+    <span class="n">Ttriple</span><span class="o">=</span>
+            <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -456,30 +512,28 @@ B_{ii}=2\pi{N_A}\int_0^\infty\left(1-e^{-\Gamma_{ii}/RT}\right)r^2dr
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="Week3_Virial_Binary_mixtures.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="Week4_StatMech.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">An Introduction to Statistical Mechanics</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application">Example application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-1">Example solution 1</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
