@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Week2_Phase_Diagram';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Week 2 Exercise: Liquid Vapour Equilibria" href="Week2_Exercise_VLE.html" />
+    <link rel="prev" title="Week 2 Liquid/Solid Equilibrium in multicomponent systems: defining solubility" href="Week2_Solubility.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,11 +181,12 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Week1_Notes_Thermodynamics.html">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria.html">Week 2: Phase Equilibria</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week2_Solubility.html">Week 2  Liquid/Solid Equilibrium in multicomponent systems: defining solubility</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 2 Exercise 1: Water and Ice equilibria with vapour</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week2_Exercise_VLE.html">Week 2 Exercise: Liquid Vapour Equilibria</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3_IntermolecularPotentials.html">Intermolecular Potentials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3_Virial_Equation_of_State.html">The Compressibility Factor</a></li>
@@ -410,7 +411,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application">Example application</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-1">Example solution 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-q1">Example solution Q1</a></li>
 </ul>
             </nav>
         </div>
@@ -426,57 +427,74 @@ document.write(`
 <h1>Week 2 Exercise 1: Water and Ice equilibria with vapour<a class="headerlink" href="#week-2-exercise-1-water-and-ice-equilibria-with-vapour" title="Link to this heading">#</a></h1>
 <section id="example-application">
 <h2>Example application<a class="headerlink" href="#example-application" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Compute the VLE and SLE equilibrium lines, and the conditions in the T/P phase diagram where water vapour is in equilirbium simultaneously with ice and liquid water:</p></li>
-</ol>
+<p><em>Q1</em> Compute the VLE and SLE equilibrium lines, and the conditions in the T/P phase diagram where water vapour is in equilirbium simultaneously with ice and liquid water:</p>
 <p><span class="math notranslate nohighlight">\(\Delta{h}_{ev}\)</span>= 40.657 kJ/mol</p>
 <p><span class="math notranslate nohighlight">\(\Delta{h}_{sub}\)</span>= 54.153 kJ/mol</p>
 <p><span class="math notranslate nohighlight">\(P^\circ(373 K)\)</span>=101300 Pa</p>
-<p><span class="math notranslate nohighlight">\(P^v(273 K)\)</span>=611.153 Pa</p>
-<ol class="arabic simple" start="2">
-<li><p>Demonstrate that the conditions defining the T and P where water vapour is in equilirbium simultaneously with ice and liquid water correspond to the triple point.</p></li>
-</ol>
+<p><span class="math notranslate nohighlight">\(P^s(273 K)\)</span>=611.153 Pa</p>
+<p><em>Q2</em> Demonstrate that the conditions defining the T and P where water vapour is in equilirbium simultaneously with ice and liquid water correspond to the triple point.</p>
 </section>
-<section id="example-solution-1">
-<h2>Example solution 1<a class="headerlink" href="#example-solution-1" title="Link to this heading">#</a></h2>
+<section id="example-solution-q1">
+<h2>Example solution Q1<a class="headerlink" href="#example-solution-q1" title="Link to this heading">#</a></h2>
 <div class="cell tag_{_____&quot;tags&quot;:_[_________&quot;hide-input&quot;,_____]_} docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
 
-<span class="n">Ttriple</span><span class="o">=</span>
-<span class="n">Ptriple</span><span class="o">=</span>
+<span class="n">TA</span> <span class="o">=</span> <span class="mi">373</span>
+<span class="n">TB</span> <span class="o">=</span> <span class="mi">273</span>
 
-<span class="n">T1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Ttriple</span><span class="p">)</span>
-<span class="n">T2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Ttriple</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">450</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">8.314E-3</span>
 
-<span class="n">Pv_T</span><span class="o">=</span>
-<span class="n">Po_T</span><span class="o">=</span>
+<span class="n">PoA</span><span class="o">=</span><span class="mi">101300</span>
+<span class="n">Dhev</span><span class="o">=</span><span class="mf">40.657</span>
+<span class="n">PoB</span><span class="o">=</span><span class="mf">611.153</span>
+<span class="n">Dhsub</span><span class="o">=</span><span class="mf">54.153</span>
+
+<span class="n">C_evaporation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">PoA</span><span class="p">)</span> <span class="o">+</span> <span class="n">Dhev</span><span class="o">/</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">TA</span><span class="p">)</span>
+<span class="n">C_sublimation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">PoB</span><span class="p">)</span> <span class="o">+</span> <span class="n">Dhsub</span><span class="o">/</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">TB</span><span class="p">)</span>
+
+<span class="n">T_triple</span><span class="o">=</span><span class="p">(</span><span class="n">Dhsub</span><span class="o">-</span><span class="n">Dhev</span><span class="p">)</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="p">(</span><span class="n">C_sublimation</span><span class="o">-</span><span class="n">C_evaporation</span><span class="p">)</span>
+<span class="n">P_triple</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Dhsub</span><span class="o">/</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">T_triple</span><span class="p">)</span><span class="o">+</span><span class="n">C_sublimation</span><span class="p">)</span>
 
 <span class="n">figure</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">axes</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">Pv_T</span><span class="p">,</span><span class="s1">&#39;b-o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SLE&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span><span class="n">Po_T</span><span class="p">,</span><span class="s1">&#39;r-^&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;VLE&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ttriple</span><span class="p">,</span><span class="n">Ptriple</span><span class="p">,</span><span class="s1">&#39;ks&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Triple Point&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">TA</span><span class="p">,</span><span class="n">PoA</span><span class="p">,</span><span class="s1">&#39;r-o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;point A&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">TB</span><span class="p">,</span><span class="n">PoB</span><span class="p">,</span><span class="s1">&#39;b-s&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;point B&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_triple</span><span class="p">,</span><span class="n">P_triple</span><span class="p">,</span><span class="s1">&#39;g-^&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Triple Point&#39;</span><span class="p">)</span>
 
+<span class="n">T1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">T_triple</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">T2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T_triple</span><span class="p">,</span><span class="n">TA</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T, [K]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P [Pa]&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span> 
+<span class="n">Pv_T</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Dhev</span><span class="o">/</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">T2</span><span class="p">)</span><span class="o">+</span><span class="n">C_evaporation</span><span class="p">)</span>
+<span class="n">Ps_T</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Dhsub</span><span class="o">/</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">T1</span><span class="p">)</span><span class="o">+</span><span class="n">C_sublimation</span><span class="p">)</span>
 
-<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">Ps_T</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SVE&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span><span class="n">Pv_T</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;VLE&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature, [ K ]&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure, [ Pa ]&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1">#axes.set_yscale(&#39;log&#39;)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C_ev: &quot;</span><span class="p">,</span><span class="n">C_evaporation</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">C_sub: &quot;</span><span class="p">,</span><span class="n">C_sublimation</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T_triple: &quot;</span><span class="p">,</span><span class="n">T_triple</span><span class="p">,</span><span class="s2">&quot; K&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P_triple: &quot;</span><span class="p">,</span><span class="n">P_triple</span><span class="p">,</span><span class="s2">&quot; Pa&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-    <span class="n">Ttriple</span><span class="o">=</span>
-            <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C_ev:  24.63625785574074 
+C_sub:  30.274216396724825
+T_triple:  287.92088692645035  K
+P_triple:  2104.3931734818325  Pa
 </pre></div>
 </div>
+<img alt="_images/f487e4e079b90e9a3dd15d4a02c67bb63fb02e8d784205f2597dca51929dd766.png" src="_images/f487e4e079b90e9a3dd15d4a02c67bb63fb02e8d784205f2597dca51929dd766.png" />
 </div>
 </div>
 </section>
@@ -512,6 +530,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Week2_Solubility.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 2  Liquid/Solid Equilibrium in multicomponent systems: defining solubility</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Week2_Exercise_VLE.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 2 Exercise: Liquid Vapour Equilibria</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -529,7 +565,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application">Example application</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-1">Example solution 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution-q1">Example solution Q1</a></li>
 </ul>
   </nav></div>
 
