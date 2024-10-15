@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>From Intermolecular Interactions to Dynamics at the Atomistic Scale &#8212; Molecular Thermodynamics Virtual Notebook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week5_Molecular_Dynamics';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MD in a system of pseudo-molecules in 2D" href="Week5_MD_system_2D.html" />
+    <link rel="prev" title="Week 4 Exercise: The harmonic oscillator." href="Week4_Exercise_Harmonic.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo.png" class="logo__image only-light" alt="Molecular Thermodynamics Virtual Notebook - Home"/>
+    <script>document.write(`<img src="_static/Logo.png" class="logo__image only-dark" alt="Molecular Thermodynamics Virtual Notebook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Molecular Thermodynamics Notebook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Week1_Notes_Thermodynamics.html">Week 1 Thermodynamics Revision, with an eye to Statistical Mechanics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Week2_PhaseEquilibria.html">Week 2: Phase Equilibria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_Solubility.html">Week 2  Liquid/Solid Equilibrium in multicomponent systems: defining solubility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_Phase_Diagram.html">Week 2 Exercise 1: Water and Ice equilibria with vapour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week2_Exercise_VLE.html">Week 2 Exercise: Liquid Vapour Equilibria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_IntermolecularPotentials.html">Week 3: Intermolecular Potentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Virial_Equation_of_State.html">Week 3: The Compressibility Factor</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Week3_Virial_Pure_Fluids.html">Week 3: Volumetric Behaviour of Pure Fluids from Intermolecular Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Virial_Binary_mixtures.html">Week 3: Volumetric Behaviour of (binary) Mixtures from Intermolecular Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3_Exercise.html">Week 3 Exercise: Second Virial Coefficient from Interatomic potentials.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_StatMech.html">Week 4: An Introduction to Statistical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_Microcanonical.html">Week 4: The Microcanonical Ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_Canonical.html">Week 4: The Canonical Ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week4_Exercise_Harmonic.html">Week 4 Exercise: The harmonic oscillator.</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">From Intermolecular Interactions to Dynamics at the Atomistic Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week5_MD_system_2D.html">MD in a system of pseudo-molecules in 2D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week5_Exercise.html">From Intermolecular Interactions to Dynamics at the Atomistic Scale</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/edit/master/Week5_Molecular_Dynamics.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook/issues/new?title=Issue%20on%20page%20%2FWeek5_Molecular_Dynamics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Week5_Molecular_Dynamics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>From Intermolecular Interactions to Dynamics at the Atomistic Scale</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-dynamics-newton-s-second-law-and-the-equations-of-motion">Molecular Dynamics, Newton’s Second Law and The Equations of Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#md-simulations-algorithm">MD Simulations Algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-initialization">System Initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forces-calculation">Forces Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamics-propagation">Dynamics Propagation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="from-intermolecular-interactions-to-dynamics-at-the-atomistic-scale">
+<h1>From Intermolecular Interactions to Dynamics at the Atomistic Scale<a class="headerlink" href="#from-intermolecular-interactions-to-dynamics-at-the-atomistic-scale" title="Link to this heading">#</a></h1>
+<section id="molecular-dynamics-newton-s-second-law-and-the-equations-of-motion">
+<h2>Molecular Dynamics, Newton’s Second Law and The Equations of Motion<a class="headerlink" href="#molecular-dynamics-newton-s-second-law-and-the-equations-of-motion" title="Link to this heading">#</a></h2>
+<p>In MD simulations, atoms are treated as point particles evolving in time and space by following the principles of classical mechanics.<br />
+Newton’s Second Law describes how the velocity of a particle changes when it is subjected to an external force, and in particular - when a force of magnitude <span class="math notranslate nohighlight">\(\textbf{F}\)</span> is exerted on a body <span class="math notranslate nohighlight">\(i\)</span>, it results in acceleration <span class="math notranslate nohighlight">\(\textbf{a}\)</span> according to:</p>
+<div class="math notranslate nohighlight">
+\[
+	\textbf{a}=\frac{\textbf{F}}{m_i}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(m_i\)</span> is the mass of the given particle.</p>
+<p>At any given time <span class="math notranslate nohighlight">\(\textit{t}\)</span> the position of A in Cartesian space is defined by the vector <span class="math notranslate nohighlight">\(\textbf{r}(t)=\left[x(t),y(t),z(t)\right]\)</span>.</p>
+<p>The velocity of particle <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\textbf{v}(t)\)</span>, is the derivative of the position vector with respect to time, while the acceleration <span class="math notranslate nohighlight">\(\textbf{a}(t)\)</span> is the derivative of the velocity with respect to time.</p>
+<p>For a system containint N-particles, the equations of motion read:
+$<span class="math notranslate nohighlight">\(
+\textbf{v}_i=\frac{\text{d}\textbf{r}_i}{\text{d}t}
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[
+\textbf{F}_i={m_i}{\frac{\text{d}\textbf{v}_i}{\text{d}t}}
+\]</div>
+<p>Given a set of initial positions <span class="math notranslate nohighlight">\(\{\mathbf{r_1}(0),\mathbf{r}_2(0)...\mathbf{r}_N(0)\}\)</span> and velocities <span class="math notranslate nohighlight">\(\{\mathbf{v_1}(0),\mathbf{v}_2(0)...\mathbf{v}_N(0)\}\)</span>, the time evolution of the system can be computed by solving the equations of motion.</p>
+<p>An exact solution of the equations cannot be computed in the general case of system composed on <span class="math notranslate nohighlight">\(N\)</span> particles system, therefore numerical schemes, commonly based on Taylor series expansion are used.</p>
+</section>
+<section id="md-simulations-algorithm">
+<h2>MD Simulations Algorithm<a class="headerlink" href="#md-simulations-algorithm" title="Link to this heading">#</a></h2>
+<p>The MD algorithm consists of a few conceptual steps:</p>
+<ul class="simple">
+<li><p>system initialisation</p></li>
+<li><p>computing of the forces</p></li>
+<li><p>integrating the equations of motion</p></li>
+<li><p>computation and output of ensemble properties.</p></li>
+</ul>
+<section id="system-initialization">
+<h3>System Initialization<a class="headerlink" href="#system-initialization" title="Link to this heading">#</a></h3>
+<p>Initialising the system requres defining/identifying:</p>
+<ul class="simple">
+<li><p>A Force Field (FF). A FF is a mathematical formulation of the interaction potential <span class="math notranslate nohighlight">\(V\)</span>, complete with parameters that capture the physics of specific interatomic interactions. It includes functions accounting for non-bonded interactions, such as the Lennard-Jones potential, and bonded interaction functions, such as the harmonic potential. The force field is an important component of an MD simulation, and force fields are validated by comparing system properties to experimental data or \textit{ab-initio} calculations to ensure a physically meaningful system representation.</p></li>
+<li><p>The initial conditions: initial positions and velocities to all particles in the system.</p></li>
+<li><p>Parameters such as number of particles, temperature, time step etc., as well as assigning</p></li>
+</ul>
+</section>
+<section id="forces-calculation">
+<h3>Forces Calculation<a class="headerlink" href="#forces-calculation" title="Link to this heading">#</a></h3>
+<p>The second step of the algorithm involves calculating the force acting on every particle according to:</p>
+<div class="math notranslate nohighlight">
+\[
+\textbf{F}_i = -\frac{\partial V}{\partial \textbf{r}_i} = \bf{F}_{i,bonded} + \sum_j{ \bf{F}_{ij,non-bonded}} + \bf{F}_{ext}
+\]</div>
+<p>The force is computed each time step <span class="math notranslate nohighlight">\(\Delta t\)</span>. Typically, for computational efficiency, the contribution to the force on particle <span class="math notranslate nohighlight">\(i\)</span> due to all its neighbours is considered within a cut-off radius.</p>
+<p>The term <span class="math notranslate nohighlight">\({F}_{i,bonded}\)</span> refers to intramolecular interactions, i.e. interactions between atoms belonging to the same molecule and determine the intramolecular motions such as bond stretching, angle bending, and dihedral torsional rotations. As the atoms involved in a bond, angle or dihedral are considered to oscillate around the equilibrium position, these motions are usually described by a harmonic potential.</p>
+</section>
+<section id="dynamics-propagation">
+<h3>Dynamics Propagation<a class="headerlink" href="#dynamics-propagation" title="Link to this heading">#</a></h3>
+<p>After the forces have been obtained, the movement of the atoms is propagated by numerically solving the equations of motion. A number of algorithms have been designed to integrate the equations of motion which provide different level of accuracy depending on their application.
+Commonly used are methods based on the Verlet algorithm. This algorithm is a combination of Taylor expansions, allowing to compute the atomic positions at time <span class="math notranslate nohighlight">\((t+\Delta t)\)</span> based on the atomic positions at time <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\((t-\Delta t)\)</span>. The key equation of the Verlet algorithm is:</p>
+<div class="math notranslate nohighlight">
+\[
+r\left(t+\Delta t\right) = 2r(t) -r(t-\Delta{t}) +\frac{{\Delta{t}}^2}{m}\textbf {F}(t)
+\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Week4_Exercise_Harmonic.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 4 Exercise: The harmonic oscillator.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Week5_MD_system_2D.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MD in a system of pseudo-molecules in 2D</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-dynamics-newton-s-second-law-and-the-equations-of-motion">Molecular Dynamics, Newton’s Second Law and The Equations of Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#md-simulations-algorithm">MD Simulations Algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-initialization">System Initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forces-calculation">Forces Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamics-propagation">Dynamics Propagation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Matteo Salvalaglio
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
