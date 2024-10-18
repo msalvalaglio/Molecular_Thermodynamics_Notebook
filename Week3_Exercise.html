@@ -198,9 +198,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Week4_Microcanonical.html">Week 4: The Microcanonical Ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4_Canonical.html">Week 4: The Canonical Ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4_Exercise_Harmonic.html">Week 4 Exercise: The harmonic oscillator.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week5_Molecular_Dynamics.html">From Intermolecular Interactions to Dynamics at the Atomistic Scale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week5_MD_system_2D.html">MD in a system of pseudo-molecules in 2D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week5_Exercise.html">From Intermolecular Interactions to Dynamics at the Atomistic Scale</a></li>
 </ul>
 
     </div>
@@ -417,17 +414,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-3-exercise-second-virial-coefficient-from-interatomic-potentials">
 <h1>Week 3 Exercise: Second Virial Coefficient from Interatomic potentials.<a class="headerlink" href="#week-3-exercise-second-virial-coefficient-from-interatomic-potentials" title="Link to this heading">#</a></h1>
-<p>Using the expression:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>In this session we will investigate the emergence of non-idealities in the volumetri behavior of pure fluids by computing an expression of the P/v isotherm in the case of particles interacting with a square well potential, defined by the expression: <span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span> for <span class="math notranslate nohighlight">\(r&gt;R\sigma\)</span> ; <span class="math notranslate nohighlight">\(-\epsilon\)</span> for <span class="math notranslate nohighlight">\(\sigma&lt;r\leq{R}\sigma\)</span> ; <span class="math notranslate nohighlight">\(\infty\)</span> for <span class="math notranslate nohighlight">\(r \leq \sigma\)</span></p>
+<p>This potential is a function of three parameters: <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(\epsilon\)</span>, and <span class="math notranslate nohighlight">\(R\)</span>. It is easy to see that for <span class="math notranslate nohighlight">\(\sigma, \epsilon \rightarrow {0}\)</span> the behavior of the gas is ideal.</p>
+<p>The objective of this exercise is to estimate the deviation from the ideal Gas volumetric behavior at constant temperature, as a function of increasing values of <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(\epsilon\)</span>, and <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p>In solving the problem remember that the second order virial coefficient can be computed from <span class="math notranslate nohighlight">\(\Gamma_{ii}\)</span> as:
+$<span class="math notranslate nohighlight">\(
 B_{ii}=2\pi{N_A}\int_0^\infty\left(1-e^{-\Gamma_{ii}/RT}\right)r^2dr
-\]</div>
-<p>Compute the second virial coefficient for the following interatomic potentials:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span> for <span class="math notranslate nohighlight">\(r&gt; \sigma\)</span> ; <span class="math notranslate nohighlight">\(\infty\)</span> for <span class="math notranslate nohighlight">\(r \leq \sigma\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Gamma_{ii}=0\)</span> for <span class="math notranslate nohighlight">\(r&gt;R\sigma\)</span> ; <span class="math notranslate nohighlight">\(-\epsilon\)</span> for <span class="math notranslate nohighlight">\(\sigma&lt;r\leq{R}\sigma\)</span> ; <span class="math notranslate nohighlight">\(\infty\)</span> for <span class="math notranslate nohighlight">\(r \leq \sigma\)</span></p></li>
-</ul>
+\)</span>$</p>
 </section>
 
     <script type="text/x-thebe-config">
