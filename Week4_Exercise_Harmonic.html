@@ -413,6 +413,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution">Example Solution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-example">Solution Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternative-approach-verlet-equation">An Alternative approach: Verlet equation.</a></li>
 </ul>
             </nav>
         </div>
@@ -506,8 +507,8 @@ v(t)= -\omega_0x_0\sin{(\omega_0t)}+v_0\cos{(\omega_0t)}
 <span class="n">x0</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">v0</span> <span class="o">=</span> <span class="mi">1</span> 
 <span class="n">omega0</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">mass</span> <span class="o">=</span> <span class="mi">20</span>
-
+<span class="n">m</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">k</span><span class="o">=</span><span class="n">mass</span><span class="o">*</span><span class="n">omega0</span><span class="o">**</span><span class="mi">2</span>
 
 <span class="n">position</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">x0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">v0</span><span class="o">/</span><span class="n">omega0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
 <span class="n">velocity</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="o">-</span><span class="n">x0</span><span class="o">*</span><span class="n">omega0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
@@ -519,7 +520,18 @@ v(t)= -\omega_0x_0\sin{(\omega_0t)}+v_0\cos{(\omega_0t)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/14190fc353e453b02afcb6174d9dc4077f634d7ceed832cd34f9a35cdb0fde66.png" src="_images/14190fc353e453b02afcb6174d9dc4077f634d7ceed832cd34f9a35cdb0fde66.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">18</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">omega0</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">k</span><span class="o">=</span><span class="n">mass</span><span class="o">*</span><span class="n">omega0</span><span class="o">**</span><span class="mi">2</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">position</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">x0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">v0</span><span class="o">/</span><span class="n">omega0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">velocity</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="o">-</span><span class="n">x0</span><span class="o">*</span><span class="n">omega0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;mass&#39; is not defined
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -536,7 +548,7 @@ v(t)= -\omega_0x_0\sin{(\omega_0t)}+v_0\cos{(\omega_0t)}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">time</span><span class="p">),</span><span class="n">mass</span><span class="o">*</span><span class="n">velocity</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">time</span><span class="p">),</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">time</span><span class="p">),</span><span class="n">m</span><span class="o">*</span><span class="n">velocity</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">time</span><span class="p">),</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;velocity&#39;</span><span class="p">);</span>
 </pre></div>
@@ -544,6 +556,87 @@ v(t)= -\omega_0x_0\sin{(\omega_0t)}+v_0\cos{(\omega_0t)}
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/b9282813a266bcc46af6906c08422604195c4dcd9570b2a908787e0580877190.png" src="_images/b9282813a266bcc46af6906c08422604195c4dcd9570b2a908787e0580877190.png" />
+</div>
+</div>
+</section>
+<section id="an-alternative-approach-verlet-equation">
+<h2>An Alternative approach: Verlet equation.<a class="headerlink" href="#an-alternative-approach-verlet-equation" title="Link to this heading">#</a></h2>
+<p>Alternatively, one can obtain an approximate expression for <span class="math notranslate nohighlight">\(x(t)\)</span> valid for small changes in <span class="math notranslate nohighlight">\(t\)</span>.
+To this aim one can write the Tylor expansion of <span class="math notranslate nohighlight">\(x(t)\)</span> around time <span class="math notranslate nohighlight">\(t\)</span>, for a small timestep in the future <span class="math notranslate nohighlight">\(+\Delta{t}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+x(t+\Delta{t})=x(t)+\frac{dx}{dt}\Delta{t}+\frac{1}{2}\frac{d^2x}{dt^2}\Delta{t}^2+\frac{1}{3}\frac{d^3x}{dt^3}\Delta{t}^3
+\]</div>
+<p>we can do the same also for a timestep <span class="math notranslate nohighlight">\(-\Delta{t}\)</span>, in the past:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t-\Delta{t})=x(t)-\frac{dx}{dt}\Delta{t}+\frac{1}{2}\frac{d^2x}{dt^2}\Delta{t}^2-\frac{1}{3}\frac{d^3x}{dt^3}\Delta{t}^3
+\]</div>
+<p>We can now sum both sides of the equal sign of the two Taylor expansions:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t+\Delta{t})=2x(t)+\frac{d^2x}{dt^2}\Delta{t}^2-x(t-\Delta{t})
+\]</div>
+<p>By introducing Newton’s equation <span class="math notranslate nohighlight">\(\frac{d^2x}{dt^2}=\frac{F}{m}\)</span> leading to the so-called Verlet equation:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t+\Delta{t})=2x(t)+\frac{F}{m}\Delta{t}^2-x(t-\Delta{t})
+\]</div>
+<p>which the can be iteratively solved to generate a trajectory for the Harmonic oscillator, as demonstrated in the code below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Define the timestep and the total time</span>
+<span class="n">dt</span><span class="o">=</span><span class="mf">0.05</span><span class="p">;</span> <span class="c1">#timestep</span>
+<span class="n">total_time</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span> 
+<span class="c1"># Compute the total number of steps</span>
+<span class="n">nsteps</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">total_time</span><span class="o">/</span><span class="n">dt</span><span class="p">);</span> <span class="c1"># Total number of steps</span>
+
+<span class="c1">## Initialise vectors </span>
+<span class="n">v</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span>
+<span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span>
+
+<span class="c1">## Useful functions</span>
+<span class="n">force</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span>  <span class="p">:</span> <span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">velocity</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_past</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">r_past</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">dt</span>
+<span class="n">verlet</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_past</span><span class="p">,</span> <span class="n">force</span><span class="p">,</span> <span class="n">mass</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span>  <span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">-</span><span class="n">r_past</span><span class="o">+</span><span class="p">(</span><span class="n">dt</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">force</span><span class="o">/</span><span class="n">mass</span>
+
+<span class="c1"># initialise position and velocity for the first two points</span>
+<span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">dt</span><span class="p">;</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">v0</span><span class="p">;</span>
+<span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">x0</span><span class="p">;</span>
+<span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">velocity</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">dt</span><span class="p">);</span>    
+
+<span class="c1"># Compute trajectory by iteratively compute a new position with the Verlet expression:</span>
+<span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nsteps</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="c1">#Cycle over timesteps</span>
+    <span class="n">f</span><span class="o">=</span><span class="n">force</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="p">],</span><span class="n">k</span><span class="p">)</span> <span class="c1"># Compute the force  </span>
+    <span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">verlet</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">f</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span> <span class="c1"># Compute the next position</span>
+    <span class="n">time</span><span class="p">[</span><span class="n">ts</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span><span class="o">+</span><span class="n">dt</span> <span class="c1"># update the clock</span>
+    <span class="n">v</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span><span class="o">=</span><span class="n">velocity</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">dt</span><span class="p">)</span> <span class="c1"># compute the velocity     </span>
+   
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">r</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;position&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;velocity&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">41</span><span class="p">],</span> <span class="n">line</span> <span class="mi">27</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nsteps</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="c1">#Cycle over timesteps</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">f</span><span class="o">=</span><span class="n">force</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="p">],</span><span class="n">k</span><span class="p">)</span> <span class="c1"># Compute the force  </span>
+<span class="ne">---&gt; </span><span class="mi">27</span>     <span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">verlet</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">f</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span> <span class="c1"># Compute the next position</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="n">time</span><span class="p">[</span><span class="n">ts</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span><span class="o">+</span><span class="n">dt</span> <span class="c1"># update the clock</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="n">v</span><span class="p">[</span><span class="n">ts</span><span class="p">]</span><span class="o">=</span><span class="n">velocity</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="n">ts</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">dt</span><span class="p">)</span> <span class="c1"># compute the velocity     </span>
+
+<span class="ne">NameError</span>: name &#39;m&#39; is not defined
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -615,6 +708,7 @@ v(t)= -\omega_0x_0\sin{(\omega_0t)}+v_0\cos{(\omega_0t)}
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution">Example Solution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-example">Solution Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternative-approach-verlet-equation">An Alternative approach: Verlet equation.</a></li>
 </ul>
   </nav></div>
 
