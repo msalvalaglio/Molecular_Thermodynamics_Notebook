@@ -42,7 +42,8 @@ velocity=lambda x0, v0, omega0, time: -x0*omega0*np.sin(omega0*time) + v0*np.cos
 
 plt.plot(time,position(x0,v0,omega0,time));
 plt.xlabel('time');
-plt.ylabel('position');
+plt.ylabel('position/velocity');
+plt.plot(time,velocity(x0,v0,omega0,time))
 
 ------------------
 
