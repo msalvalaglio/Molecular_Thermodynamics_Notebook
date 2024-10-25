@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Week4_Exercise_Harmonic';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Week 5: From Intermolecular Interactions to Dynamics at the Atomistic Scale" href="Week5_Molecular_Dynamics.html" />
     <link rel="prev" title="Week 4: The Canonical Ensemble" href="Week4_Canonical.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -197,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Week4_Microcanonical.html">Week 4: The Microcanonical Ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4_Canonical.html">Week 4: The Canonical Ensemble</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 4 Exercise: The harmonic oscillator.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week5_Molecular_Dynamics.html">Week 5: From Intermolecular Interactions to Dynamics at the Atomistic Scale</a></li>
 </ul>
 
     </div>
@@ -386,7 +388,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -402,6 +406,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution">Example Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-example">Solution Example:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -413,12 +426,127 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-4-exercise-the-harmonic-oscillator">
 <h1>Week 4 Exercise: The harmonic oscillator.<a class="headerlink" href="#week-4-exercise-the-harmonic-oscillator" title="Link to this heading">#</a></h1>
-<p>Given a 1D Harmonic oscillator with characteristic frequency <span class="math notranslate nohighlight">\(\omega=5\)</span>Hz, mass of 20, starting at the initial position of 1, with an initial momentum of 1.</p>
+<p>Given a 1D Harmonic oscillator with characteristic frequency <span class="math notranslate nohighlight">\( \omega_0 = 5\)</span> Hz, mass of 20, starting at the initial position of 1, with an initial momentum of 1.</p>
 <ul class="simple">
 <li><p>Can You define the coordinates of the Phase space of the Harmonic oscillator?</p></li>
 <li><p>How would you represent the motion of the Harmonic oscillator in Phase Space?</p></li>
 <li><p>What is the most probable state for the Harmonic oscillator?</p></li>
 </ul>
+<section id="example-solution">
+<h2>Example Solution<a class="headerlink" href="#example-solution" title="Link to this heading">#</a></h2>
+<p>To answer the questions posed in this exercise we need to identify the set of points in phase space that corresponds to the microcanonical ensemble of configurations of a monodimensional harmonic oscillator.</p>
+<p>The harmonic potential energy function reads:</p>
+<div class="math notranslate nohighlight">
+\[
+U(x)=\frac{1}{2}kx^2
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> here indicates the only degree of freedom of the Harmonic oscillator, and <span class="math notranslate nohighlight">\(k\)</span> is the so called <em>spring</em> constant.</p>
+<p>The force acting on the single degree of freedom corresponds to <span class="math notranslate nohighlight">\(F_x=-\frac{dU(x)}{dx}\)</span>.
+As such, according to Newton second law:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2x}{dt^2}=-\frac{k}{m}x
+\]</div>
+<p>The function <span class="math notranslate nohighlight">\(x(t)\)</span> solving this second order differential equation has to be a function that, differentiated twice gives us the back the original function multiplied by a constant.</p>
+<p>An educated guess for such a function is:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)= C\cos{(\omega_0t)}+D\sin{(\omega_0t)}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(D\)</span>, and <span class="math notranslate nohighlight">\(\omega_0\)</span> are undetermined constants, the latter of which (<span class="math notranslate nohighlight">\(\omega_0\)</span>) has the physical meaning of an angular velocity.</p>
+<p>Adopting this <em>ansatz</em> as a model solution for the problem we write an expression for the velocity and for the acceleration:</p>
+<div class="math notranslate nohighlight">
+\[
+v(t)= \frac{dx(t)}{dt} = -\omega_0C\sin{(\omega_0t)}+D\omega_0\cos{(\omega_0t)}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+a(t)= \frac{dv(t)}{dt} = -\omega_0^2C\cos{(\omega_0t)}-D\omega_0^2\sin{(\omega_0t)} = -\omega_0^2x(t)
+\]</div>
+<p>The constant <span class="math notranslate nohighlight">\(\omega_0\)</span> can be obtained by noting that:</p>
+<div class="math notranslate nohighlight">
+\[
+-\omega_0^2x(t) = -\frac{k}{m}x(t)
+\]</div>
+<p>thus leading to:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_0=\sqrt{\frac{k}{m}}
+\]</div>
+<p>The constants <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(D\)</span> can be obtained from the initial conditions. The initial position: <span class="math notranslate nohighlight">\(x(t=0)=x_0\)</span> gives us constant <span class="math notranslate nohighlight">\(C=x_0\)</span>. The initial velocity <span class="math notranslate nohighlight">\(v(t=0)=v_0\)</span> gives us constant <span class="math notranslate nohighlight">\(D=v_0/\omega_0\)</span>.</p>
+<p>The position and velocity equations are thus:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)= x_0\cos{(\omega_0t)}+\frac{v_0}{\omega_0}\sin{(\omega_0t)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+v(t)= -\omega_0x_0\sin{(\omega_0t)}+v_0\cos{(\omega_0t)}
+\]</div>
+<p>Now plotting <span class="math notranslate nohighlight">\((x(t),mv(t))\)</span> allows to represent the set of configurations that belong to the Harmonic oscillator in its two-dimensional phase space.</p>
+</section>
+<section id="solution-example">
+<h2>Solution Example:<a class="headerlink" href="#solution-example" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import libraries</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">;</span> <span class="c1">#timestep</span>
+<span class="n">total_time</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> 
+<span class="c1"># Compute the total number of steps</span>
+<span class="n">nsteps</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">total_time</span><span class="o">/</span><span class="n">dt</span><span class="p">);</span> <span class="c1"># Total number of steps</span>
+
+<span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">total_time</span><span class="p">,</span><span class="n">nsteps</span><span class="p">)</span>
+
+<span class="n">x0</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mi">1</span> 
+<span class="n">omega0</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="mi">20</span>
+
+
+<span class="n">position</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">x0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">v0</span><span class="o">/</span><span class="n">omega0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
+<span class="n">velocity</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="o">-</span><span class="n">x0</span><span class="o">*</span><span class="n">omega0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">time</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/14190fc353e453b02afcb6174d9dc4077f634d7ceed832cd34f9a35cdb0fde66.png" src="_images/14190fc353e453b02afcb6174d9dc4077f634d7ceed832cd34f9a35cdb0fde66.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">velocity</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">time</span><span class="p">),</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;velocity&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f5710b1c38f5c106ace36bb68eff1b0f0376f2386718b4e2da65f73f413c0c9a.png" src="_images/f5710b1c38f5c106ace36bb68eff1b0f0376f2386718b4e2da65f73f413c0c9a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">time</span><span class="p">),</span><span class="n">mass</span><span class="o">*</span><span class="n">velocity</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">time</span><span class="p">),</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;velocity&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b9282813a266bcc46af6906c08422604195c4dcd9570b2a908787e0580877190.png" src="_images/b9282813a266bcc46af6906c08422604195c4dcd9570b2a908787e0580877190.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -460,12 +588,37 @@ document.write(`
         <p class="prev-next-title">Week 4: The Canonical Ensemble</p>
       </div>
     </a>
+    <a class="right-next"
+       href="Week5_Molecular_Dynamics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 5: From Intermolecular Interactions to Dynamics at the Atomistic Scale</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-solution">Example Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-example">Solution Example:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
