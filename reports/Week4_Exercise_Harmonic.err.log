@@ -18,44 +18,49 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#Import libraries
-import matplotlib.pyplot as plt 
-from matplotlib import cm
-import numpy as np
+## Define the timestep and the total time
 
 
-dt=0.01; #timestep
-total_time=10; 
-# Compute the total number of steps
-nsteps=int(total_time/dt); # Total number of steps
+## Initialise vectors 
+vV=np.zeros(nsteps)
+rV=np.zeros(nsteps)
 
-time=np.linspace(0,total_time,nsteps)
+## Useful functions
+force=lambda x, k,  : -k*(x)
+velocityV=lambda r, r_past, dt: (r_past-r)/2/dt
+verlet=lambda r, r_past, force, mass, dt:  2*r-r_past+(dt**2)*force/mass
 
-x0 = 1
-v0 = 1 
-omega0 = 5
-m = 20
-k=mass*omega0**2
+# initialise position and velocity for the first two points
+time[0]=0;
+time[1]=dt;
+vV[0]=v0;
+rV[0]=x0;
+rV[1]=rV[0]+vV[0]*dt
+vV[1]=velocityV(rV[0],rV[1],dt);    
 
-position=lambda x0, v0, omega0, time: x0*np.cos(omega0*time) + v0/omega0*np.sin(omega0*time)
-velocity=lambda x0, v0, omega0, time: -x0*omega0*np.sin(omega0*time) + v0*np.cos(omega0*time)
+# Compute trajectory by iteratively compute a new position with the Verlet expression:
+for ts in np.arange(1,nsteps-1): #Cycle over timesteps
+    f=force(r[ts],k) # Compute the force  
+    rV[ts+1]=verlet(r[ts],r[ts-1],f,m,dt) # Compute the next position
+    time[ts+1]=time[ts]+dt # update the clock
+    vV[ts]=velocityV(r[ts-1],r[ts+1],dt) # compute the velocity     
 
-plt.plot(time,position(x0,v0,omega0,time));
+plt.plot(time[:-1],rV[:-1],label='position');
+plt.plot(time[:-1],vV[:-1],label='velocity');
+plt.legend();
 plt.xlabel('time');
-plt.ylabel('position/velocity');
-plt.plot(time,velocity(x0,v0,omega0,time))
 
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[1], line 18[0m
-[1;32m     16[0m omega0 [38;5;241m=[39m [38;5;241m5[39m
-[1;32m     17[0m m [38;5;241m=[39m [38;5;241m20[39m
-[0;32m---> 18[0m k[38;5;241m=[39mmass[38;5;241m*[39momega0[38;5;241m*[39m[38;5;241m*[39m[38;5;241m2[39m
-[1;32m     20[0m position[38;5;241m=[39m[38;5;28;01mlambda[39;00m x0, v0, omega0, time: x0[38;5;241m*[39mnp[38;5;241m.[39mcos(omega0[38;5;241m*[39mtime) [38;5;241m+[39m v0[38;5;241m/[39momega0[38;5;241m*[39mnp[38;5;241m.[39msin(omega0[38;5;241m*[39mtime)
-[1;32m     21[0m velocity[38;5;241m=[39m[38;5;28;01mlambda[39;00m x0, v0, omega0, time: [38;5;241m-[39mx0[38;5;241m*[39momega0[38;5;241m*[39mnp[38;5;241m.[39msin(omega0[38;5;241m*[39mtime) [38;5;241m+[39m v0[38;5;241m*[39mnp[38;5;241m.[39mcos(omega0[38;5;241m*[39mtime)
+Cell [0;32mIn[3], line 23[0m
+[1;32m     21[0m [38;5;66;03m# Compute trajectory by iteratively compute a new position with the Verlet expression:[39;00m
+[1;32m     22[0m [38;5;28;01mfor[39;00m ts [38;5;129;01min[39;00m np[38;5;241m.[39marange([38;5;241m1[39m,nsteps[38;5;241m-[39m[38;5;241m1[39m): [38;5;66;03m#Cycle over timesteps[39;00m
+[0;32m---> 23[0m     f[38;5;241m=[39mforce(r[ts],k) [38;5;66;03m# Compute the force  [39;00m
+[1;32m     24[0m     rV[ts[38;5;241m+[39m[38;5;241m1[39m][38;5;241m=[39mverlet(r[ts],r[ts[38;5;241m-[39m[38;5;241m1[39m],f,m,dt) [38;5;66;03m# Compute the next position[39;00m
+[1;32m     25[0m     time[ts[38;5;241m+[39m[38;5;241m1[39m][38;5;241m=[39mtime[ts][38;5;241m+[39mdt [38;5;66;03m# update the clock[39;00m
 
-[0;31mNameError[0m: name 'mass' is not defined
+[0;31mNameError[0m: name 'r' is not defined
 
