@@ -198,7 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Week4_Microcanonical.html">Week 4: The Microcanonical Ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4_Canonical.html">Week 4: The Canonical Ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4_Exercise_Harmonic.html">Week 4 Exercise: The harmonic oscillator.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week5_Molecular_Dynamics.html">From Intermolecular Interactions to Dynamics at the Atomistic Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week5_Molecular_Dynamics.html">Week 5: From Intermolecular Interactions to Dynamics at the Atomistic Scale</a></li>
 </ul>
 
     </div>
@@ -388,7 +388,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -404,6 +406,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-trace">Solution Trace:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -432,6 +442,81 @@ B_{ii}=2\pi{N_A}\int_0^\infty\left(1-e^{-\Gamma_{ii}/kT}\right)r^2dr
 <li><p><span class="math notranslate nohighlight">\(T\)</span> is the temperature</p></li>
 <li><p><span class="math notranslate nohighlight">\(r\)</span> is the interparticle distance</p></li>
 </ul>
+<section id="solution-trace">
+<h2>Solution Trace:<a class="headerlink" href="#solution-trace" title="Link to this heading">#</a></h2>
+<p>To answer the question one needs to obtain an analytical expression for the second order Virial coefficient for the square-well potential, and then use the virial expansion of the compressibility factor (truncated at the second term), to investigate the deviation from ideality of the volumetric behavior of a fluid with these characteristics.</p>
+<div class="math notranslate nohighlight">
+\[
+B_{ii}=2\pi{N_A}\left[\int_0^\sigma{r^2dr}+\left(1-e^\frac{\epsilon}{kT}\right)\int_\sigma^{R\sigma}{r^2dr}\right]
+\]</div>
+<p>which leads to:</p>
+<div class="math notranslate nohighlight">
+\[
+B_{ii}=2\pi{N_A}\left(\left[\frac{r^3}{3}\right]_0^\sigma+\left(1-e^\frac{\epsilon}{kT}\right)\left[\frac{r^3}{3}\right]_\sigma^{R\sigma}\right)
+\]</div>
+<p>and, by introducing the constant <span class="math notranslate nohighlight">\(b_0=\frac{2}{3}\pi{N_A}\sigma^3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+B_{ii}=b_0R^3\left(1-\frac{R^3-1}{R^3}e^\frac{\epsilon}{kT}\right)
+\]</div>
+<p>Now one can study what happens to <span class="math notranslate nohighlight">\(B_{ii}\)</span> varying parameters <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(R\)</span>, and <span class="math notranslate nohighlight">\(\epsilon\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="c1"># Suppress all warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+
+
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Bii</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">b0</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">eps_kT</span><span class="p">:</span> <span class="n">b0</span><span class="o">*</span><span class="n">R</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">((</span><span class="n">R</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">R</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">eps_kT</span><span class="p">))</span>
+<span class="n">b0</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">sigma</span><span class="p">:</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">3</span>
+
+
+<span class="c1"># Number of lines</span>
+<span class="n">n_lines</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">colormap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">n_lines</span><span class="p">)</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mf">1.00</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="n">colormap2</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;cividis&#39;</span><span class="p">,</span> <span class="n">n_lines</span><span class="p">)</span>
+<span class="n">norm2</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="c1"># Create a figure and axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">R_i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="n">n_lines</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">Bii</span><span class="p">(</span><span class="n">b0</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span><span class="n">R_i</span><span class="p">,</span><span class="mf">1.0</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="n">colormap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">R_i</span><span class="p">)));</span>
+
+<span class="k">for</span> <span class="n">eps_kT_i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">Bii</span><span class="p">(</span><span class="n">b0</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span><span class="mf">1.2</span><span class="p">,</span><span class="n">eps_kT_i</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="n">colormap2</span><span class="p">(</span><span class="n">norm2</span><span class="p">(</span> <span class="n">eps_kT_i</span><span class="p">)));</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">Bii</span><span class="p">(</span><span class="n">b0</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">),</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Hard Sphere: $</span><span class="se">\\</span><span class="s1">frac{\epsilon}</span><span class="si">{kT}</span><span class="s1">=0$, $R=1$)&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">Bii</span><span class="p">(</span><span class="n">b0</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">),</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Hard Sphere: $</span><span class="se">\\</span><span class="s1">frac{\epsilon}</span><span class="si">{kT}</span><span class="s1">=0$, $R=1$)&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">colormap</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;R&#39;</span><span class="p">);</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="n">norm2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">colormap2</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\epsilon/kT$&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\sigma$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">frac{B_</span><span class="si">{ii}</span><span class="s1">}{</span><span class="se">\\</span><span class="s1">frac</span><span class="si">{2}{3}</span><span class="s1">\pi</span><span class="si">{N_A}</span><span class="s1">}$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\sigma$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">frac{B_</span><span class="si">{ii}</span><span class="s1">}{</span><span class="se">\\</span><span class="s1">frac</span><span class="si">{2}{3}</span><span class="s1">\pi</span><span class="si">{N_A}</span><span class="s1">}$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c56e619ae59c20474d7b1753cb5f16304f62a9b5f5ca1071be9cfbf2c69ea170.png" src="_images/c56e619ae59c20474d7b1753cb5f16304f62a9b5f5ca1071be9cfbf2c69ea170.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -488,6 +573,21 @@ B_{ii}=2\pi{N_A}\int_0^\infty\left(1-e^{-\Gamma_{ii}/kT}\right)r^2dr
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-trace">Solution Trace:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
