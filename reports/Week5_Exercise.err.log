@@ -1,0 +1,79 @@
+Traceback (most recent call last):
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteo/anaconda3/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/matteo/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+## |------------------|
+## |Compute trajectory|
+## |------------------|
+for timestep in np.arange(1,nsteps): #Cycle over timesteps
+    timestep=int(timestep)           #Make sure timestep is an integer
+    
+    # Initialise force vectors
+    fx=np.zeros(N);  
+    fy=np.zeros(N); 
+    
+    # Cycle over all particles
+    for i in np.arange(0,N):
+        fx[i]+=forcebox(x[i],boxx,boxk)
+        fy[i]+=forcebox(y[i],boxy,boxk)
+        for j in np.arange(i+1,N):
+            
+            [cx,cy]=forceij(x[i],x[j],y[i],y[j],HS,KAPPA,req,epsilon)
+            
+            fx[i]=fx[i]+cx;      #update total x-component of the force on particle i
+            fx[j]=fx[j]-cx;      #update total x-component of the force on particle j 
+
+            fy[i]=fy[i]+cy;      #update total y-component of the force on particle i
+            fy[j]=fy[j]-cy;      #update total y-component of the force on particle j 
+
+        xnew[i]=verlet(x[i],xp[i],fx[i],m[i],dt) # new position (x-component)
+        ynew[i]=verlet(y[i],yp[i],fy[i],m[i],dt); # new position (y-component)
+
+    print_progress(timestep,nsteps)  
+
+    # Reassign positions
+    xp=x; yp=y; x=xnew+1-1; y=ynew+1-1;
+
+    ## Store trajectory for animation 
+    xx[timestep]=x;
+    yy[timestep]=y;
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[4], line 28[0m
+[1;32m     25[0m     xnew[i][38;5;241m=[39mverlet(x[i],xp[i],fx[i],m[i],dt) [38;5;66;03m# new position (x-component)[39;00m
+[1;32m     26[0m     ynew[i][38;5;241m=[39mverlet(y[i],yp[i],fy[i],m[i],dt); [38;5;66;03m# new position (y-component)[39;00m
+[0;32m---> 28[0m print_progress(timestep,nsteps)  
+[1;32m     30[0m [38;5;66;03m# Reassign positions[39;00m
+[1;32m     31[0m xp[38;5;241m=[39mx; yp[38;5;241m=[39my; x[38;5;241m=[39mxnew[38;5;241m+[39m[38;5;241m1[39m[38;5;241m-[39m[38;5;241m1[39m; y[38;5;241m=[39mynew[38;5;241m+[39m[38;5;241m1[39m[38;5;241m-[39m[38;5;241m1[39m;
+
+Cell [0;32mIn[1], line 61[0m, in [0;36mprint_progress[0;34m(iteration, total, bar_length)[0m
+[1;32m     58[0m spaces [38;5;241m=[39m [38;5;124m'[39m[38;5;124m [39m[38;5;124m'[39m [38;5;241m*[39m (bar_length [38;5;241m-[39m [38;5;28mlen[39m(arrow))
+[1;32m     60[0m clear_output(wait[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[0;32m---> 61[0m display(HTML([38;5;124mf[39m[38;5;124m"""[39m
+[1;32m     62[0m [38;5;124m<div style=[39m[38;5;124m"[39m[38;5;124mcolor: blue;[39m[38;5;124m"[39m[38;5;124m>[39m
+[1;32m     63[0m [38;5;124m|[39m[38;5;132;01m{[39;00marrow[38;5;132;01m}[39;00m[38;5;132;01m{[39;00mspaces[38;5;132;01m}[39;00m[38;5;124m| [39m[38;5;132;01m{[39;00m[38;5;28mint[39m(progress[38;5;250m [39m[38;5;241m*[39m[38;5;250m [39m[38;5;241m100[39m)[38;5;132;01m}[39;00m[38;5;124m%[39m
+[1;32m     64[0m [38;5;124m</div>[39m
+[1;32m     65[0m [38;5;124m[39m[38;5;124m"""[39m))
+
+[0;31mNameError[0m: name 'HTML' is not defined
+
