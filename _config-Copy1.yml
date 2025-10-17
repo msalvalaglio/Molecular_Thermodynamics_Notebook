@@ -1,15 +1,5 @@
 #######################################################################################
 # Book settings
-<<<<<<< HEAD
-title : Molecular Thermodynamics Virtual Notebook
-author: Matteo Salvalaglio
-copyright                   : "2021"  # Copyright year to be placed in the footer
-#logo: 'Logo.png'
-
-# Information about where the book exists on the web
-description: >-
-  A virtual notebook for "Molecular Thermodynamics @ UCL Chemical Engineering."
-=======
 title : Molecular Thermodynamics
 author: Matteo Salvalaglio
 logo: 'Logo.png'
@@ -17,7 +7,6 @@ logo: 'Logo.png'
 # Information about where the book exists on the web
 description: >-
   A virtual notebook for "CENG0027: Molecular Thermodynamics @ UCL Chemical Engineering."
->>>>>>> e0330c7 (setup book)
 
 #######################################################################################
 # Execution settings
@@ -31,12 +20,8 @@ html:
   
 # Information about where the book exists on the web
 repository:
-<<<<<<< HEAD
-  url                       : https://msalvalaglio.github.io/Molecular_Thermodynamics_Notebook/
-=======
   url                       : https://msalvalaglio.github.io/Molecular_Thermodynamics_Notebook/index.html
 
->>>>>>> e0330c7 (setup book)
 repository:
   url: https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook
 
@@ -46,21 +31,12 @@ html:
   use_repository_button     : true
   path_to_book: https://github.com/msalvalaglio/Molecular_Thermodynamics_Notebook  # An optional path to your book, defaults to repo root
   
-<<<<<<< HEAD
-  launch_buttons:
-  thebe                  : true
-=======
   launch_buttons: off
->>>>>>> e0330c7 (setup book)
   binderhub_url: off
   
 # #######################################################################################
 # Interact link settings
-<<<<<<< HEAD
-# notebook_interface            : "notebook"
-=======
 #notebook_interface            : "notebook"
->>>>>>> e0330c7 (setup book)
 
 #parse:
  # myst_enable_extensions:

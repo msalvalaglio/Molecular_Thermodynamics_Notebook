@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 name: moltherm-environment
+=======
+name: pssp-environment
+channels:
+  - conda-forge
+>>>>>>> e0330c7 (setup book)
 dependencies:
   - numpy
   - matplotlib

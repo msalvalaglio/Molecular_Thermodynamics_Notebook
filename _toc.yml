@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 format: jb-article
 root: index.md
 sections:
@@ -18,3 +19,8 @@ sections:
 - file: Week5_Harmonic_Oscillator.ipynb 
 - file: Week5_MD_system_2D.ipynb 
 
+=======
+# - file: README
+- file: index
+- file: Potential_to_Phase_Diagram.ipynb 
+>>>>>>> e0330c7 (setup book)
